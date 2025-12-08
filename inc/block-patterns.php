@@ -66,7 +66,7 @@ function civicsignals_register_block_patterns() {
 	<!-- wp:column {"style":{"spacing":{"padding":{"top":"var:preset|spacing|lg","bottom":"var:preset|spacing|lg"}}}} -->
 	<div class="wp-block-column" style="padding-top:var(--wp--preset--spacing--lg);padding-bottom:var(--wp--preset--spacing--lg)">
 		<!-- wp:paragraph {"style":{"typography":{"fontSize":"1.125rem","lineHeight":"1.75"}}} -->
-		<p style="font-size:1.125rem;line-height:1.75">Maria works full-time and manages her household. When she needs to check benefit eligibility, she expects to find the information quickly on her phone during her lunch break. Instead, she encounters a confusing menu system that doesn\'t work well on mobile devices.</p>
+		<p style="font-size:1.125rem;line-height:1.75">Maria works full-time and manages her household. When she needs to check benefit eligibility, she expects to find the information quickly on her phone during her lunch break. Instead, she encounters a confusing menu system that does not work well on mobile devices.</p>
 		<!-- /wp:paragraph -->
 	</div>
 	<!-- /wp:column -->
