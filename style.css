@@ -1,0 +1,23 @@
+/*
+Theme Name: CivicSignals
+Author: Paul Miranda
+Description: Storytelling system theme for public sector digital modernization.
+Requires at least: 6.0
+Tested up to: 6.4
+Requires PHP: 7.4
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: civicsignals
+Tags: block-theme, full-site-editing, accessibility-ready
+
+CivicSignals WordPress Theme, Copyright 2024 Paul Miranda
+CivicSignals is distributed under the terms of the GNU GPL
+
+This theme, like WordPress, is licensed under the GPL.
+*/
+
+/* 
+Theme styles are managed through theme.json.
+Additional custom styles can be added here if needed.
+*/
