@@ -16,6 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 require_once get_template_directory() . '/inc/post-types.php';
 require_once get_template_directory() . '/inc/taxonomies.php';
 require_once get_template_directory() . '/inc/block-patterns.php';
+require_once get_template_directory() . '/inc/setup-activate.php';
 
 /**
  * Theme setup and support
@@ -38,6 +39,13 @@ function civicsignals_setup() {
 
 	// Add editor color palette from theme.json only
 	add_theme_support( 'editor-color-palette' );
+
+	// Register navigation menus
+	register_nav_menus(
+		array(
+			'primary' => __( 'Primary Menu', 'civicsignals' ),
+		)
+	);
 }
 add_action( 'after_setup_theme', 'civicsignals_setup' );
 
