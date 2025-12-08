@@ -18,12 +18,12 @@ function civicsignals_register_block_patterns() {
 	 * Register Chapter Intro Pattern
 	 */
 	register_block_pattern(
-	'civicsignals/chapter-intro',
-	array(
-		'title'       => __( 'Chapter Introduction', 'civicsignals' ),
-		'description' => __( 'A chapter introduction with overline, heading, and narrative paragraph.', 'civicsignals' ),
-		'categories'  => array( 'civicsignals-chapters' ),
-		'content'     => '<!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|xl","bottom":"var:preset|spacing|xl"},"margin":{"top":"0","bottom":"0"}}},"backgroundColor":"surface","layout":{"type":"constrained"}} -->
+		'civicsignals/chapter-intro',
+		array(
+			'title'       => __( 'Chapter Introduction', 'civicsignals' ),
+			'description' => __( 'A chapter introduction with overline, heading, and narrative paragraph.', 'civicsignals' ),
+			'categories'  => array( 'civicsignals-chapters' ),
+			'content'     => '<!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|xl","bottom":"var:preset|spacing|xl"},"margin":{"top":"0","bottom":"0"}}},"backgroundColor":"surface","layout":{"type":"constrained"}} -->
 <div class="wp-block-group has-surface-background-color has-background" style="margin-top:0;margin-bottom:0;padding-top:var(--wp--preset--spacing--xl);padding-bottom:var(--wp--preset--spacing--xl)">
 	<!-- wp:paragraph {"style":{"typography":{"textTransform":"uppercase","fontSize":"0.875rem","letterSpacing":"0.1em"},"spacing":{"margin":{"bottom":"var:preset|spacing|sm"}}},"fontSize":"small"} -->
 	<p class="has-small-font-size" style="margin-bottom:var(--wp--preset--spacing--sm);font-size:0.875rem;letter-spacing:0.1em;text-transform:uppercase">Chapter 1</p>
@@ -38,14 +38,15 @@ function civicsignals_register_block_patterns() {
 	<!-- /wp:paragraph -->
 </div>
 <!-- /wp:group -->',
+		)
 	);
 
 	/**
 	 * Register Persona Scene Pattern
 	 */
 	register_block_pattern(
-	'civicsignals/persona-scene',
-	array(
+		'civicsignals/persona-scene',
+		array(
 		'title'       => __( 'Persona Scene', 'civicsignals' ),
 		'description' => __( 'A two-column layout featuring a persona quote and narrative experience.', 'civicsignals' ),
 		'categories'  => array( 'civicsignals-scenes' ),
@@ -72,14 +73,15 @@ function civicsignals_register_block_patterns() {
 	<!-- /wp:column -->
 </div>
 <!-- /wp:columns -->',
+		)
 	);
 
 	/**
 	 * Register Impact Metrics Pattern
 	 */
 	register_block_pattern(
-	'civicsignals/impact-metrics',
-	array(
+		'civicsignals/impact-metrics',
+		array(
 		'title'       => __( 'Impact Metrics', 'civicsignals' ),
 		'description' => __( 'A before and after comparison of key performance indicators.', 'civicsignals' ),
 		'categories'  => array( 'civicsignals-scenes' ),
@@ -142,6 +144,7 @@ function civicsignals_register_block_patterns() {
 	<!-- /wp:columns -->
 </div>
 <!-- /wp:group -->',
+		)
 	);
 
 	/**
