@@ -33,12 +33,30 @@ function civicsignals_setup() {
 
 	// Add theme support for editor styles
 	add_theme_support( 'editor-styles' );
+	add_editor_style( array( 'style.css', 'editor-style.css' ) );
 
 	// Add theme support for responsive embeds
 	add_theme_support( 'responsive-embeds' );
 
 	// Add editor color palette from theme.json only
 	add_theme_support( 'editor-color-palette' );
+
+	// Add theme support for wide and full-width alignments
+	add_theme_support( 'align-wide' );
+
+	// Add theme support for HTML5 markup
+	add_theme_support( 'html5', array(
+		'search-form',
+		'comment-form',
+		'comment-list',
+		'gallery',
+		'caption',
+		'script',
+		'style',
+	) );
+
+	// Add support for block template parts
+	add_theme_support( 'block-template-parts' );
 
 	// Register navigation menus
 	register_nav_menus(

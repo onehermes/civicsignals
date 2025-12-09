@@ -277,5 +277,22 @@
 			"title": "Footer",
 			"area": "footer"
 		}
+	],
+	"customTemplates": [
+		{
+			"name": "front-page",
+			"title": "Front Page",
+			"postTypes": ["page"]
+		},
+		{
+			"name": "single-story",
+			"title": "Single Story",
+			"postTypes": ["story"]
+		},
+		{
+			"name": "archive-story",
+			"title": "Stories Archive",
+			"postTypes": ["story"]
+		}
 	]
 }
