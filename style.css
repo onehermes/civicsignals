@@ -21,6 +21,8 @@ This theme, like WordPress, is licensed under the GPL.
 :root {
 	--cs-shell-width: 1120px;
 	--cs-section-gap: 120px;
+	--cs-animation-duration: 0.6s;
+	--cs-animation-easing: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Base Layout */
@@ -1307,4 +1309,201 @@ button:focus,
 
 html {
 	scroll-behavior: smooth;
+}
+
+/* ============================================
+   AWARD-WINNING SCROLL ANIMATIONS
+   Inspired by Awwwards-winning websites
+   ============================================ */
+
+/* Scroll Progress Indicator */
+.cs-scroll-progress {
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 3px;
+	background: linear-gradient(90deg, #1e9fd7 0%, #2ab0e8 50%, #1e9fd7 100%);
+	background-size: 200% 100%;
+	z-index: 10000;
+	width: 0%;
+	transition: width 0.1s ease-out;
+	box-shadow: 0 0 10px rgba(30, 159, 215, 0.5);
+	animation: progress-shimmer 2s ease-in-out infinite;
+}
+
+@keyframes progress-shimmer {
+	0% {
+		background-position: 200% 0;
+	}
+	100% {
+		background-position: -200% 0;
+	}
+}
+
+/* Reveal Animation Targets */
+.cs-reveal-target {
+	opacity: 0;
+	transform: translateY(40px);
+	transition: opacity var(--cs-animation-duration) var(--cs-animation-easing),
+	            transform var(--cs-animation-duration) var(--cs-animation-easing);
+}
+
+.cs-reveal-target.cs-revealed {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+/* Text Reveal Animation */
+.cs-text-reveal {
+	opacity: 0;
+	transform: translateY(20px);
+	transition: opacity 0.8s var(--cs-animation-easing),
+	            transform 0.8s var(--cs-animation-easing);
+}
+
+.cs-text-reveal.cs-revealed,
+.cs-hero .cs-text-reveal {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+/* Stagger Card Animation */
+.cs-stagger-card {
+	opacity: 0;
+	transform: translateY(30px) scale(0.95);
+	transition: opacity 0.6s var(--cs-animation-easing),
+	            transform 0.6s var(--cs-animation-easing);
+}
+
+.cs-stagger-card.cs-revealed,
+.cs-chapter-grid .cs-card.cs-revealed,
+.cs-card-row .cs-card.cs-revealed {
+	opacity: 1;
+	transform: translateY(0) scale(1);
+}
+
+/* Enhanced Card Hover with Micro-interactions */
+.cs-card.cs-revealed:hover,
+.cs-card-plain.cs-revealed:hover {
+	transform: translateY(-4px) scale(1.01);
+	transition: transform 0.3s var(--cs-animation-easing),
+	            border-color 0.3s ease,
+	            background 0.3s ease;
+}
+
+/* Parallax Chapter Numbers */
+.cs-chapter-number {
+	transition: transform 0.1s ease-out;
+	will-change: transform;
+}
+
+/* Smooth Fade-in for Hero */
+.cs-hero {
+	animation: fadeInUp 0.8s var(--cs-animation-easing) forwards;
+}
+
+@keyframes fadeInUp {
+	from {
+		opacity: 0;
+		transform: translateY(30px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+/* Enhanced Button Hover States */
+.cs-btn-primary:hover,
+.cs-btn-secondary:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 4px 12px rgba(30, 159, 215, 0.3);
+	transition: transform 0.2s var(--cs-animation-easing),
+	            box-shadow 0.2s ease,
+	            background 0.2s ease,
+	            border-color 0.2s ease;
+}
+
+.cs-btn-primary:active,
+.cs-btn-secondary:active {
+	transform: translateY(0);
+	transition: transform 0.1s ease;
+}
+
+/* Metrics Strip Animation */
+.cs-metrics-strip .cs-metric {
+	opacity: 0;
+	transform: translateY(20px);
+	transition: opacity 0.6s var(--cs-animation-easing),
+	            transform 0.6s var(--cs-animation-easing);
+}
+
+.cs-metrics-strip .cs-metric.cs-revealed {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+.cs-metrics-strip .cs-metric:nth-child(1) { transition-delay: 0.1s; }
+.cs-metrics-strip .cs-metric:nth-child(2) { transition-delay: 0.2s; }
+.cs-metrics-strip .cs-metric:nth-child(3) { transition-delay: 0.3s; }
+.cs-metrics-strip .cs-metric:nth-child(4) { transition-delay: 0.4s; }
+
+/* Timeline Item Animations */
+.cs-timeline-item {
+	opacity: 0;
+	transform: translateX(-20px);
+	transition: opacity 0.6s var(--cs-animation-easing),
+	            transform 0.6s var(--cs-animation-easing);
+}
+
+.cs-timeline-item.cs-revealed {
+	opacity: 1;
+	transform: translateX(0);
+}
+
+.cs-timeline-item:nth-child(1) { transition-delay: 0.1s; }
+.cs-timeline-item:nth-child(2) { transition-delay: 0.2s; }
+.cs-timeline-item:nth-child(3) { transition-delay: 0.3s; }
+
+/* Chip/Button Pulse on Hover */
+.cs-chip:hover {
+	animation: pulse-glow 2s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+	0%, 100% {
+		box-shadow: 0 0 0 0 rgba(30, 159, 215, 0.4);
+	}
+	50% {
+		box-shadow: 0 0 0 4px rgba(30, 159, 215, 0);
+	}
+}
+
+/* Accessibility: Respect Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+	.cs-reveal-target,
+	.cs-text-reveal,
+	.cs-stagger-card,
+	.cs-metric,
+	.cs-timeline-item {
+		opacity: 1 !important;
+		transform: none !important;
+		transition: none !important;
+		animation: none !important;
+	}
+
+	.cs-scroll-progress {
+		animation: none !important;
+	}
+
+	.cs-card:hover,
+	.cs-card-plain:hover,
+	.cs-btn-primary:hover,
+	.cs-btn-secondary:hover {
+		transform: none !important;
+	}
+
+	.cs-chapter-number {
+		transform: none !important;
+	}
 }
