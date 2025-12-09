@@ -1,7 +1,15 @@
-<!-- wp:group {"tagName":"footer","style":{"spacing":{"padding":{"top":"var:preset|spacing|md","bottom":"var:preset|spacing|md"},"margin":{"top":"var:preset|spacing|xl"}}},"layout":{"type":"constrained"}} -->
-<footer class="wp-block-group" style="margin-top:var(--wp--preset--spacing--xl);padding-top:var(--wp--preset--spacing--md);padding-bottom:var(--wp--preset--spacing--md)" role="contentinfo">
-	<!-- wp:paragraph {"align":"center","fontSize":"small"} -->
-	<p class="has-text-align-center has-small-font-size">CivicSignals – A Storytelling System</p>
-	<!-- /wp:paragraph -->
+<!-- wp:group {"tagName":"footer","className":"cs-footer","style":{"spacing":{"padding":{"top":"var:preset|spacing|xl","bottom":"var:preset|spacing|xl"},"margin":{"top":"var:preset|spacing|xl"},"border":{"top":{"width":"1px","color":"rgba(255,255,255,0.08)"}}}},"layout":{"type":"constrained"}} -->
+<footer class="wp-block-group cs-footer" style="border-top-color:rgba(255,255,255,0.08);border-top-width:1px;margin-top:var(--wp--preset--spacing--xl);padding-top:var(--wp--preset--spacing--xl);padding-bottom:var(--wp--preset--spacing--xl)" role="contentinfo">
+	<!-- wp:group {"layout":{"type":"flex","flexWrap":"wrap","justifyContent":"center","verticalAlignment":"center"}} -->
+	<div class="wp-block-group">
+		<!-- wp:paragraph {"align":"center","fontSize":"small","style":{"elements":{"link":{"color":{"text":"var:preset|color|muted"}}}},"className":"cs-footer-text"} -->
+		<p class="has-text-align-center has-small-font-size cs-footer-text" style="color:var(--wp--preset--color--muted)"><strong>CivicSignals</strong> – A WordPress Block Theme Portfolio Project</p>
+		<!-- /wp:paragraph -->
+
+		<!-- wp:paragraph {"align":"center","fontSize":"small","style":{"elements":{"link":{"color":{"text":"var:preset|color|primary"}}}},"className":"cs-footer-links"} -->
+		<p class="has-text-align-center has-small-font-size cs-footer-links" style="color:var(--wp--preset--color--primary)"><a href="https://github.com/onehermes/civicsignals" target="_blank" rel="noopener noreferrer">GitHub</a> · <a href="/story/">Demo Story</a> · Built by Paul Miranda</p>
+		<!-- /wp:paragraph -->
+	</div>
+	<!-- /wp:group -->
 </footer>
 <!-- /wp:group -->
