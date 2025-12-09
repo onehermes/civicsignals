@@ -80,9 +80,20 @@
 
 			// Extract chapter title (everything after "Chapter X - " or "Chapter X: ")
 			let chapterTitle = text;
+			
+			// Try to extract title from "Chapter X - Title" or "Chapter X: Title"
 			const titleMatch = text.match(/chapter\s+\d+\s*[-–—:]\s*(.+)/i);
 			if (titleMatch && titleMatch[1]) {
 				chapterTitle = titleMatch[1].trim();
+			} else {
+				// If no dash/colon, try "Chapter X Title" format
+				const altMatch = text.match(/chapter\s+\d+\s+(.+)/i);
+				if (altMatch && altMatch[1]) {
+					chapterTitle = altMatch[1].trim();
+				} else if (text.match(/^chapter\s+\d+$/i)) {
+					// Just "Chapter 1" with no title
+					chapterTitle = `Chapter ${chapterNumber}`;
+				}
 			}
 
 			// Store reference to parent and collect following elements before modifying DOM
