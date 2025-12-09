@@ -340,14 +340,21 @@ body.custom-cursor-active .cs-cursor-dot {
 
 /* Persona Cards */
 .cs-story-content .cs-persona-card {
-	margin: 32px 0;
+	margin: 40px 0;
+	max-width: 800px;
+}
+
+.cs-story-content .cs-persona-content {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
 }
 
 .cs-story-content .cs-persona-content h3 {
 	font-size: 24px;
 	font-weight: 600;
 	color: #f5f7ff;
-	margin: 0 0 16px 0;
+	margin: 0;
 	line-height: 1.3;
 	letter-spacing: -0.01em;
 }
@@ -356,6 +363,10 @@ body.custom-cursor-active .cs-cursor-dot {
 	font-style: italic;
 	color: #1e9fd7;
 	font-weight: 400;
+}
+
+.cs-story-content .cs-persona-quote-wrapper {
+	margin: 8px 0;
 }
 
 /* Quote Styling */
@@ -488,16 +499,47 @@ body.custom-cursor-active .cs-cursor-dot {
 }
 
 /* Better spacing between chapter content sections */
-.cs-story-content .cs-chapter-content > * + * {
-	margin-top: 16px;
+.cs-story-content .cs-chapter-content {
+	display: flex;
+	flex-direction: column;
+	gap: 0;
+}
+
+.cs-story-content .cs-chapter-content > .cs-chapter-label {
+	margin-bottom: 12px;
+}
+
+.cs-story-content .cs-chapter-content > .cs-chapter-title {
+	margin-bottom: 24px;
+}
+
+.cs-story-content .cs-chapter-content > p.cs-body-text {
+	margin: 16px 0;
+}
+
+.cs-story-content .cs-chapter-content > p.cs-body-text + p.cs-body-text {
+	margin-top: 0;
 }
 
 .cs-story-content .cs-chapter-content > h3 {
 	margin-top: 32px;
+	margin-bottom: 16px;
 }
 
 .cs-story-content .cs-chapter-content > .cs-persona-card {
 	margin-top: 40px;
+	margin-bottom: 32px;
+}
+
+/* First paragraph after chapter title should be lede-style */
+.cs-story-content .cs-chapter-content > .cs-chapter-title + p {
+	font-size: 18px;
+	max-width: 720px;
+	color: #b8c5e8;
+	margin-top: 0;
+	margin-bottom: 24px;
+	line-height: 1.7;
+	font-weight: 400;
 }
 
 /* Sections */

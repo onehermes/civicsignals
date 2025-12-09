@@ -77,6 +77,13 @@
 				return;
 			}
 
+			// Extract chapter title (everything after "Chapter X - " or "Chapter X: ")
+			let chapterTitle = text;
+			const titleMatch = text.match(/chapter\s+\d+\s*[-–—:]\s*(.+)/i);
+			if (titleMatch && titleMatch[1]) {
+				chapterTitle = titleMatch[1].trim();
+			}
+
 			// Create chapter wrapper
 			const chapterWrapper = document.createElement('div');
 			chapterWrapper.className = 'cs-chapter cs-chapter-auto';
@@ -91,31 +98,49 @@
 			const chapterContent = document.createElement('div');
 			chapterContent.className = 'cs-chapter-content';
 			
-			// Insert structure before the heading
-			heading.parentNode.insertBefore(chapterWrapper, heading);
-			chapterWrapper.appendChild(chapterNumberEl);
-			chapterWrapper.appendChild(chapterContent);
+			// Create chapter label
+			const chapterLabel = document.createElement('p');
+			chapterLabel.className = 'cs-chapter-label';
+			chapterLabel.textContent = `CHAPTER ${chapterNumber}`;
 			
-			// Move heading into chapter-content
-			chapterContent.appendChild(heading);
+			// Update heading to show just the title
+			const newHeading = document.createElement('h2');
+			newHeading.className = 'cs-chapter-title';
+			newHeading.textContent = chapterTitle;
 			
-			// Move all following siblings until we hit another h2 or reach the end
+			// Store reference to parent and next sibling before modifying DOM
+			const parent = heading.parentNode;
+			const followingElements = [];
+			
+			// Collect all following siblings until next H2
 			let nextSibling = heading.nextSibling;
 			while (nextSibling) {
-				const temp = nextSibling.nextSibling;
-				
-				// Stop if we hit another h2 heading
 				if (nextSibling.nodeType === 1 && nextSibling.tagName === 'H2') {
 					break;
 				}
-				
-				// Move this element into chapter-content
-				if (nextSibling.nodeType === 1) {
-					chapterContent.appendChild(nextSibling);
-				}
-				
+				const temp = nextSibling.nextSibling;
+				followingElements.push(nextSibling);
 				nextSibling = temp;
 			}
+			
+			// Insert structure before the heading
+			parent.insertBefore(chapterWrapper, heading);
+			chapterWrapper.appendChild(chapterNumberEl);
+			chapterWrapper.appendChild(chapterContent);
+			
+			// Add label and new heading to content
+			chapterContent.appendChild(chapterLabel);
+			chapterContent.appendChild(newHeading);
+			
+			// Remove old heading
+			heading.remove();
+			
+			// Move all collected elements into chapter-content
+			followingElements.forEach(element => {
+				if (element.nodeType === 1) {
+					chapterContent.appendChild(element);
+				}
+			});
 		});
 	}
 
@@ -160,6 +185,18 @@
 			return;
 		}
 
+		// Remove duplicate excerpts/titles (if post-excerpt appears in content)
+		const excerptBlocks = storyContent.querySelectorAll('.wp-block-post-excerpt, [class*="excerpt"]');
+		excerptBlocks.forEach(block => {
+			const text = block.textContent.trim();
+			// Check if this excerpt appears elsewhere nearby
+			const nearbyText = block.parentElement?.textContent || '';
+			const occurrences = (nearbyText.match(new RegExp(text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'g')) || []).length;
+			if (occurrences > 1) {
+				block.remove();
+			}
+		});
+
 		// Structure persona sections (H3 with em dash or hyphen)
 		const personaHeadings = Array.from(storyContent.querySelectorAll('h3')).filter(h3 => {
 			const text = h3.textContent.trim();
@@ -181,18 +218,65 @@
 			personaCard.appendChild(cardContent);
 			
 			heading.parentNode.insertBefore(personaCard, heading);
+			
+			// Move heading and split name/role if needed
+			const headingText = heading.textContent.trim();
+			const nameRoleMatch = headingText.match(/^([A-Z][a-z]+)\s*[–—\-]\s*(.+)$/);
+			
+			if (nameRoleMatch) {
+				const name = nameRoleMatch[1];
+				const role = nameRoleMatch[2];
+				heading.innerHTML = `${name} – <em>${role}</em>`;
+			}
+			
 			cardContent.appendChild(heading);
 			
+			// Collect quote, pain points, and narrative
+			const quoteEl = document.createElement('div');
+			quoteEl.className = 'cs-persona-quote-wrapper';
+			
 			let nextSibling = heading.nextSibling;
+			let foundQuote = false;
+			let foundPainPoints = false;
+			
 			while (nextSibling) {
 				const temp = nextSibling.nextSibling;
+				
 				if (nextSibling.nodeType === 1) {
-					if (nextSibling.tagName === 'H2' || nextSibling.tagName === 'H3') {
+					// Stop at next persona or chapter
+					if (nextSibling.tagName === 'H2' || 
+					    (nextSibling.tagName === 'H3' && /^[A-Z][a-z]+\s*[–—\-]/.test(nextSibling.textContent.trim()))) {
 						break;
 					}
-					cardContent.appendChild(nextSibling);
+					
+					// Check if it's a quote paragraph
+					const tagName = nextSibling.tagName;
+					const text = nextSibling.textContent.trim();
+					
+					if (tagName === 'P' && !foundQuote && /^"[^"]+"/.test(text)) {
+						nextSibling.classList.add('cs-quote');
+						quoteEl.appendChild(nextSibling);
+						foundQuote = true;
+					} else if (tagName === 'P' && /^Pain\s+Points?:?\s*$/i.test(text)) {
+						nextSibling.classList.add('cs-pain-points-label');
+						cardContent.appendChild(nextSibling);
+						foundPainPoints = true;
+					} else if (tagName === 'UL' || tagName === 'OL') {
+						if (foundPainPoints) {
+							nextSibling.classList.add('cs-pain-points-list');
+						}
+						cardContent.appendChild(nextSibling);
+					} else {
+						cardContent.appendChild(nextSibling);
+					}
 				}
+				
 				nextSibling = temp;
+			}
+			
+			// Insert quote wrapper right after heading if we found a quote
+			if (foundQuote && quoteEl.children.length > 0) {
+				cardContent.insertBefore(quoteEl, heading.nextSibling);
 			}
 		});
 
