@@ -77,6 +77,17 @@ function civicsignals_enqueue_assets() {
 		wp_get_theme()->get( 'Version' ),
 		true
 	);
+
+	// Enqueue chapter numbers script (only on single story pages)
+	if ( is_singular( 'story' ) ) {
+		wp_enqueue_script(
+			'civicsignals-chapter-numbers',
+			get_template_directory_uri() . '/assets/js/chapter-numbers.js',
+			array(),
+			wp_get_theme()->get( 'Version' ),
+			true
+		);
+	}
 }
 add_action( 'wp_enqueue_scripts', 'civicsignals_enqueue_assets' );
 

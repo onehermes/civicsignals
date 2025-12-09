@@ -23,19 +23,27 @@ function civicsignals_register_block_patterns() {
 			'title'       => __( 'Chapter Introduction', 'civicsignals' ),
 			'description' => __( 'A chapter introduction with overline, heading, and narrative paragraph.', 'civicsignals' ),
 			'categories'  => array( 'civicsignals-chapters' ),
-			'content'     => '<!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|xl","bottom":"var:preset|spacing|xl"},"margin":{"top":"0","bottom":"0"}}},"backgroundColor":"surface","layout":{"type":"constrained"}} -->
-<div class="wp-block-group has-surface-background-color has-background" style="margin-top:0;margin-bottom:0;padding-top:var(--wp--preset--spacing--xl);padding-bottom:var(--wp--preset--spacing--xl)">
-	<!-- wp:paragraph {"style":{"typography":{"textTransform":"uppercase","fontSize":"0.875rem","letterSpacing":"0.1em"},"spacing":{"margin":{"bottom":"var:preset|spacing|sm"}}},"fontSize":"small"} -->
-	<p class="has-small-font-size" style="margin-bottom:var(--wp--preset--spacing--sm);font-size:0.875rem;letter-spacing:0.1em;text-transform:uppercase">Chapter 1</p>
-	<!-- /wp:paragraph -->
-
-	<!-- wp:heading {"level":2,"style":{"spacing":{"margin":{"bottom":"var:preset|spacing|md"}}}} -->
-	<h2 class="wp-block-heading" style="margin-bottom:var(--wp--preset--spacing--md)">The Problem: Lost in a Digital Maze</h2>
+			'content'     => '<!-- wp:group {"className":"cs-chapter","style":{"spacing":{"padding":{"top":"40px"},"margin":{"top":"var(--cs-section-gap)"}},"border":{"top":{"width":"1px","color":"rgba(255,255,255,0.08)"}}},"layout":{"type":"constrained"}} -->
+<div class="wp-block-group cs-chapter" style="border-top-color:rgba(255,255,255,0.08);border-top-width:1px;margin-top:var(--cs-section-gap);padding-top:40px">
+	<!-- wp:heading {"level":2,"className":"cs-chapter-number"} -->
+	<h2 class="wp-block-heading cs-chapter-number">1</h2>
 	<!-- /wp:heading -->
 
-	<!-- wp:paragraph {"style":{"typography":{"fontSize":"1.125rem","lineHeight":"1.75"}}} -->
-	<p style="font-size:1.125rem;line-height:1.75">Citizens struggle daily with outdated navigation, broken links, and confusing information architecture. The legacy site fails to meet modern expectations for accessibility and mobile responsiveness.</p>
-	<!-- /wp:paragraph -->
+	<!-- wp:group {"className":"cs-chapter-content","layout":{"type":"default"}} -->
+	<div class="wp-block-group cs-chapter-content">
+		<!-- wp:paragraph {"className":"cs-chapter-label"} -->
+		<p class="cs-chapter-label">CHAPTER 1 — THE PROBLEM</p>
+		<!-- /wp:paragraph -->
+
+		<!-- wp:heading {"level":2,"className":"cs-chapter-title"} -->
+		<h2 class="wp-block-heading cs-chapter-title">Lost in a Digital Maze</h2>
+		<!-- /wp:heading -->
+
+		<!-- wp:paragraph {"className":"cs-chapter-lede"} -->
+		<p class="cs-chapter-lede">Citizens struggle daily with outdated navigation, broken links, and confusing information architecture. The legacy site fails to meet modern expectations for accessibility and mobile responsiveness.</p>
+		<!-- /wp:paragraph -->
+	</div>
+	<!-- /wp:group -->
 </div>
 <!-- /wp:group -->',
 		)
