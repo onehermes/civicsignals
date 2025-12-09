@@ -1258,6 +1258,41 @@ button:focus,
 	}
 }
 
+/* Footer */
+.cs-footer {
+	text-align: center;
+}
+
+.cs-footer-text {
+	margin: 0 0 16px 0;
+	color: #b8c5e8;
+	font-size: 14px;
+	line-height: 1.6;
+}
+
+.cs-footer-text strong {
+	color: #f5f7ff;
+	font-weight: 600;
+}
+
+.cs-footer-links {
+	margin: 0;
+	color: #8e9ad0;
+	font-size: 13px;
+	line-height: 1.6;
+}
+
+.cs-footer-links a {
+	color: #1e9fd7;
+	text-decoration: none;
+	transition: color 200ms ease;
+}
+
+.cs-footer-links a:hover {
+	color: #2ab0e8;
+	text-decoration: underline;
+}
+
 /* Print */
 @media print {
 	.skip-link,
