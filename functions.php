@@ -88,6 +88,15 @@ function civicsignals_enqueue_assets() {
 			true
 		);
 	}
+
+	// Enqueue scroll animations script
+	wp_enqueue_script(
+		'civicsignals-scroll-animations',
+		get_template_directory_uri() . '/assets/js/scroll-animations.js',
+		array(),
+		wp_get_theme()->get( 'Version' ),
+		true
+	);
 }
 add_action( 'wp_enqueue_scripts', 'civicsignals_enqueue_assets' );
 
