@@ -50,17 +50,35 @@ function civicsignals_setup() {
 add_action( 'after_setup_theme', 'civicsignals_setup' );
 
 /**
- * Enqueue theme styles
+ * Enqueue theme styles and fonts
  */
-function civicsignals_enqueue_styles() {
+function civicsignals_enqueue_assets() {
+	// Enqueue Inter font from Google Fonts
+	wp_enqueue_style(
+		'civicsignals-fonts',
+		'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap',
+		array(),
+		null
+	);
+
+	// Enqueue theme stylesheet
 	wp_enqueue_style(
 		'civicsignals-style',
 		get_stylesheet_uri(),
-		array(),
+		array( 'civicsignals-fonts' ),
 		wp_get_theme()->get( 'Version' )
 	);
+
+	// Enqueue cursor interaction script
+	wp_enqueue_script(
+		'civicsignals-cursor',
+		get_template_directory_uri() . '/assets/js/cursor-interaction.js',
+		array(),
+		wp_get_theme()->get( 'Version' ),
+		true
+	);
 }
-add_action( 'wp_enqueue_scripts', 'civicsignals_enqueue_styles' );
+add_action( 'wp_enqueue_scripts', 'civicsignals_enqueue_assets' );
 
 /**
  * Filter query for related stories on single story pages

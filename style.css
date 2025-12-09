@@ -17,7 +17,931 @@ CivicSignals is distributed under the terms of the GNU GPL
 This theme, like WordPress, is licensed under the GPL.
 */
 
-/* 
-Theme styles are managed through theme.json.
-Additional custom styles can be added here if needed.
-*/
+/* CSS Custom Properties */
+:root {
+	--cs-shell-width: 1120px;
+	--cs-section-gap: 120px;
+}
+
+/* Base Layout */
+body {
+	font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+	background: radial-gradient(circle at 50% 50%, #111d3c 0, #020b1f 40%, #020b1f 100%);
+	background-attachment: fixed;
+	background-size: 150% 150%;
+	color: #f5f7ff;
+	min-height: 100vh;
+	position: relative;
+	overflow-x: hidden;
+}
+
+/* Interactive Background Canvas */
+.cs-interactive-bg {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 0;
+	pointer-events: none;
+	opacity: 0.4;
+}
+
+/* Custom Cursor */
+.cs-cursor {
+	position: fixed;
+	width: 20px;
+	height: 20px;
+	border: 1px solid rgba(30, 159, 215, 0.6);
+	border-radius: 50%;
+	pointer-events: none;
+	z-index: 9999;
+	transform: translate(-50%, -50%);
+	transition: width 0.3s ease, height 0.3s ease, border-color 0.3s ease;
+	opacity: 0;
+	will-change: transform;
+}
+
+body.custom-cursor-active .cs-cursor {
+	opacity: 1;
+}
+
+.cs-cursor-hover {
+	width: 40px;
+	height: 40px;
+	border-color: rgba(30, 159, 215, 0.9);
+	background: rgba(30, 159, 215, 0.15);
+}
+
+.cs-cursor-dot {
+	position: fixed;
+	width: 6px;
+	height: 6px;
+	background: #1e9fd7;
+	border-radius: 50%;
+	pointer-events: none;
+	z-index: 9998;
+	transform: translate(-50%, -50%);
+	opacity: 0;
+	will-change: transform;
+}
+
+body.custom-cursor-active .cs-cursor-dot {
+	opacity: 1;
+}
+
+/* Hide default cursor only when custom cursor is ready */
+@media (hover: hover) and (pointer: fine) {
+	body.custom-cursor-active * {
+		cursor: none !important;
+	}
+	
+	/* Keep cursor visible for input and text areas */
+	body.custom-cursor-active input,
+	body.custom-cursor-active textarea,
+	body.custom-cursor-active [contenteditable] {
+		cursor: text !important;
+	}
+}
+
+.cs-shell {
+	max-width: var(--cs-shell-width);
+	margin: 0 auto;
+	padding: 100px 20px 120px;
+	position: relative;
+	z-index: 1;
+}
+
+/* Hero Section - Dramatic & Bold */
+.cs-hero {
+	margin-bottom: var(--cs-section-gap);
+	border-radius: 0;
+	padding: 60px 0;
+	background: transparent;
+	box-shadow: none;
+	transform: translateY(0);
+	transition: none;
+	display: grid;
+	gap: 24px;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+	padding-bottom: 80px;
+}
+
+.cs-hero-eyebrow {
+	font-size: 11px;
+	letter-spacing: 0.2em;
+	text-transform: uppercase;
+	color: #8e9ad0;
+	margin: 0;
+	font-weight: 600;
+	opacity: 0.8;
+}
+
+.cs-hero-title {
+	font-size: clamp(48px, 8vw, 72px);
+	line-height: 1.05;
+	font-weight: 700;
+	margin: 20px 0 24px;
+	color: #f5f7ff;
+	letter-spacing: -0.02em;
+	max-width: 900px;
+}
+
+.cs-hero-title em,
+.cs-hero-title i {
+	font-style: italic;
+	font-weight: 400;
+	opacity: 0.9;
+}
+
+.cs-hero-subtitle {
+	max-width: 680px;
+	color: #b8c5e8;
+	font-size: 18px;
+	margin: 0;
+	line-height: 1.6;
+	font-weight: 400;
+	opacity: 0.85;
+}
+
+.cs-hero-actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 16px;
+	margin-top: 32px;
+}
+
+/* Buttons */
+.cs-btn-primary {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: 14px 28px;
+	border-radius: 0;
+	background: #1e9fd7;
+	color: #020b1f;
+	font-weight: 600;
+	border: none;
+	text-decoration: none;
+	transition: background 200ms ease, transform 200ms ease;
+	cursor: pointer;
+	font-size: 15px;
+	letter-spacing: 0.02em;
+	text-transform: uppercase;
+	font-size: 13px;
+}
+
+.cs-btn-primary:hover {
+	background: #2ab0e8;
+	transform: translateY(-2px);
+	color: #020b1f;
+}
+
+.cs-btn-secondary {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: 14px 28px;
+	border-radius: 0;
+	border: 1px solid rgba(255, 255, 255, 0.2);
+	color: #f5f7ff;
+	background: transparent;
+	text-decoration: none;
+	transition: border-color 200ms ease, background 200ms ease;
+	cursor: pointer;
+	font-size: 13px;
+	font-weight: 600;
+	letter-spacing: 0.02em;
+	text-transform: uppercase;
+}
+
+.cs-btn-secondary:hover {
+	border-color: #1e9fd7;
+	background: rgba(30, 159, 215, 0.05);
+	color: #f5f7ff;
+}
+
+/* Chapter Sections - DaVincii Style with Large Numbers */
+.cs-chapter {
+	margin-top: var(--cs-section-gap);
+	padding-top: 40px;
+	border-top: 1px solid rgba(255, 255, 255, 0.08);
+	position: relative;
+}
+
+.cs-chapter-number {
+	font-size: clamp(120px, 20vw, 200px);
+	font-weight: 700;
+	color: rgba(255, 255, 255, 0.03);
+	line-height: 1;
+	margin: 0;
+	position: absolute;
+	top: -20px;
+	left: -40px;
+	z-index: 0;
+	letter-spacing: -0.05em;
+	pointer-events: none;
+}
+
+.cs-chapter-content {
+	position: relative;
+	z-index: 1;
+}
+
+.cs-chapter-label {
+	font-size: 11px;
+	letter-spacing: 0.2em;
+	text-transform: uppercase;
+	color: #8e9ad0;
+	margin-bottom: 16px;
+	margin: 0 0 16px 0;
+	font-weight: 600;
+	opacity: 0.7;
+}
+
+.cs-chapter-title {
+	font-size: clamp(32px, 5vw, 48px);
+	font-weight: 700;
+	margin-bottom: 24px;
+	color: #f5f7ff;
+	line-height: 1.1;
+	margin: 0 0 24px 0;
+	letter-spacing: -0.02em;
+	max-width: 900px;
+}
+
+.cs-chapter-title em,
+.cs-chapter-title i {
+	font-style: italic;
+	font-weight: 400;
+	opacity: 0.9;
+}
+
+.cs-chapter-lede {
+	font-size: 18px;
+	max-width: 720px;
+	color: #b8c5e8;
+	margin: 0 0 32px 0;
+	line-height: 1.7;
+	font-weight: 400;
+	opacity: 0.85;
+}
+
+.cs-body-text {
+	max-width: 720px;
+	color: #b8c5e8;
+	font-size: 17px;
+	line-height: 1.7;
+	margin: 0;
+	opacity: 0.85;
+}
+
+/* Sections */
+.cs-section {
+	margin-top: 40px;
+}
+
+/* Cards - Minimal & Clean */
+.cs-card,
+.cs-card-plain {
+	background: rgba(11, 22, 51, 0.4);
+	border-radius: 0;
+	padding: 32px 36px;
+	border: 1px solid rgba(255, 255, 255, 0.08);
+	transform: translateY(0);
+	transition: border-color 200ms ease, background 200ms ease;
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+	backdrop-filter: blur(10px);
+}
+
+.cs-card:hover,
+.cs-card-plain:hover {
+	border-color: rgba(30, 159, 215, 0.3);
+	background: rgba(11, 22, 51, 0.6);
+}
+
+.cs-card-featured {
+	padding: 40px 48px;
+	border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.cs-card-title {
+	font-size: 22px;
+	font-weight: 600;
+	margin: 0;
+	color: #f5f7ff;
+	line-height: 1.3;
+	letter-spacing: -0.01em;
+}
+
+.cs-card p {
+	color: #b8c5e8;
+	margin: 0;
+	font-size: 16px;
+	line-height: 1.7;
+}
+
+.cs-card h3 {
+	font-size: 22px;
+	font-weight: 600;
+	margin: 0 0 12px 0;
+	color: #f5f7ff;
+	line-height: 1.3;
+	letter-spacing: -0.01em;
+}
+
+.cs-card h3 em {
+	font-style: italic;
+	font-weight: 400;
+}
+
+.cs-card a {
+	text-decoration: none;
+	color: inherit;
+}
+
+.cs-card a:hover {
+	text-decoration: underline;
+}
+
+.cs-card-excerpt {
+	font-size: 16px;
+	color: #b8c5e8;
+	margin: 0;
+	line-height: 1.7;
+	flex-grow: 1;
+	font-weight: 400;
+}
+
+.cs-card-meta {
+	font-size: 12px;
+	color: #8e9ad0;
+	margin-top: auto;
+	padding-top: 16px;
+	border-top: 1px solid rgba(255, 255, 255, 0.08);
+	font-weight: 400;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 6px;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+}
+
+.cs-card-meta p {
+	margin: 0;
+	color: #8e9ad0;
+	font-weight: 400;
+}
+
+.cs-card-meta a {
+	color: #1e9fd7;
+	text-decoration: none;
+	font-weight: 500;
+}
+
+.cs-card-meta a:hover {
+	text-decoration: underline;
+}
+
+.cs-card-meta .wp-block-post-terms {
+	margin: 0;
+}
+
+.cs-featured-card-title {
+	font-size: 28px;
+	font-weight: 600;
+	margin: 0;
+	color: #f5f7ff;
+	line-height: 1.2;
+	letter-spacing: -0.01em;
+}
+
+.cs-featured-card-excerpt {
+	font-size: 17px;
+	color: #b8c5e8;
+	margin: 0;
+	line-height: 1.7;
+	font-weight: 400;
+}
+
+/* Chapter Grid */
+.cs-chapter-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	gap: 24px;
+	margin-top: 40px;
+}
+
+/* Timeline - Clean Lines */
+.cs-timeline {
+	display: grid;
+	gap: 32px;
+	margin-top: 40px;
+}
+
+.cs-timeline-item {
+	display: grid;
+	grid-template-columns: minmax(140px, 180px) 1fr;
+	gap: 32px;
+	align-items: flex-start;
+	padding-bottom: 32px;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.cs-timeline-item:last-child {
+	border-bottom: none;
+	padding-bottom: 0;
+}
+
+.cs-timeline-label {
+	font-size: 13px;
+	font-weight: 600;
+	color: #1e9fd7;
+	margin: 0;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+}
+
+.cs-timeline-body {
+	color: #b8c5e8;
+	font-size: 17px;
+	line-height: 1.7;
+	margin: 0;
+	opacity: 0.85;
+}
+
+/* Metrics Strip - Clean Pills */
+.cs-metrics-strip {
+	margin-top: 40px;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+	gap: 20px;
+}
+
+.cs-metric {
+	background: transparent;
+	border-radius: 0;
+	padding: 24px 0;
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	align-items: flex-start;
+	border-bottom: 2px solid rgba(30, 159, 215, 0.3);
+}
+
+.cs-metric-value {
+	font-size: 32px;
+	font-weight: 700;
+	color: #f5f7ff;
+	margin: 0;
+	line-height: 1;
+	letter-spacing: -0.02em;
+}
+
+.cs-metric-label {
+	font-size: 11px;
+	color: #8e9ad0;
+	margin: 0;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 0.15em;
+	opacity: 0.7;
+}
+
+/* Chips */
+.cs-chip {
+	display: inline-flex;
+	align-items: center;
+	padding: 6px 14px;
+	border-radius: 0;
+	border: 1px solid rgba(30, 159, 215, 0.4);
+	background: transparent;
+	font-size: 11px;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+	color: #1e9fd7;
+	text-decoration: none;
+	margin-right: 12px;
+	margin-bottom: 12px;
+	transition: border-color 200ms ease, background 200ms ease;
+	font-weight: 600;
+}
+
+.cs-chip:hover {
+	border-color: #1e9fd7;
+	background: rgba(30, 159, 215, 0.1);
+	color: #1e9fd7;
+}
+
+.cs-chip a {
+	text-decoration: none;
+	color: inherit;
+}
+
+/* Meta Text */
+.cs-meta {
+	font-size: 12px;
+	color: #8e9ad0;
+	font-weight: 400;
+	margin-top: 6px;
+}
+
+/* Card Rows */
+.cs-card-row {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	gap: 24px;
+	margin-top: 40px;
+}
+
+/* CTA Section */
+.cs-section-cta {
+	text-align: center;
+	margin-top: var(--cs-section-gap);
+	padding: 80px 40px;
+	background: transparent;
+	border-radius: 0;
+	border: 1px solid rgba(255, 255, 255, 0.08);
+	border-top-width: 2px;
+}
+
+.cs-section-cta .cs-chapter-label {
+	margin-bottom: 12px;
+}
+
+.cs-section-cta .cs-chapter-title {
+	margin-bottom: 24px;
+	max-width: 800px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.cs-section-cta .cs-hero-actions {
+	justify-content: center;
+	margin-top: 32px;
+}
+
+/* Header - DaVincii Style */
+.cs-header-shell {
+	position: sticky;
+	top: 0;
+	z-index: 100;
+	backdrop-filter: blur(30px) saturate(180%);
+	background: rgba(2, 11, 31, 0.7);
+	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+	transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.cs-header-shell::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 1px;
+	background: linear-gradient(90deg, transparent, rgba(30, 159, 215, 0.5), transparent);
+	opacity: 0;
+	transition: opacity 0.3s ease;
+}
+
+.cs-header-shell:hover::before {
+	opacity: 1;
+}
+
+.cs-header {
+	max-width: var(--cs-shell-width);
+	margin: 0 auto;
+	padding: 24px 20px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 60px;
+	position: relative;
+}
+
+.cs-header-brand {
+	display: flex;
+	align-items: center;
+	z-index: 1;
+}
+
+.cs-header-logo .wp-block-site-title a {
+	font-weight: 700;
+	font-size: 22px;
+	color: #f5f7ff;
+	text-decoration: none;
+	letter-spacing: -0.02em;
+	transition: color 0.3s ease, transform 0.3s ease;
+	display: inline-block;
+}
+
+.cs-header-logo .wp-block-site-title a:hover {
+	color: #1e9fd7;
+	transform: scale(1.05);
+}
+
+.cs-header-nav-wrapper {
+	display: flex;
+	align-items: center;
+	gap: 48px;
+	flex: 1;
+	justify-content: center;
+	position: relative;
+}
+
+.cs-header-nav {
+	font-size: 12px;
+	display: flex;
+	gap: 32px;
+}
+
+.cs-header-nav a {
+	color: #b8c5e8;
+	text-decoration: none;
+	transition: color 0.3s ease, transform 0.3s ease;
+	font-weight: 500;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	position: relative;
+	padding: 8px 0;
+	display: inline-block;
+}
+
+.cs-header-nav a::after {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 0;
+	height: 1px;
+	background: #1e9fd7;
+	transition: width 0.3s ease;
+}
+
+.cs-header-nav a:hover {
+	color: #1e9fd7;
+	transform: translateY(-2px);
+}
+
+.cs-header-nav a:hover::after {
+	width: 100%;
+}
+
+.cs-header-cta-wrapper {
+	display: flex;
+	align-items: center;
+	gap: 16px;
+	z-index: 1;
+}
+
+.cs-header-cta-label {
+	font-size: 11px;
+	color: #8e9ad0;
+	margin: 0;
+	font-weight: 500;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	opacity: 0.8;
+	white-space: nowrap;
+}
+
+.cs-btn-header {
+	display: inline-block;
+}
+
+.cs-btn-header .wp-block-button__link {
+	padding: 10px 24px;
+	font-size: 11px;
+	font-weight: 600;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	border-radius: 0;
+	background: #1e9fd7;
+	color: #020b1f;
+	border: none;
+	transition: all 0.3s ease;
+	position: relative;
+	overflow: hidden;
+}
+
+.cs-btn-header .wp-block-button__link::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: -100%;
+	width: 100%;
+	height: 100%;
+	background: rgba(255, 255, 255, 0.2);
+	transition: left 0.3s ease;
+}
+
+.cs-btn-header .wp-block-button__link:hover::before {
+	left: 100%;
+}
+
+.cs-btn-header .wp-block-button__link:hover {
+	background: #2ab0e8;
+	transform: translateY(-2px);
+	box-shadow: 0 4px 20px rgba(30, 159, 215, 0.3);
+}
+
+/* Skip Link */
+.skip-link-wrapper {
+	position: absolute;
+	left: -9999px;
+	margin: 0;
+	padding: 0;
+}
+
+.skip-link-wrapper:focus-within {
+	position: static;
+	z-index: 999999;
+}
+
+.skip-link {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 999999;
+	display: block;
+	padding: 12px 20px;
+	background: #020b1f;
+	color: #f5f7ff;
+	text-decoration: none;
+	border: 2px solid #1e9fd7;
+	border-radius: 0;
+	font-weight: 600;
+}
+
+.skip-link:focus {
+	outline: 2px solid #1e9fd7;
+	outline-offset: 2px;
+}
+
+/* Visually Hidden */
+.visually-hidden {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border-width: 0;
+}
+
+/* Accessibility */
+a:focus,
+button:focus,
+.wp-block-button__link:focus,
+.wp-element-button:focus {
+	outline: 2px solid #1e9fd7;
+	outline-offset: 2px;
+}
+
+.cs-card:focus,
+.cs-card:focus-within {
+	outline: 2px solid #1e9fd7;
+	outline-offset: 2px;
+}
+
+/* Lists in cards */
+.cs-card ul,
+.cs-card-plain ul {
+	margin: 12px 0;
+	padding-left: 20px;
+	color: #b8c5e8;
+	line-height: 1.8;
+}
+
+.cs-card li,
+.cs-card-plain li {
+	margin: 8px 0;
+	font-size: 15px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+	.cs-shell {
+		padding: 80px 16px 100px;
+	}
+
+	.cs-chapter {
+		margin-top: 80px;
+	}
+
+	.cs-chapter-number {
+		font-size: 100px;
+		left: -20px;
+		top: -10px;
+	}
+
+	.cs-hero-title {
+		font-size: clamp(36px, 10vw, 56px);
+	}
+
+	.cs-chapter-title {
+		font-size: clamp(28px, 8vw, 40px);
+	}
+
+	.cs-timeline-item {
+		grid-template-columns: 1fr;
+		gap: 12px;
+	}
+
+	.cs-header {
+		padding: 16px;
+		flex-wrap: wrap;
+		gap: 24px;
+	}
+
+	.cs-header-nav-wrapper {
+		flex-direction: column;
+		gap: 20px;
+		width: 100%;
+		order: 2;
+	}
+
+	.cs-header-nav {
+		width: 100%;
+		justify-content: center;
+		flex-wrap: wrap;
+		gap: 20px;
+	}
+
+	.cs-header-cta-wrapper {
+		order: 3;
+		width: 100%;
+		justify-content: center;
+		flex-direction: column;
+		gap: 12px;
+	}
+
+	/* Show default cursor on mobile */
+	* {
+		cursor: auto !important;
+	}
+
+	.cs-cursor,
+	.cs-cursor-dot {
+		display: none;
+	}
+
+	.cs-metrics-strip {
+		grid-template-columns: 1fr;
+		gap: 24px;
+	}
+
+	.cs-section-cta {
+		padding: 60px 20px;
+	}
+
+	.cs-card-row,
+	.cs-chapter-grid {
+		grid-template-columns: 1fr;
+	}
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+	.cs-hero,
+	.cs-card,
+	.cs-card-plain {
+		border: 2px solid rgba(255, 255, 255, 0.3);
+	}
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	html {
+		scroll-behavior: auto;
+	}
+}
+
+/* Print */
+@media print {
+	.skip-link,
+	.skip-link-wrapper {
+		display: none;
+	}
+
+	.cs-header-shell {
+		position: static;
+	}
+}
+
+html {
+	scroll-behavior: smooth;
+}

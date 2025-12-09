@@ -1,263 +1,397 @@
 <!-- wp:template-part {"slug":"header","tagName":"header"} /-->
 
-<!-- wp:group {"tagName":"main","style":{"spacing":{"padding":{"top":"0","bottom":"0"}}},"layout":{"type":"constrained"}} -->
-<main id="main-content" class="wp-block-group" style="padding-top:0;padding-bottom:0" role="main">
+<!-- wp:group {"tagName":"main","className":"cs-shell","style":{"spacing":{"padding":{"top":"0","bottom":"0"}}},"layout":{"type":"constrained"}} -->
+<main id="main-content" class="wp-block-group cs-shell" style="padding-top:0;padding-bottom:0" role="main">
 	
-	<!-- Chapter 1: Hero / The Problem -->
-	<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|3xl","bottom":"var:preset|spacing|3xl"},"margin":{"top":"0","bottom":"0"}}},"gradient":"primary-gradient","layout":{"type":"constrained"}} -->
-	<div class="wp-block-group alignfull has-primary-gradient-gradient-background has-background" style="margin-top:0;margin-bottom:0;padding-top:var(--wp--preset--spacing--3xl);padding-bottom:var(--wp--preset--spacing--3xl)">
-		<!-- wp:paragraph {"align":"center","style":{"typography":{"textTransform":"uppercase","fontSize":"0.875rem","letterSpacing":"0.1em"},"spacing":{"margin":{"bottom":"var:preset|spacing|md"}}},"textColor":"white","fontSize":"small"} -->
-		<p class="has-text-align-center has-white-color has-text-color has-small-font-size" style="margin-bottom:var(--wp--preset--spacing--md);font-size:0.875rem;letter-spacing:0.1em;text-transform:uppercase">CivicSignals Story</p>
+	<!-- Chapter 0 – Hero -->
+	<!-- wp:group {"className":"cs-hero","layout":{"type":"constrained"}} -->
+	<div class="wp-block-group cs-hero">
+		<!-- wp:paragraph {"className":"cs-hero-eyebrow"} -->
+		<p class="cs-hero-eyebrow"><span class="visually-hidden">Story category: </span>CIVICSIGNALS STORY</p>
 		<!-- /wp:paragraph -->
 
-		<!-- wp:heading {"textAlign":"center","level":1,"style":{"typography":{"fontSize":"4rem","fontWeight":"800"},"spacing":{"margin":{"bottom":"var:preset|spacing|lg"}}},"textColor":"white"} -->
-		<h1 class="wp-block-heading has-text-align-center has-white-color has-text-color" style="margin-bottom:var(--wp--preset--spacing--lg);font-size:4rem;font-weight:800">When government websites feel like mazes, citizens give up.</h1>
+		<!-- wp:heading {"level":1,"className":"cs-hero-title"} -->
+		<h1 class="wp-block-heading cs-hero-title">When government websites feel like <em>mazes</em>, citizens give up.</h1>
 		<!-- /wp:heading -->
 
-		<!-- wp:paragraph {"align":"center","style":{"typography":{"fontSize":"1.25rem","lineHeight":"1.6"},"spacing":{"margin":{"bottom":"var:preset|spacing|xl"}}},"textColor":"white"} -->
-		<p class="has-text-align-center has-white-color has-text-color" style="margin-bottom:var(--wp--preset--spacing--xl);font-size:1.25rem;line-height:1.6">Outdated navigation, broken links, and confusing information architecture create barriers for citizens seeking services. The legacy approach fails to meet modern expectations for accessibility and mobile responsiveness.</p>
+		<!-- wp:paragraph {"className":"cs-hero-subtitle"} -->
+		<p class="cs-hero-subtitle">Outdated navigation, broken links, and confusing information architecture create barriers for citizens seeking services. The legacy approach fails to meet modern expectations.</p>
 		<!-- /wp:paragraph -->
 
-		<!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"}} -->
-		<div class="wp-block-buttons">
-			<!-- wp:button {"textColor":"white","style":{"color":{"background":"var:preset|color|accent"}}} -->
-			<div class="wp-block-button"><a class="wp-block-button__link has-white-color has-text-color has-background wp-element-button" style="background-color:var(--wp--preset--color--accent)" href="/story/">Explore the Stories</a></div>
+		<!-- wp:buttons {"className":"cs-hero-actions"} -->
+		<div class="wp-block-buttons cs-hero-actions">
+			<!-- wp:button {"className":"cs-btn-primary","style":{"color":{"background":"#1e9fd7","text":"#020b1f"}}} -->
+			<div class="wp-block-button cs-btn-primary"><a class="wp-block-button__link wp-element-button" href="/story/" style="background-color:#1e9fd7;color:#020b1f">View Featured Story</a></div>
+			<!-- /wp:button -->
+
+			<!-- wp:button {"className":"cs-btn-secondary","style":{"border":{"color":"rgba(255,255,255,0.2)"},"color":{"text":"#f5f7ff"}}} -->
+			<div class="wp-block-button cs-btn-secondary"><a class="wp-block-button__link wp-element-button" href="/story/" style="border-color:rgba(255,255,255,0.2);color:#f5f7ff">Explore All Stories</a></div>
 			<!-- /wp:button -->
 		</div>
 		<!-- /wp:buttons -->
 	</div>
 	<!-- /wp:group -->
 
-	<!-- Chapter 2: Meet the Characters -->
-	<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|3xl","bottom":"var:preset|spacing|3xl"}}},"backgroundColor":"white","layout":{"type":"constrained"}} -->
-	<div class="wp-block-group alignfull has-white-background-color has-background" style="padding-top:var(--wp--preset--spacing--3xl);padding-bottom:var(--wp--preset--spacing--3xl)">
-		<!-- wp:heading {"textAlign":"center","level":2,"style":{"spacing":{"margin":{"bottom":"var:preset|spacing|xl"}}}} -->
-		<h2 class="wp-block-heading has-text-align-center" style="margin-bottom:var(--wp--preset--spacing--xl)">Meet the People Behind the Metrics</h2>
+	<!-- Chapter 1 – The Problem -->
+	<!-- wp:group {"className":"cs-chapter cs-chapter-problem","layout":{"type":"constrained"}} -->
+	<div class="wp-block-group cs-chapter cs-chapter-problem">
+		<!-- wp:heading {"level":2,"className":"cs-chapter-number"} -->
+		<h2 class="wp-block-heading cs-chapter-number">1</h2>
 		<!-- /wp:heading -->
 
-		<!-- wp:columns {"align":"wide","style":{"spacing":{"blockGap":{"top":"var:preset|spacing|lg","left":"var:preset|spacing|lg"}}}} -->
-		<div class="wp-block-columns alignwide">
-			<!-- wp:column {"style":{"spacing":{"padding":{"top":"var:preset|spacing|lg","bottom":"var:preset|spacing|lg","left":"var:preset|spacing|lg","right":"var:preset|spacing|lg"}}},"backgroundColor":"surface"} -->
-			<div class="wp-block-column has-surface-background-color has-background" style="padding-top:var(--wp--preset--spacing--lg);padding-right:var(--wp--preset--spacing--lg);padding-bottom:var(--wp--preset--spacing--lg);padding-left:var(--wp--preset--spacing--lg)">
-				<!-- wp:heading {"level":3,"style":{"spacing":{"margin":{"bottom":"var:preset|spacing|sm"}}}} -->
-				<h3 class="wp-block-heading" style="margin-bottom:var(--wp--preset--spacing--sm)">Maria – Citizen</h3>
-				<!-- /wp:heading -->
+		<!-- wp:group {"className":"cs-chapter-content","layout":{"type":"default"}} -->
+		<div class="wp-block-group cs-chapter-content">
+			<!-- wp:paragraph {"className":"cs-chapter-label"} -->
+			<p class="cs-chapter-label">CHAPTER 1 — THE PROBLEM</p>
+			<!-- /wp:paragraph -->
 
-				<!-- wp:paragraph {"style":{"typography":{"fontSize":"1rem","lineHeight":"1.6"}}} -->
-				<p style="font-size:1rem;line-height:1.6">"I just want to quickly see if my family qualifies for benefits without getting lost in confusing menus."</p>
-				<!-- /wp:paragraph -->
+			<!-- wp:heading {"level":2,"className":"cs-chapter-title"} -->
+			<h2 class="wp-block-heading cs-chapter-title">When citizens get lost, <em>trust erodes</em>.</h2>
+			<!-- /wp:heading -->
+
+			<!-- wp:paragraph {"className":"cs-chapter-lede"} -->
+			<p class="cs-chapter-lede">Outdated navigation, broken links, and confusing information architecture create barriers for citizens seeking services. The legacy approach fails to meet modern expectations for accessibility and mobile responsiveness. Every click that doesn't lead to the right information chips away at public trust.</p>
+			<!-- /wp:paragraph -->
+
+			<!-- wp:group {"className":"cs-metrics-strip","layout":{"type":"default"},"aria-label":"Key performance metrics"} -->
+			<div class="wp-block-group cs-metrics-strip" aria-label="Key performance metrics">
+				<!-- wp:group {"className":"cs-metric","layout":{"type":"default"}} -->
+				<div class="wp-block-group cs-metric">
+					<!-- wp:heading {"level":3,"className":"cs-metric-value"} -->
+					<h3 class="wp-block-heading cs-metric-value">+55%</h3>
+					<!-- /wp:heading -->
+
+					<!-- wp:paragraph {"className":"cs-metric-label"} -->
+					<p class="cs-metric-label">Task completion rate</p>
+					<!-- /wp:paragraph -->
+				</div>
+				<!-- /wp:group -->
+
+				<!-- wp:group {"className":"cs-metric","layout":{"type":"default"}} -->
+				<div class="wp-block-group cs-metric">
+					<!-- wp:heading {"level":3,"className":"cs-metric-value"} -->
+					<h3 class="wp-block-heading cs-metric-value">-2m 25s</h3>
+					<!-- /wp:heading -->
+
+					<!-- wp:paragraph {"className":"cs-metric-label"} -->
+					<p class="cs-metric-label">Time to find eligibility info</p>
+					<!-- /wp:paragraph -->
+				</div>
+				<!-- /wp:group -->
+
+				<!-- wp:group {"className":"cs-metric","layout":{"type":"default"}} -->
+				<div class="wp-block-group cs-metric">
+					<!-- wp:heading {"level":3,"className":"cs-metric-value"} -->
+					<h3 class="wp-block-heading cs-metric-value">WCAG 2.1 AA</h3>
+					<!-- /wp:heading -->
+
+					<!-- wp:paragraph {"className":"cs-metric-label"} -->
+					<p class="cs-metric-label">Accessibility compliance</p>
+					<!-- /wp:paragraph -->
+				</div>
+				<!-- /wp:group -->
 			</div>
-			<!-- /wp:column -->
-
-			<!-- wp:column {"style":{"spacing":{"padding":{"top":"var:preset|spacing|lg","bottom":"var:preset|spacing|lg","left":"var:preset|spacing|lg","right":"var:preset|spacing|lg"}}},"backgroundColor":"surface"} -->
-			<div class="wp-block-column has-surface-background-color has-background" style="padding-top:var(--wp--preset--spacing--lg);padding-right:var(--wp--preset--spacing--lg);padding-bottom:var(--wp--preset--spacing--lg);padding-left:var(--wp--preset--spacing--lg)">
-				<!-- wp:heading {"level":3,"style":{"spacing":{"margin":{"bottom":"var:preset|spacing|sm"}}}} -->
-				<h3 class="wp-block-heading" style="margin-bottom:var(--wp--preset--spacing--sm)">James – Content Editor</h3>
-				<!-- /wp:heading -->
-
-				<!-- wp:paragraph {"style":{"typography":{"fontSize":"1rem","lineHeight":"1.6"}}} -->
-				<p style="font-size:1rem;line-height:1.6">"Updating content feels like untangling a web of HTML. I need something simpler and more intuitive."</p>
-				<!-- /wp:paragraph -->
-			</div>
-			<!-- /wp:column -->
-
-			<!-- wp:column {"style":{"spacing":{"padding":{"top":"var:preset|spacing|lg","bottom":"var:preset|spacing|lg","left":"var:preset|spacing|lg","right":"var:preset|spacing|lg"}}},"backgroundColor":"surface"} -->
-			<div class="wp-block-column has-surface-background-color has-background" style="padding-top:var(--wp--preset--spacing--lg);padding-right:var(--wp--preset--spacing--lg);padding-bottom:var(--wp--preset--spacing--lg);padding-left:var(--wp--preset--spacing--lg)">
-				<!-- wp:heading {"level":3,"style":{"spacing":{"margin":{"bottom":"var:preset|spacing|sm"}}}} -->
-				<h3 class="wp-block-heading" style="margin-bottom:var(--wp--preset--spacing--sm)">Avery – Program Director</h3>
-				<!-- /wp:heading -->
-
-				<!-- wp:paragraph {"style":{"typography":{"fontSize":"1rem","lineHeight":"1.6"}}} -->
-				<p style="font-size:1rem;line-height:1.6">"We need data-driven insights into how citizens interact with our services, not just page views."</p>
-				<!-- /wp:paragraph -->
-			</div>
-			<!-- /wp:column -->
+			<!-- /wp:group -->
 		</div>
-		<!-- /wp:columns -->
+		<!-- /wp:group -->
 	</div>
 	<!-- /wp:group -->
 
-	<!-- Chapter 3: Discovery & Audit -->
-	<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|3xl","bottom":"var:preset|spacing|3xl"}}},"backgroundColor":"surface","layout":{"type":"constrained"}} -->
-	<div class="wp-block-group alignfull has-surface-background-color has-background" style="padding-top:var(--wp--preset--spacing--3xl);padding-bottom:var(--wp--preset--spacing--3xl)">
-		<!-- wp:heading {"textAlign":"center","level":2,"style":{"spacing":{"margin":{"bottom":"var:preset|spacing|xl"}}}} -->
-		<h2 class="wp-block-heading has-text-align-center" style="margin-bottom:var(--wp--preset--spacing--xl)">Discovery & Audit</h2>
+	<!-- Chapter 2 – The People -->
+	<!-- wp:group {"className":"cs-chapter cs-chapter-personas","layout":{"type":"constrained"}} -->
+	<div class="wp-block-group cs-chapter cs-chapter-personas">
+		<!-- wp:heading {"level":2,"className":"cs-chapter-number"} -->
+		<h2 class="wp-block-heading cs-chapter-number">2</h2>
 		<!-- /wp:heading -->
 
-		<!-- wp:columns {"align":"wide","style":{"spacing":{"blockGap":{"top":"var:preset|spacing|md","left":"var:preset|spacing|md"}}}} -->
-		<div class="wp-block-columns alignwide">
-			<!-- wp:column -->
-			<div class="wp-block-column">
-				<!-- wp:heading {"level":3,"style":{"spacing":{"margin":{"bottom":"var:preset|spacing|sm"}}}} -->
-				<h3 class="wp-block-heading" style="margin-bottom:var(--wp--preset--spacing--sm)">Week 1–2: Content & IA Audit</h3>
-				<!-- /wp:heading -->
+		<!-- wp:group {"className":"cs-chapter-content","layout":{"type":"default"}} -->
+		<div class="wp-block-group cs-chapter-content">
+			<!-- wp:paragraph {"className":"cs-chapter-label"} -->
+			<p class="cs-chapter-label">CHAPTER 2 — WHO FEELS IT</p>
+			<!-- /wp:paragraph -->
 
-				<!-- wp:paragraph -->
-				<p>Comprehensive review of existing content structure, information architecture, and user pathways.</p>
-				<!-- /wp:paragraph -->
+			<!-- wp:heading {"level":2,"className":"cs-chapter-title"} -->
+			<h2 class="wp-block-heading cs-chapter-title">The <em>people</em> behind the metrics</h2>
+			<!-- /wp:heading -->
+
+			<!-- wp:paragraph {"className":"cs-body-text"} -->
+			<p class="cs-body-text">Behind every statistic, there are real people trying to accomplish something. Meet Maria, James, and Avery—three personas whose daily struggles reveal why the status quo isn't working.</p>
+			<!-- /wp:paragraph -->
+
+			<!-- wp:group {"className":"cs-chapter-grid","layout":{"type":"default"}} -->
+			<div class="wp-block-group cs-chapter-grid">
+				<!-- wp:group {"className":"cs-card cs-card-plain","layout":{"type":"constrained"}} -->
+				<div class="wp-block-group cs-card cs-card-plain">
+					<!-- wp:heading {"level":3} -->
+					<h3 class="wp-block-heading">Maria – <em>Working Parent</em> & Citizen</h3>
+					<!-- /wp:heading -->
+
+					<!-- wp:paragraph {"style":{"typography":{"fontStyle":"italic","color":{"text":"#1e9fd7"}}}} -->
+					<p style="color:#1e9fd7;font-style:italic">"I just want to quickly see if my family qualifies for benefits."</p>
+					<!-- /wp:paragraph -->
+
+					<!-- wp:list -->
+					<ul><li>Needs to access information during limited breaks at work</li><li>Mobile experience is frustrating and confusing</li><li>Gives up after 3–4 failed attempts to find answers</li></ul>
+					<!-- /wp:list -->
+				</div>
+				<!-- /wp:group -->
+
+				<!-- wp:group {"className":"cs-card cs-card-plain","layout":{"type":"constrained"}} -->
+				<div class="wp-block-group cs-card cs-card-plain">
+					<!-- wp:heading {"level":3} -->
+					<h3 class="wp-block-heading">James – <em>Content Editor</em></h3>
+					<!-- /wp:heading -->
+
+					<!-- wp:paragraph {"style":{"typography":{"fontStyle":"italic","color":{"text":"#1e9fd7"}}}} -->
+					<p style="color:#1e9fd7;font-style:italic">"Updating content feels like untangling a web of HTML."</p>
+					<!-- /wp:paragraph -->
+
+					<!-- wp:list -->
+					<ul><li>Spends hours making simple content updates</li><li>Wishes he could focus on content quality instead of markup</li><li>Frustrated by inconsistent formatting across pages</li></ul>
+					<!-- /wp:list -->
+				</div>
+				<!-- /wp:group -->
+
+				<!-- wp:group {"className":"cs-card cs-card-plain","layout":{"type":"constrained"}} -->
+				<div class="wp-block-group cs-card cs-card-plain">
+					<!-- wp:heading {"level":3} -->
+					<h3 class="wp-block-heading">Avery – <em>Program Director</em></h3>
+					<!-- /wp:heading -->
+
+					<!-- wp:paragraph {"style":{"typography":{"fontStyle":"italic","color":{"text":"#1e9fd7"}}}} -->
+					<p style="color:#1e9fd7;font-style:italic">"We need data-driven insights into how citizens interact with our services."</p>
+					<!-- /wp:paragraph -->
+
+					<!-- wp:list -->
+					<ul><li>Can't measure whether services are actually helping people</li><li>Lacks actionable analytics to improve service delivery</li><li>Struggles to demonstrate impact to stakeholders</li></ul>
+					<!-- /wp:list -->
+				</div>
+				<!-- /wp:group -->
 			</div>
-			<!-- /wp:column -->
-
-			<!-- wp:column -->
-			<div class="wp-block-column">
-				<!-- wp:heading {"level":3,"style":{"spacing":{"margin":{"bottom":"var:preset|spacing|sm"}}}} -->
-				<h3 class="wp-block-heading" style="margin-bottom:var(--wp--preset--spacing--sm)">Week 3–4: UX Research & Prototyping</h3>
-				<!-- /wp:heading -->
-
-				<!-- wp:paragraph -->
-				<p>User interviews, usability testing, and iterative design prototyping based on citizen feedback.</p>
-				<!-- /wp:paragraph -->
-			</div>
-			<!-- /wp:column -->
-
-			<!-- wp:column -->
-			<div class="wp-block-column">
-				<!-- wp:heading {"level":3,"style":{"spacing":{"margin":{"bottom":"var:preset|spacing|sm"}}}} -->
-				<h3 class="wp-block-heading" style="margin-bottom:var(--wp--preset--spacing--sm)">Week 5–6: Design System & Block Strategy</h3>
-				<!-- /wp:heading -->
-
-				<!-- wp:paragraph -->
-				<p>Development of a cohesive design system and block-based content strategy for sustainable management.</p>
-				<!-- /wp:paragraph -->
-			</div>
-			<!-- /wp:column -->
+			<!-- /wp:group -->
 		</div>
-		<!-- /wp:columns -->
+		<!-- /wp:group -->
 	</div>
 	<!-- /wp:group -->
 
-	<!-- Chapter 4: The Storytelling System -->
-	<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|3xl","bottom":"var:preset|spacing|3xl"}}},"backgroundColor":"white","layout":{"type":"constrained"}} -->
-	<div class="wp-block-group alignfull has-white-background-color has-background" style="padding-top:var(--wp--preset--spacing--3xl);padding-bottom:var(--wp--preset--spacing--3xl)">
-		<!-- wp:heading {"textAlign":"center","level":2,"style":{"spacing":{"margin":{"bottom":"var:preset|spacing|md"}}}} -->
-		<h2 class="wp-block-heading has-text-align-center" style="margin-bottom:var(--wp--preset--spacing--md)">A Storytelling System for the Public Sector</h2>
+	<!-- Chapter 3 – The Journey -->
+	<!-- wp:group {"className":"cs-chapter cs-chapter-journey","layout":{"type":"constrained"}} -->
+	<div class="wp-block-group cs-chapter cs-chapter-journey">
+		<!-- wp:heading {"level":2,"className":"cs-chapter-number"} -->
+		<h2 class="wp-block-heading cs-chapter-number">3</h2>
 		<!-- /wp:heading -->
 
-		<!-- wp:paragraph {"align":"center","style":{"typography":{"fontSize":"1.125rem"},"spacing":{"margin":{"bottom":"var:preset|spacing|xl"}}}} -->
-		<p class="has-text-align-center" style="margin-bottom:var(--wp--preset--spacing--xl);font-size:1.125rem">Each modernization project becomes a "Story" in the system—documenting the journey from problem discovery to measurable impact.</p>
+		<!-- wp:group {"className":"cs-chapter-content","layout":{"type":"default"}} -->
+		<div class="wp-block-group cs-chapter-content">
+			<!-- wp:paragraph {"className":"cs-chapter-label"} -->
+			<p class="cs-chapter-label">CHAPTER 3 — THE JOURNEY</p>
+			<!-- /wp:paragraph -->
+
+			<!-- wp:heading {"level":2,"className":"cs-chapter-title"} -->
+			<h2 class="wp-block-heading cs-chapter-title">From audit to <em>launch</em> in six weeks</h2>
+			<!-- /wp:heading -->
+
+			<!-- wp:group {"className":"cs-timeline","layout":{"type":"default"}} -->
+			<div class="wp-block-group cs-timeline">
+				<!-- wp:group {"className":"cs-timeline-item","layout":{"type":"default"}} -->
+				<div class="wp-block-group cs-timeline-item">
+					<!-- wp:paragraph {"className":"cs-timeline-label"} -->
+					<p class="cs-timeline-label">Weeks 1–2</p>
+					<!-- /wp:paragraph -->
+
+					<!-- wp:paragraph {"className":"cs-timeline-body"} -->
+					<p class="cs-timeline-body">Content and information architecture audit. User research sessions with citizens and content editors to identify pain points and priorities.</p>
+					<!-- /wp:paragraph -->
+				</div>
+				<!-- /wp:group -->
+
+				<!-- wp:group {"className":"cs-timeline-item","layout":{"type":"default"}} -->
+				<div class="wp-block-group cs-timeline-item">
+					<!-- wp:paragraph {"className":"cs-timeline-label"} -->
+					<p class="cs-timeline-label">Weeks 3–4</p>
+					<!-- /wp:paragraph -->
+
+					<!-- wp:paragraph {"className":"cs-timeline-body"} -->
+					<p class="cs-timeline-body">UX research and prototyping. Rapid iteration on navigation patterns, content structure, and mobile-first layouts with stakeholder feedback.</p>
+					<!-- /wp:paragraph -->
+				</div>
+				<!-- /wp:group -->
+
+				<!-- wp:group {"className":"cs-timeline-item","layout":{"type":"default"}} -->
+				<div class="wp-block-group cs-timeline-item">
+					<!-- wp:paragraph {"className":"cs-timeline-label"} -->
+					<p class="cs-timeline-label">Weeks 5–6</p>
+					<!-- /wp:paragraph -->
+
+					<!-- wp:paragraph {"className":"cs-timeline-body"} -->
+					<p class="cs-timeline-body">Design system and block strategy. Content migration, pattern library development, and final accessibility testing before launch.</p>
+					<!-- /wp:paragraph -->
+				</div>
+				<!-- /wp:group -->
+			</div>
+			<!-- /wp:group -->
+		</div>
+		<!-- /wp:group -->
+	</div>
+	<!-- /wp:group -->
+
+	<!-- Chapter 4 – The System -->
+	<!-- wp:group {"className":"cs-chapter cs-chapter-system","layout":{"type":"constrained"}} -->
+	<div class="wp-block-group cs-chapter cs-chapter-system">
+		<!-- wp:heading {"level":2,"className":"cs-chapter-number"} -->
+		<h2 class="wp-block-heading cs-chapter-number">4</h2>
+		<!-- /wp:heading -->
+
+		<!-- wp:group {"className":"cs-chapter-content","layout":{"type":"default"}} -->
+		<div class="wp-block-group cs-chapter-content">
+			<!-- wp:paragraph {"className":"cs-chapter-label"} -->
+			<p class="cs-chapter-label">CHAPTER 4 — THE SYSTEM</p>
+			<!-- /wp:paragraph -->
+
+			<!-- wp:heading {"level":2,"className":"cs-chapter-title"} -->
+			<h2 class="wp-block-heading cs-chapter-title">Turning modernization work into <em>repeatable stories</em></h2>
+			<!-- /wp:heading -->
+
+			<!-- wp:paragraph {"className":"cs-body-text"} -->
+			<p class="cs-body-text">Every modernization project tells a story. CivicSignals helps public sector teams document their journey from problem discovery through measurable impact, making complex transformations understandable and accessible to citizens and stakeholders.</p>
+			<!-- /wp:paragraph -->
+
+			<!-- wp:group {"className":"cs-card cs-card-plain","layout":{"type":"constrained","contentSize":"600px"}} -->
+			<div class="wp-block-group cs-card cs-card-plain" style="max-width:600px;margin-top:40px">
+				<!-- wp:heading {"level":3} -->
+				<h3 class="wp-block-heading">The Story Model</h3>
+				<!-- /wp:heading -->
+
+				<!-- wp:paragraph -->
+				<p>Each modernization project becomes a <strong>Story</strong> in the system. Stories are organized by <strong>Audience</strong> (who you're serving) and <strong>Theme</strong> (the core topic—Accessibility, Performance, Modernization, Governance). Content editors use reusable block patterns to build consistent narratives without code, maintaining design standards automatically while focusing on what matters: telling the story of impact.</p>
+				<!-- /wp:paragraph -->
+			</div>
+			<!-- /wp:group -->
+		</div>
+		<!-- /wp:group -->
+	</div>
+	<!-- /wp:group -->
+
+	<!-- Chapter 5 – Impact -->
+	<!-- wp:group {"className":"cs-chapter cs-chapter-impact","layout":{"type":"constrained"}} -->
+	<div class="wp-block-group cs-chapter cs-chapter-impact">
+		<!-- wp:heading {"level":2,"className":"cs-chapter-number"} -->
+		<h2 class="wp-block-heading cs-chapter-number">5</h2>
+		<!-- /wp:heading -->
+
+		<!-- wp:group {"className":"cs-chapter-content","layout":{"type":"default"}} -->
+		<div class="wp-block-group cs-chapter-content">
+			<!-- wp:paragraph {"className":"cs-chapter-label"} -->
+			<p class="cs-chapter-label">CHAPTER 5 — IMPACT</p>
+			<!-- /wp:paragraph -->
+
+			<!-- wp:heading {"level":2,"className":"cs-chapter-title"} -->
+			<h2 class="wp-block-heading cs-chapter-title">What changed for <em>citizens</em> and teams</h2>
+			<!-- /wp:heading -->
+
+			<!-- wp:query {"queryId":2,"query":{"perPage":1,"pages":0,"offset":0,"postType":"story","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false},"layout":{"type":"constrained"}} -->
+			<div class="wp-block-query">
+				<!-- wp:post-template {"layout":{"type":"default"}} -->
+					<!-- wp:group {"className":"cs-card cs-card-featured","layout":{"type":"constrained"}} -->
+					<div class="wp-block-group cs-card cs-card-featured">
+						<!-- wp:post-title {"level":3,"className":"cs-featured-card-title","isLink":true} /-->
+
+						<!-- wp:post-excerpt {"className":"cs-featured-card-excerpt","excerptLength":40} /-->
+
+						<!-- wp:paragraph {"fontSize":"small","style":{"elements":{"link":{"color":{"text":"var:preset|color|primary"}}}}} -->
+						<p class="has-small-font-size"><a href="#">Read the full story →</a></p>
+						<!-- /wp:paragraph -->
+					</div>
+					<!-- /wp:group -->
+				<!-- /wp:post-template -->
+
+				<!-- wp:query-no-results -->
+					<!-- wp:group {"className":"cs-card cs-card-featured","layout":{"type":"constrained"}} -->
+					<div class="wp-block-group cs-card cs-card-featured">
+						<!-- wp:heading {"level":3,"className":"cs-featured-card-title"} -->
+						<h3 class="wp-block-heading cs-featured-card-title">Modernizing the Maze: A Citizen-Centered Transformation</h3>
+						<!-- /wp:heading -->
+
+						<!-- wp:paragraph {"className":"cs-featured-card-excerpt"} -->
+						<p class="cs-featured-card-excerpt">A case study documenting how a federal agency transformed its digital presence to better serve citizens through modern WordPress technology and user-centered design. Task completion rates increased by 55%, and citizens now find eligibility information in under 3 minutes.</p>
+						<!-- /wp:paragraph -->
+
+						<!-- wp:paragraph {"fontSize":"small","style":{"elements":{"link":{"color":{"text":"var:preset|color|primary"}}}}} -->
+						<p class="has-small-font-size"><a href="/story/">Read the full story →</a></p>
+						<!-- /wp:paragraph -->
+					</div>
+					<!-- /wp:group -->
+				<!-- /wp:query-no-results -->
+			</div>
+			<!-- /wp:query -->
+
+			<!-- wp:query {"queryId":1,"query":{"perPage":3,"pages":0,"offset":0,"postType":"story","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false},"layout":{"type":"constrained"}} -->
+			<div class="wp-block-query">
+				<!-- wp:group {"className":"cs-card-row","layout":{"type":"default"}} -->
+				<div class="wp-block-group cs-card-row">
+					<!-- wp:post-template {"layout":{"type":"default"}} -->
+						<!-- wp:group {"className":"cs-card","layout":{"type":"constrained"}} -->
+						<div class="wp-block-group cs-card">
+							<!-- wp:post-title {"level":3,"className":"cs-card-title","isLink":true} /-->
+
+							<!-- wp:post-excerpt {"className":"cs-card-excerpt","excerptLength":20,"moreText":"","showMoreOnNewLine":false} /-->
+
+							<!-- wp:group {"className":"cs-card-meta","layout":{"type":"flex","flexWrap":"wrap"}} -->
+							<div class="wp-block-group cs-card-meta">
+								<!-- wp:paragraph {"className":"cs-meta"} -->
+								<p class="cs-meta">Audience:</p>
+								<!-- /wp:paragraph -->
+
+								<!-- wp:post-terms {"term":"audience","separator":", ","style":{"elements":{"link":{"color":{"text":"var:preset|color|primary"}}}},"fontSize":"small"} /-->
+
+								<!-- wp:paragraph {"className":"cs-meta"} -->
+								<p class="cs-meta">· Theme:</p>
+								<!-- /wp:paragraph -->
+
+								<!-- wp:post-terms {"term":"theme","separator":", ","style":{"elements":{"link":{"color":{"text":"var:preset|color|primary"}}}},"fontSize":"small"} /-->
+							</div>
+							<!-- /wp:group -->
+						</div>
+						<!-- /wp:group -->
+					<!-- /wp:post-template -->
+
+					<!-- wp:query-no-results -->
+						<!-- wp:paragraph -->
+						<p>No stories found. Create some stories to see them here!</p>
+						<!-- /wp:paragraph -->
+					<!-- /wp:query-no-results -->
+				</div>
+				<!-- /wp:group -->
+			</div>
+			<!-- /wp:query -->
+		</div>
+		<!-- /wp:group -->
+	</div>
+	<!-- /wp:group -->
+
+	<!-- Chapter 6 – The Next Story -->
+	<!-- wp:group {"className":"cs-chapter cs-chapter-cta cs-section-cta","layout":{"type":"constrained"}} -->
+	<div class="wp-block-group cs-chapter cs-chapter-cta cs-section-cta">
+		<!-- wp:paragraph {"className":"cs-chapter-label","align":"center"} -->
+		<p class="cs-chapter-label has-text-align-center">CHAPTER 6 — YOUR TURN</p>
 		<!-- /wp:paragraph -->
 
-		<!-- wp:query {"queryId":1,"query":{"perPage":3,"pages":0,"offset":0,"postType":"story","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false},"align":"wide","layout":{"type":"constrained"}} -->
-		<div class="wp-block-query alignwide">
-			<!-- wp:post-template {"layout":{"type":"grid","columnCount":3}} -->
-				<!-- wp:post-featured-image {"isLink":true,"aspectRatio":"16/9","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|md"}}}} /-->
-
-				<!-- wp:post-title {"level":3,"isLink":true,"fontSize":"large"} /-->
-
-				<!-- wp:post-excerpt {"moreText":"Read story","showMoreOnNewLine":false} /-->
-			<!-- /wp:post-template -->
-
-			<!-- wp:query-no-results -->
-				<!-- wp:paragraph {"placeholder":"Add text or blocks that will display when a query returns no results."} -->
-				<p>No stories found. Create some stories to see them here!</p>
-				<!-- /wp:paragraph -->
-			<!-- /wp:query-no-results -->
-		</div>
-		<!-- /wp:query -->
-	</div>
-	<!-- /wp:group -->
-
-	<!-- Chapter 5: Impact Metrics -->
-	<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|3xl","bottom":"var:preset|spacing|3xl"},"margin":{"top":"0","bottom":"0"}}},"layout":{"type":"constrained"}} -->
-	<div class="wp-block-group alignfull" style="margin-top:0;margin-bottom:0;padding-top:var(--wp--preset--spacing--3xl);padding-bottom:var(--wp--preset--spacing--3xl)">
-		<!-- wp:heading {"textAlign":"center","level":2,"style":{"spacing":{"margin":{"bottom":"var:preset|spacing|xl"}}}} -->
-		<h2 class="wp-block-heading has-text-align-center" style="margin-bottom:var(--wp--preset--spacing--xl)">Measuring Impact</h2>
+		<!-- wp:heading {"textAlign":"center","level":2,"className":"cs-chapter-title"} -->
+		<h2 class="wp-block-heading has-text-align-center cs-chapter-title">Every modernization deserves a story <em>citizens can follow</em>.</h2>
 		<!-- /wp:heading -->
 
-		<!-- wp:columns {"align":"wide","style":{"spacing":{"blockGap":{"top":"var:preset|spacing|lg","left":"var:preset|spacing|lg"}}}} -->
-		<div class="wp-block-columns alignwide">
-			<!-- wp:column {"style":{"spacing":{"padding":{"top":"var:preset|spacing|lg","bottom":"var:preset|spacing|lg","left":"var:preset|spacing|md","right":"var:preset|spacing|md"}}},"backgroundColor":"surface"} -->
-			<div class="wp-block-column has-surface-background-color has-background" style="padding-top:var(--wp--preset--spacing--lg);padding-right:var(--wp--preset--spacing--md);padding-bottom:var(--wp--preset--spacing--lg);padding-left:var(--wp--preset--spacing--md)">
-				<!-- wp:paragraph {"align":"center","style":{"typography":{"textTransform":"uppercase","fontSize":"0.75rem","letterSpacing":"0.1em"},"spacing":{"margin":{"bottom":"var:preset|spacing|sm"}}},"fontSize":"small"} -->
-				<p class="has-text-align-center has-small-font-size" style="margin-bottom:var(--wp--preset--spacing--sm);font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase">Task Success Rate</p>
-				<!-- /wp:paragraph -->
+		<!-- wp:paragraph {"className":"cs-body-text","align":"center"} -->
+		<p class="cs-body-text has-text-align-center">Transform your next redesign from a project into a narrative. Document the journey, measure the impact, and build trust through transparency.</p>
+		<!-- /wp:paragraph -->
 
-				<!-- wp:heading {"textAlign":"center","level":3,"style":{"typography":{"fontSize":"2.5rem","fontWeight":"700"},"spacing":{"margin":{"bottom":"var:preset|spacing|xs"}}}} -->
-				<h3 class="wp-block-heading has-text-align-center" style="margin-bottom:var(--wp--preset--spacing--xs);font-size:2.5rem;font-weight:700">62% → 94%</h3>
-				<!-- /wp:heading -->
+		<!-- wp:buttons {"className":"cs-hero-actions","layout":{"type":"flex","justifyContent":"center"}} -->
+		<div class="wp-block-buttons cs-hero-actions">
+			<!-- wp:button {"className":"cs-btn-primary","style":{"color":{"background":"#1e9fd7","text":"#020b1f"}}} -->
+			<div class="wp-block-button cs-btn-primary"><a class="wp-block-button__link wp-element-button" href="/case-study/civicsignals/" style="background-color:#1e9fd7;color:#020b1f">View the full case study</a></div>
+			<!-- /wp:button -->
 
-				<!-- wp:paragraph {"align":"center","fontSize":"small"} -->
-				<p class="has-text-align-center has-small-font-size">Before → After</p>
-				<!-- /wp:paragraph -->
-			</div>
-			<!-- /wp:column -->
-
-			<!-- wp:column {"style":{"spacing":{"padding":{"top":"var:preset|spacing|lg","bottom":"var:preset|spacing|lg","left":"var:preset|spacing|md","right":"var:preset|spacing|md"}}},"backgroundColor":"surface"} -->
-			<div class="wp-block-column has-surface-background-color has-background" style="padding-top:var(--wp--preset--spacing--lg);padding-right:var(--wp--preset--spacing--md);padding-bottom:var(--wp--preset--spacing--lg);padding-left:var(--wp--preset--spacing--md)">
-				<!-- wp:paragraph {"align":"center","style":{"typography":{"textTransform":"uppercase","fontSize":"0.75rem","letterSpacing":"0.1em"},"spacing":{"margin":{"bottom":"var:preset|spacing|sm"}}},"fontSize":"small"} -->
-				<p class="has-text-align-center has-small-font-size" style="margin-bottom:var(--wp--preset--spacing--sm);font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase">Time to Complete Task</p>
-				<!-- /wp:paragraph -->
-
-				<!-- wp:heading {"textAlign":"center","level":3,"style":{"typography":{"fontSize":"2.5rem","fontWeight":"700"},"spacing":{"margin":{"bottom":"var:preset|spacing|xs"}}}} -->
-				<h3 class="wp-block-heading has-text-align-center" style="margin-bottom:var(--wp--preset--spacing--xs);font-size:2.5rem;font-weight:700">8.5m → 2.1m</h3>
-				<!-- /wp:heading -->
-
-				<!-- wp:paragraph {"align":"center","fontSize":"small"} -->
-				<p class="has-text-align-center has-small-font-size">Before → After</p>
-				<!-- /wp:paragraph -->
-			</div>
-			<!-- /wp:column -->
-
-			<!-- wp:column {"style":{"spacing":{"padding":{"top":"var:preset|spacing|lg","bottom":"var:preset|spacing|lg","left":"var:preset|spacing|md","right":"var:preset|spacing|md"}}},"backgroundColor":"surface"} -->
-			<div class="wp-block-column has-surface-background-color has-background" style="padding-top:var(--wp--preset--spacing--lg);padding-right:var(--wp--preset--spacing--md);padding-bottom:var(--wp--preset--spacing--lg);padding-left:var(--wp--preset--spacing--md)">
-				<!-- wp:paragraph {"align":"center","style":{"typography":{"textTransform":"uppercase","fontSize":"0.75rem","letterSpacing":"0.1em"},"spacing":{"margin":{"bottom":"var:preset|spacing|sm"}}},"fontSize":"small"} -->
-				<p class="has-text-align-center has-small-font-size" style="margin-bottom:var(--wp--preset--spacing--sm);font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase">Bounce Rate</p>
-				<!-- /wp:paragraph -->
-
-				<!-- wp:heading {"textAlign":"center","level":3,"style":{"typography":{"fontSize":"2.5rem","fontWeight":"700"},"spacing":{"margin":{"bottom":"var:preset|spacing|xs"}}}} -->
-				<h3 class="wp-block-heading has-text-align-center" style="margin-bottom:var(--wp--preset--spacing--xs);font-size:2.5rem;font-weight:700">68% → 22%</h3>
-				<!-- /wp:heading -->
-
-				<!-- wp:paragraph {"align":"center","fontSize":"small"} -->
-				<p class="has-text-align-center has-small-font-size">Before → After</p>
-				<!-- /wp:paragraph -->
-			</div>
-			<!-- /wp:column -->
-		</div>
-		<!-- /wp:columns -->
-	</div>
-	<!-- /wp:group -->
-
-	<!-- Chapter 6: Accessibility & Inclusion -->
-	<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|3xl","bottom":"var:preset|spacing|3xl"}}},"backgroundColor":"surface","layout":{"type":"constrained"}} -->
-	<div class="wp-block-group alignfull has-surface-background-color has-background" style="padding-top:var(--wp--preset--spacing--3xl);padding-bottom:var(--wp--preset--spacing--3xl)">
-		<!-- wp:heading {"textAlign":"center","level":2,"style":{"spacing":{"margin":{"bottom":"var:preset|spacing|xl"}}}} -->
-		<h2 class="wp-block-heading has-text-align-center" style="margin-bottom:var(--wp--preset--spacing--xl)">Accessibility & Inclusion by Design</h2>
-		<!-- /wp:heading -->
-
-		<!-- wp:list {"align":"center","style":{"spacing":{"padding":{"left":"var:preset|spacing|xl"}}}} -->
-		<ul class="wp-block-list" style="padding-left:var(--wp--preset--spacing--xl)">
-			<!-- wp:list-item -->
-			<li>Semantic heading structure for screen reader navigation</li>
-			<!-- /wp:list-item -->
-
-			<!-- wp:list-item -->
-			<li>Full keyboard navigation support</li>
-			<!-- /wp:list-item -->
-
-			<!-- wp:list-item -->
-			<li>WCAG 2.1 AA color contrast compliance</li>
-			<!-- /wp:list-item -->
-
-			<!-- wp:list-item -->
-			<li>ARIA landmarks and labels for enhanced screen reader support</li>
-			<!-- /wp:list-item -->
-		</ul>
-		<!-- /wp:list -->
-	</div>
-	<!-- /wp:group -->
-
-	<!-- Closing CTA -->
-	<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|3xl","bottom":"var:preset|spacing|3xl"}}},"gradient":"primary-gradient","layout":{"type":"constrained"}} -->
-	<div class="wp-block-group alignfull has-primary-gradient-gradient-background has-background" style="padding-top:var(--wp--preset--spacing--3xl);padding-bottom:var(--wp--preset--spacing--3xl)">
-		<!-- wp:heading {"textAlign":"center","level":2,"style":{"spacing":{"margin":{"bottom":"var:preset|spacing|lg"}}},"textColor":"white"} -->
-		<h2 class="wp-block-heading has-text-align-center has-white-color has-text-color" style="margin-bottom:var(--wp--preset--spacing--lg)">Every public story deserves a better platform.</h2>
-		<!-- /wp:heading -->
-
-		<!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"}} -->
-		<div class="wp-block-buttons">
-			<!-- wp:button {"textColor":"white","style":{"color":{"background":"var:preset|color|accent"}}} -->
-			<div class="wp-block-button"><a class="wp-block-button__link has-white-color has-text-color has-background wp-element-button" style="background-color:var(--wp--preset--color--accent)" href="/case-study/civicsignals/">Read the Full Case Study</a></div>
+			<!-- wp:button {"className":"cs-btn-secondary","style":{"border":{"color":"rgba(255,255,255,0.2)"},"color":{"text":"#f5f7ff"}}} -->
+			<div class="wp-block-button cs-btn-secondary"><a class="wp-block-button__link wp-element-button" href="/contact/" style="border-color:rgba(255,255,255,0.2);color:#f5f7ff">Talk about your use case</a></div>
 			<!-- /wp:button -->
 		</div>
 		<!-- /wp:buttons -->

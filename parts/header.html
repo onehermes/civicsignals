@@ -1,14 +1,40 @@
-<!-- wp:group {"tagName":"header","style":{"spacing":{"padding":{"top":"var:preset|spacing|sm","bottom":"var:preset|spacing|sm"},"blockGap":"var:preset|spacing|md"}},"layout":{"type":"flex","flexWrap":"wrap","justifyContent":"space-between"}} -->
-<header class="wp-block-group" style="padding-top:var(--wp--preset--spacing--sm);padding-bottom:var(--wp--preset--spacing--sm)" role="banner">
-	<!-- wp:group {"layout":{"type":"flex","flexWrap":"nowrap"}} -->
-	<div class="wp-block-group">
-		<!-- wp:site-title {"level":0,"fontSize":"large"} /-->
+<!-- wp:group {"tagName":"header","className":"cs-header-shell","layout":{"type":"constrained"}} -->
+<header class="wp-block-group cs-header-shell" role="banner">
+	<!-- Skip to main content link -->
+	<!-- wp:paragraph {"className":"skip-link-wrapper"} -->
+	<p class="skip-link-wrapper"><a href="#main-content" class="skip-link">Skip to main content</a></p>
+	<!-- /wp:paragraph -->
+	
+	<!-- wp:group {"className":"cs-header","layout":{"type":"flex","flexWrap":"wrap","justifyContent":"space-between","alignItems":"center"}} -->
+	<div class="wp-block-group cs-header">
+		<!-- wp:group {"className":"cs-header-brand","layout":{"type":"default"}} -->
+		<div class="wp-block-group cs-header-brand">
+			<!-- wp:site-title {"level":0,"fontSize":"medium","className":"cs-header-logo"} /-->
+		</div>
+		<!-- /wp:group -->
+
+		<!-- wp:group {"className":"cs-header-nav-wrapper","layout":{"type":"flex","flexWrap":"wrap","alignItems":"center"}} -->
+		<div class="wp-block-group cs-header-nav-wrapper">
+			<!-- wp:navigation {"className":"cs-header-nav","layout":{"type":"flex","setCascadingProperties":true,"justifyContent":"center"},"fontSize":"small"} /-->
+
+			<!-- wp:group {"className":"cs-header-cta-wrapper","layout":{"type":"flex"}} -->
+			<div class="wp-block-group cs-header-cta-wrapper">
+				<!-- wp:paragraph {"className":"cs-header-cta-label"} -->
+				<p class="cs-header-cta-label">Join CivicSignals</p>
+				<!-- /wp:paragraph -->
+
+				<!-- wp:buttons {"className":"cs-header-cta"} -->
+				<div class="wp-block-buttons cs-header-cta">
+					<!-- wp:button {"className":"cs-btn-header","style":{"color":{"background":"#1e9fd7","text":"#020b1f"}}} -->
+					<div class="wp-block-button cs-btn-header"><a class="wp-block-button__link wp-element-button" href="/case-study/civicsignals/" style="background-color:#1e9fd7;color:#020b1f">View Case Study</a></div>
+					<!-- /wp:button -->
+				</div>
+				<!-- /wp:buttons -->
+			</div>
+			<!-- /wp:group -->
+		</div>
+		<!-- /wp:group -->
 	</div>
 	<!-- /wp:group -->
-
-	<!-- wp:navigation {"layout":{"type":"flex","setCascadingProperties":true,"justifyContent":"right"}} -->
-		<!-- wp:navigation-link {"label":"Home","type":"page","id":2,"url":"/","kind":"post-type","isTopLevelLink":true} /-->
-		<!-- wp:navigation-link {"label":"About","type":"page","id":3,"url":"/about/","kind":"post-type","isTopLevelLink":true} /-->
-	<!-- /wp:navigation -->
 </header>
 <!-- /wp:group -->
