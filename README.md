@@ -1,249 +1,396 @@
-# CivicSignals – A WordPress Storytelling System for Public Sector Digital Modernization
+<div align="center">
 
-A modern block theme showcasing how WordPress can power digital transformation in government and public sector organizations. Built with Full Site Editing, custom content models, and storytelling patterns designed for content editors.
+# 🌟 CivicSignals
 
----
+### A WordPress Storytelling System for Public Sector Digital Modernization
 
-## Description
+*A modern block theme showcasing how WordPress powers digital transformation in government organizations*
 
-**CivicSignals** is a WordPress block theme that demonstrates enterprise-level WordPress development for the public sector. The theme provides a complete storytelling system where federal agencies can document their digital modernization journeys—from problem discovery through measurable impact.
+![WordPress](https://img.shields.io/badge/WordPress-6.0+-blue?style=for-the-badge&logo=wordpress)
+![PHP](https://img.shields.io/badge/PHP-7.4+-777BB4?style=for-the-badge&logo=php&logoColor=white)
+![Block Theme](https://img.shields.io/badge/Block%20Theme-FSE-green?style=for-the-badge)
+![License](https://img.shields.io/badge/License-GPL%20v2+-green?style=for-the-badge)
+![Accessibility](https://img.shields.io/badge/Accessibility-WCAG%202.1%20AA-orange?style=for-the-badge)
 
-This project serves as a portfolio piece to demonstrate alignment with enterprise and public sector WordPress work, showcasing:
-
-- **Block theme architecture** for modern WordPress development
-- **Custom content modeling** for complex storytelling needs
-- **Accessible design patterns** meeting WCAG 2.1 AA standards
-- **Content editor workflows** optimized for non-technical teams
-- **Public sector focus** with government-appropriate design and functionality
+</div>
 
 ---
 
-## Key Features
+## 📖 Overview
 
-### Block Theme Architecture
-- Full Site Editing (FSE) support
-- `theme.json` configuration for global styles and settings
-- Block templates and template parts
-- Block patterns for reusable content components
+**CivicSignals** is an enterprise-level WordPress block theme designed specifically for public sector organizations. It transforms complex digital modernization journeys into compelling, accessible narratives that citizens and stakeholders can understand and engage with.
 
-### Custom Content Model
-- **Custom Post Type: `story`**
-  - Supports title, editor, excerpt, thumbnail, custom fields, revisions
-  - Public with archive support
-  - REST API enabled for headless possibilities
+### ✨ What Makes CivicSignals Special
 
-- **Custom Taxonomies:**
-  - `audience` (non-hierarchical): citizen, content-editor, leadership
-  - `theme` (hierarchical): accessibility, performance, modernization, governance
-  - Both fully REST API enabled
-
-### Storytelling Patterns
-Pre-built block patterns for content editors:
-- **Chapter Introduction** — Hero sections with overline, heading, and narrative
-- **Persona Scene** — Two-column layouts featuring user personas and quotes
-- **Impact Metrics** — Before/after KPI cards showcasing measurable results
-
-### Scrollytelling Home Page
-A narrative-driven front page featuring:
-- Chapter-based storytelling structure
-- Hero sections with gradient backgrounds
-- Character introductions
-- Discovery & audit timeline
-- Dynamic story showcase via query loops
-- Impact metrics visualization
-- Accessibility highlights
-- Call-to-action sections
-
-### Accessibility & Performance
-- Semantic HTML structure with proper heading hierarchy
-- ARIA landmarks and labels
-- Keyboard navigation support
-- WCAG 2.1 AA color contrast compliance
-- Responsive design patterns
-- Optimized block markup for performance
+🎯 **Storytelling-First Design** — Chapter-based narrative structure with automatic content formatting  
+🎨 **DaVincii-Inspired Aesthetics** — Bold typography, minimal design, large background chapter numbers  
+🖱️ **Premium Interactions** — Custom cursor, reactive particle system, smooth parallax effects  
+♿ **Accessibility Built-In** — WCAG 2.1 AA compliant with semantic HTML and ARIA support  
+📱 **Fully Responsive** — Beautiful on all devices, from mobile to desktop  
+⚡ **Performance Optimized** — Pure WordPress, no build process, lightning fast
 
 ---
 
-## Tech Stack
+## 🎯 Key Features
 
-- **WordPress:** 6.0+ (Full Site Editing required)
-- **PHP:** 7.4+
-- **Block Editor:** Gutenberg (native WordPress blocks)
-- **Theme Type:** Block theme (theme.json-based)
-- **No Build Process:** Pure WordPress, no compilation required
+### 🏗️ Modern Block Theme Architecture
+
+- ✅ **Full Site Editing (FSE)** — Complete control via Site Editor
+- ✅ **theme.json Configuration** — Global styles, colors, typography, spacing
+- ✅ **Block Templates & Parts** — Fully customizable template system
+- ✅ **Reusable Block Patterns** — Pre-built components for content editors
+
+### 📚 Custom Content Model
+
+**Custom Post Type: `story`**
+- Title, editor, excerpt, featured image
+- Custom fields and revisions support
+- Public archive with REST API enabled
+- Automatic chapter number detection and formatting
+
+**Custom Taxonomies:**
+- `audience` (non-hierarchical) — Citizen, Content Editor, Leadership
+- `theme` (hierarchical) — Accessibility, Performance, Modernization, Governance
+- Both fully REST API enabled for headless possibilities
+
+### 🎨 Storytelling Patterns
+
+Pre-built block patterns that content editors can use instantly:
+
+| Pattern | Description |
+|---------|-------------|
+| **Chapter Introduction** | Hero sections with overline text, large headings, and narrative lede |
+| **Persona Scene** | Two-column layouts featuring user personas with quotes and pain points |
+| **Impact Metrics** | Before/after KPI cards showcasing measurable transformation results |
+
+### 📖 Automatic Content Structuring
+
+**Smart JavaScript Detection:**
+- ✨ Automatically extracts chapter numbers from headings (`Chapter 1` → shows background "1")
+- 🎯 Structures personas with quotes, pain points, and narrative
+- 📊 Formats metrics with proper typography
+- 💬 Styles quotes with elegant borders and emphasis
+
+### 🎭 Scrollytelling Front Page
+
+A narrative-driven homepage experience featuring:
+
+- **Chapter 0: Hero** — Bold statement with gradient background
+- **Chapter 1: The Problem** — Metrics strip with key indicators
+- **Chapter 2: The People** — Persona cards with real stories
+- **Chapter 3: The Journey** — Timeline of discovery and transformation
+- **Chapter 4: The System** — How the storytelling framework works
+- **Chapter 5: Impact** — Featured stories and query loops
+- **Chapter 6: CTA** — Call to action for engagement
+
+### 🎨 Visual Design System
+
+**Color Palette:**
+- Deep space blue backgrounds (`#020b1f`)
+- Primary teal accents (`#1e9fd7`)
+- Warm yellow highlights (`#ffcc4d`)
+- High-contrast text for accessibility
+
+**Typography:**
+- **Inter** font family for modern, readable text
+- Responsive font sizes with clamp() for scalability
+- Careful letter-spacing and line-height for optimal readability
+
+**Spacing & Layout:**
+- 120px chapter gaps for dramatic separation
+- 1120px max-width shell for comfortable reading
+- Consistent spacing scale (XS to XXL)
+
+### ♿ Accessibility & Performance
+
+- ✅ Semantic HTML5 structure
+- ✅ ARIA landmarks and labels
+- ✅ Keyboard navigation support
+- ✅ Screen reader optimizations
+- ✅ WCAG 2.1 AA color contrast
+- ✅ `prefers-reduced-motion` support
+- ✅ High contrast mode compatibility
+- ✅ Optimized block markup
 
 ---
 
-## Installation
+## 🚀 Quick Start
 
-### 1. Install the Theme
+### Installation
 
-1. Upload the `civicsignals` folder to your WordPress installation:
+**Option 1: Manual Upload**
+1. Download or clone this repository
+2. Upload the `civicsignals` folder to:
    ```
    wp-content/themes/civicsignals/
    ```
+3. Activate in **Appearance → Themes**
 
-2. Or, if using WP-CLI:
-   ```bash
-   wp theme install /path/to/civicsignals --activate
-   ```
+**Option 2: WP-CLI**
+```bash
+wp theme install /path/to/civicsignals --activate
+```
 
-### 2. Activate the Theme
+### Initial Setup
 
-1. Navigate to **Appearance → Themes** in WordPress admin
-2. Find "CivicSignals" and click **Activate**
+Upon activation, the theme automatically:
+- ✅ Registers the `story` custom post type
+- ✅ Creates `audience` and `theme` taxonomies
+- ✅ Sets up base taxonomy terms
+- ✅ Creates demo content (if none exists)
+- ✅ Configures navigation menu
 
-### 3. Initial Setup
-
-1. **Create Stories:**
-   - Navigate to **Stories → Add New**
-   - The custom post type will be available immediately after activation
-
-2. **Set Up Taxonomies:**
-   - While editing a Story, you'll see **Audiences** and **Themes** in the right sidebar
-   - Add terms like "citizen", "content-editor" (Audiences) and "accessibility", "performance" (Themes)
-
-3. **Customize Templates:**
-   - Go to **Appearance → Editor** to customize templates using the Site Editor
-   - Templates are fully editable: `templates/front-page.html`, `templates/single-story.html`, etc.
+**Manual Steps:**
+1. Go to **Stories → Add New** to create your first story
+2. Assign **Audiences** and **Themes** in the right sidebar
+3. Use block patterns to build your narrative (see Content Editor Workflow below)
 
 ---
 
-## Content Editor Workflow
+## 📝 Content Editor Workflow
 
-### Creating a Story
+### Creating Your First Story
 
-1. **Navigate to Stories → Add New**
+#### Step 1: Create Story Post
+1. Navigate to **Stories → Add New**
+2. Enter a compelling **Title** (e.g., "Modernizing the Benefits Portal")
+3. Add an **Excerpt** — this becomes your hero subtitle
+4. Upload a **Featured Image** for visual impact
 
-2. **Enter Story Details:**
-   - **Title:** Enter the story title (e.g., "Modernizing the Benefits Portal")
-   - **Excerpt:** Write a short subtitle/summary (appears below the title on single story pages)
-   - **Featured Image:** Upload a hero image for the story
+#### Step 2: Assign Categories
+- **Audiences:** Who is this story for? (Citizen, Content Editor, Leadership)
+- **Themes:** What topic does it cover? (Accessibility, Performance, Modernization, Governance)
 
-3. **Assign Taxonomies:**
-   - **Audiences:** Select relevant audiences (e.g., "citizen", "content-editor")
-   - **Themes:** Select topics/themes (e.g., "accessibility", "modernization")
+#### Step 3: Build Your Narrative
 
-4. **Build the Story Content:**
-   - In the editor, click the **+ (Inserter)** button
-   - Navigate to pattern categories:
-     - **CivicSignals Chapters** — for chapter introduction patterns
-     - **CivicSignals Scenes** — for persona scenes and impact metrics
-   - Insert patterns as needed:
-     - Start with "Chapter Introduction" for your opening
-     - Add "Persona Scene" patterns to introduce user personas
-     - Use "Impact Metrics" to showcase before/after results
-   - Customize the pattern content directly in the editor
+Use the block inserter (`+`) to add patterns:
 
-5. **Preview & Publish:**
-   - Use **Preview** to see how the story looks
-   - Click **Publish** when ready
+**For Chapter Headings:**
+```
+Simply type: "Chapter 1 - The Problem"
+JavaScript automatically:
+  ✓ Extracts the number (1)
+  ✓ Shows large background "1"
+  ✓ Formats as proper chapter section
+```
 
-### Using Block Patterns
+**Using Block Patterns:**
+1. Click **+ (Inserter)** → **Patterns**
+2. Choose **CivicSignals Chapters** or **CivicSignals Scenes**
+3. Insert patterns like:
+   - **Chapter Introduction** — for section headers
+   - **Persona Scene** — for user stories
+   - **Impact Metrics** — for results
 
-Patterns are reusable content blocks that maintain consistent design:
+#### Step 4: Auto-Formatting Magic
 
-- **To insert:** Click **+ → Patterns → CivicSignals Chapters** (or **Scenes**)
-- **To customize:** Click on any pattern block and edit text directly
-- **To modify:** All patterns use standard WordPress blocks and can be fully customized
+Just write naturally — the JavaScript handles:
+- **Personas:** "Maria – Working Parent" → styled persona card
+- **Quotes:** "I just want..." → elegant quote block
+- **Pain Points:** List after "Pain Points:" → formatted list
+- **Metrics:** "Task Success: 62% → 94%" → metric card
 
----
-
-## Why This Project for Lone Rock Point?
-
-This project directly aligns with Lone Rock Point's core focus areas:
-
-### Enterprise / Public Sector WordPress
-- Demonstrates understanding of government website requirements
-- Showcases custom content modeling for complex organizational needs
-- Reflects awareness of public sector constraints and opportunities
-
-### Digital Storytelling Systems
-- Provides a complete storytelling framework with custom post types and taxonomies
-- Offers reusable patterns that enable content editors to build narratives without code
-- Includes scrollytelling homepage demonstrating narrative-driven design
-
-### Block Themes + Gutenberg
-- Built entirely as a modern block theme using Full Site Editing
-- Leverages `theme.json` for global styles and design tokens
-- Showcases advanced block pattern development for content teams
-- Demonstrates understanding of the WordPress block editor ecosystem
-
-### Accessibility and Performance
-- Implements WCAG 2.1 AA standards throughout
-- Uses semantic HTML and proper ARIA landmarks
-- Optimized block markup for performance
-- Keyboard navigation and screen reader considerations built-in
-
-### Portfolio Demonstration
-This theme serves as a tangible example of:
-- Modern WordPress development practices
-- Understanding of public sector digital needs
-- Ability to create maintainable, editor-friendly solutions
-- Technical competency with block themes and Full Site Editing
+#### Step 5: Preview & Publish
+- Click **Preview** to see the formatted story
+- The automatic structuring appears on the frontend
+- **Publish** when ready!
 
 ---
 
-## File Structure
+## 🛠️ Tech Stack
+
+| Technology | Version | Purpose |
+|------------|---------|---------|
+| **WordPress** | 6.0+ | Core CMS platform |
+| **PHP** | 7.4+ | Server-side logic |
+| **Block Editor** | Native Gutenberg | Content editing |
+| **Theme Type** | Block Theme (FSE) | Modern theme architecture |
+| **CSS** | Custom Properties | Design tokens |
+| **JavaScript** | Vanilla ES6+ | Interactive features |
+
+**No Build Process Required** — Pure WordPress, ready to use!
+
+---
+
+## 📁 File Structure
 
 ```
 civicsignals/
-├── style.css                 # Theme header and metadata
-├── functions.php             # Theme setup and includes
-├── theme.json                # Global styles and settings
-├── templates/                # Block templates
-│   ├── index.html
+│
+├── 📄 style.css              # Theme metadata & global styles
+├── 📄 functions.php          # Theme setup & enqueues
+├── 📄 theme.json             # Global design tokens & settings
+├── 📄 README.md              # This file
+│
+├── 📁 templates/             # Block templates
+│   ├── index.html            # Default template
 │   ├── front-page.html       # Scrollytelling homepage
-│   └── single-story.html     # Story single template
-├── parts/                    # Template parts
-│   ├── header.html
-│   └── footer.html
-├── patterns/                 # Block patterns (if any)
-├── inc/                      # PHP includes
+│   └── single-story.html     # Story single page
+│
+├── 📁 parts/                 # Template parts
+│   ├── header.html           # Site header
+│   └── footer.html           # Site footer
+│
+├── 📁 inc/                   # PHP includes
 │   ├── post-types.php        # Story CPT registration
 │   ├── taxonomies.php        # Audience & Theme taxonomies
-│   └── block-patterns.php    # Pattern registrations
-└── assets/                   # Static assets
+│   ├── block-patterns.php    # Pattern registrations
+│   └── setup-activate.php    # Auto-setup on activation
+│
+└── 📁 assets/                # Static assets
     └── js/
-        └── accessibility.js  # Accessibility enhancements
+        ├── cursor-interaction.js    # Custom cursor & particles
+        └── chapter-numbers.js       # Auto-content structuring
 ```
 
 ---
 
-## Development Notes
+## 🎨 Customization Guide
 
-### Customization Points
+### Colors & Typography
 
-- **Colors & Typography:** Edit `theme.json` under `settings.color.palette` and `settings.typography.fontSizes`
-- **Templates:** All templates are in `templates/` and fully editable via Site Editor
-- **Patterns:** Modify patterns in `inc/block-patterns.php` or via Site Editor
-- **Related Stories:** The query filter in `functions.php` finds stories sharing theme terms
+Edit `theme.json` to customize:
+
+```json
+{
+  "settings": {
+    "color": {
+      "palette": [
+        {
+          "slug": "primary",
+          "color": "#1e9fd7",
+          "name": "Primary"
+        }
+        // Add your colors...
+      ]
+    },
+    "typography": {
+      "fontFamilies": [
+        {
+          "fontFamily": "\"Your Font\", sans-serif",
+          "slug": "your-font"
+        }
+      ]
+    }
+  }
+}
+```
+
+### Templates
+
+All templates are editable via **Appearance → Editor**:
+- Modify block markup directly in the Site Editor
+- Changes are saved to database (exportable as template parts)
+- Fully visual editing experience
+
+### Patterns
+
+Customize patterns:
+- Edit in `inc/block-patterns.php` for code-level changes
+- Or modify via Site Editor: **Patterns → Manage patterns**
+
+---
+
+## 🎯 Why CivicSignals for Enterprise WordPress?
+
+### Aligned with Industry Best Practices
+
+✅ **Modern Architecture** — Built with latest WordPress block theme standards  
+✅ **Accessibility First** — WCAG 2.1 AA compliance throughout  
+✅ **Editor-Friendly** — Non-technical teams can create beautiful content  
+✅ **Maintainable Code** — Clean, documented, WordPress-native  
+✅ **Performance Optimized** — No build process, fast loading  
+✅ **Public Sector Ready** — Government-appropriate design and functionality
+
+### Perfect For
+
+- 🏛️ Federal agencies documenting modernization projects
+- 📊 Government programs showcasing impact metrics
+- 👥 Public sector teams telling citizen-centered stories
+- 🎨 Agencies needing accessible, beautiful web presence
+- 📖 Organizations requiring structured content workflows
+
+---
+
+## 🔧 Development
 
 ### Extending the Theme
 
-- Add new block patterns in `inc/block-patterns.php`
-- Create additional templates in `templates/` following block template format
-- Customize query loops using the `query_loop_block_query_vars` filter
-- Add template parts in `parts/` and reference them with `wp:template-part`
+**Add New Patterns:**
+```php
+// In inc/block-patterns.php
+register_block_pattern('civicsignals/your-pattern', [
+    'title' => 'Your Pattern Name',
+    'content' => '<!-- wp:group ... -->',
+]);
+```
+
+**Custom Query Filters:**
+```php
+// In functions.php
+add_filter('query_loop_block_query_vars', 'your_custom_filter', 10, 2);
+```
+
+**Template Customization:**
+- Create new templates in `templates/`
+- Add template parts in `parts/`
+- Reference with `wp:template-part` block
 
 ---
 
-## License
+## 📊 Project Alignment
 
-GNU General Public License v2 or later
+This theme demonstrates:
+
+### Enterprise WordPress Expertise
+- Understanding of government website requirements
+- Custom content modeling for complex needs
+- Public sector constraints and opportunities
+
+### Digital Storytelling Systems
+- Complete narrative framework
+- Reusable patterns for content teams
+- Scrollytelling homepage design
+
+### Block Themes & Gutenberg
+- Modern Full Site Editing implementation
+- Advanced `theme.json` usage
+- Block pattern development expertise
+
+### Accessibility & Performance
+- WCAG 2.1 AA standards implementation
+- Semantic HTML and ARIA patterns
+- Optimized performance strategies
 
 ---
 
-## Credits
+## 📄 License
+
+**GNU General Public License v2 or later**
+
+This theme, like WordPress, is licensed under the GPL. Use it freely, modify it, and share it.
+
+---
+
+## 👤 Credits
 
 **Theme:** CivicSignals  
 **Author:** Paul Miranda  
-**Purpose:** Portfolio project for Lone Rock Point  
-**Focus:** Enterprise WordPress, Public Sector, Block Themes, Accessibility
+**Purpose:** Portfolio demonstration for enterprise WordPress work  
+**Focus Areas:** Public Sector, Block Themes, Accessibility, Digital Storytelling
 
 ---
 
-## Questions?
+## 🤝 Support
 
-For questions about this theme or WordPress development inquiries, contact Lone Rock Point.
+For questions or WordPress development inquiries, reach out to Lone Rock Point.
 
+---
+
+<div align="center">
+
+**Built with ❤️ for public sector digital transformation**
+
+*Turning modernization journeys into compelling narratives*
+
+</div>
