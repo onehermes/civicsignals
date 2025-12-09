@@ -95,9 +95,18 @@ function civicsignals_filter_related_stories_query( $query_args, $block ) {
 		return $query_args;
 	}
 
+	// Get block attributes - handle both WP_Block object and array
+	$block_attrs = array();
+	if ( is_object( $block ) && property_exists( $block, 'parsed_block' ) && isset( $block->parsed_block['attrs'] ) ) {
+		// WP_Block object - access parsed_block property
+		$block_attrs = $block->parsed_block['attrs'];
+	} elseif ( is_array( $block ) && isset( $block['attrs'] ) ) {
+		// Array format
+		$block_attrs = $block['attrs'];
+	}
+
 	// Check if this is the related stories query (queryId 1)
-	// The block context may vary, so we check multiple ways
-	$query_id = isset( $block['attrs']['queryId'] ) ? $block['attrs']['queryId'] : null;
+	$query_id = isset( $block_attrs['queryId'] ) ? $block_attrs['queryId'] : null;
 	
 	// If queryId is 1, or if we're in single-story template context
 	if ( 1 === $query_id || is_singular( 'story' ) ) {
