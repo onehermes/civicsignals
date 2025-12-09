@@ -32,21 +32,23 @@
 	}
 
 	function addChapterNumbers() {
-		// Detect if we're on a single story page
-		// WordPress adds various body classes: single-story, single-post-type-story, post-type-story, etc.
-		const bodyClasses = document.body.className.split(' ');
-		const isStoryPage = bodyClasses.some(cls => 
-			cls.includes('story') && (cls.includes('single') || cls.includes('post-type'))
-		) || window.location.pathname.includes('/story/');
+		// Script is only enqueued on story pages via PHP, but add safety check
+		// Try multiple selectors to find story content
+		let storyContent = document.querySelector('.cs-story-content .wp-block-post-content');
 		
-		// Also check if the script is loaded (which only happens on story pages)
-		// And check for the story content wrapper
-		const storyContent = document.querySelector('.cs-story-content .wp-block-post-content');
-		if (!storyContent && !isStoryPage) {
-			return;
+		// Fallback: try direct post-content if wrapper structure is different
+		if (!storyContent) {
+			storyContent = document.querySelector('.wp-block-post-content');
 		}
 		
-		// If we have story content, proceed (script is only enqueued on story pages anyway)
+		// Fallback: try finding content in main area
+		if (!storyContent) {
+			const mainContent = document.querySelector('#main-content, main');
+			if (mainContent) {
+				storyContent = mainContent.querySelector('.wp-block-post-content');
+			}
+		}
+		
 		if (!storyContent) {
 			return;
 		}
@@ -54,7 +56,8 @@
 		// Find all h2 headings in the content (not already inside a .cs-chapter)
 		const headings = Array.from(storyContent.querySelectorAll('h2')).filter(h2 => {
 			return !h2.classList.contains('cs-chapter-number') && 
-			       !h2.closest('.cs-chapter');
+			       !h2.closest('.cs-chapter') &&
+			       !h2.closest('.cs-hero'); // Don't process hero titles
 		});
 
 		if (headings.length === 0) {
