@@ -150,6 +150,7 @@ body.custom-cursor-active .cs-cursor-dot {
 .cs-hero-title em,
 .cs-hero-title i {
 	font-style: italic;
+	color: #ffcc4d;
 	font-weight: 400;
 	opacity: 0.9;
 }
@@ -299,23 +300,43 @@ body.custom-cursor-active .cs-cursor-dot {
 /* Story Content Chapter Detection */
 .cs-story-content {
 	position: relative;
+	margin-top: var(--cs-section-gap);
 }
 
 .cs-story-content .wp-block-post-content {
 	position: relative;
 }
 
-/* Auto-styled chapter sections created by JavaScript */
+/* Auto-styled chapter sections created by JavaScript - Match front page exactly */
 .cs-story-content .cs-chapter-auto {
 	margin-top: var(--cs-section-gap);
-	padding-top: 40px;
-	border-top: 1px solid rgba(255, 255, 255, 0.08);
+	padding-top: 12px;
+	border-top: 1px solid rgba(255, 255, 255, 0.05);
 	position: relative;
+}
+
+.cs-story-content .cs-chapter-auto:first-of-type {
+	margin-top: var(--cs-section-gap);
 }
 
 .cs-story-content .cs-chapter-auto .cs-chapter-content {
 	position: relative;
 	z-index: 1;
+	max-width: 800px;
+}
+
+.cs-story-content .cs-chapter-auto .cs-chapter-number {
+	font-size: clamp(120px, 20vw, 200px);
+	font-weight: 700;
+	color: rgba(255, 255, 255, 0.03);
+	line-height: 1;
+	margin: 0;
+	position: absolute;
+	top: -40px;
+	left: -20px;
+	z-index: -1;
+	letter-spacing: -0.05em;
+	pointer-events: none;
 }
 
 /* Fallback: Style h2 headings in story content as chapters */
@@ -333,15 +354,30 @@ body.custom-cursor-active .cs-cursor-dot {
 	position: relative;
 }
 
-/* Auto-structured Story Content Styles */
+/* Auto-structured Story Content Styles - Match front page */
 .cs-story-content .cs-chapter-content {
 	max-width: 800px;
+	position: relative;
+	z-index: 1;
 }
 
-/* Persona Cards */
+/* Persona Cards - Match front page card styling */
 .cs-story-content .cs-persona-card {
 	margin: 40px 0;
 	max-width: 800px;
+	background: transparent;
+	border: 1px solid rgba(255, 255, 255, 0.08);
+	border-radius: 0;
+	padding: 22px 24px 24px;
+	transform: translateY(0);
+	transition: transform 220ms ease-out, box-shadow 220ms ease-out, background 220ms ease-out, border-color 220ms ease-out;
+}
+
+.cs-story-content .cs-persona-card:hover {
+	transform: translateY(-3px);
+	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+	background: rgba(16, 28, 63, 0.5);
+	border-color: rgba(30, 159, 215, 0.4);
 }
 
 .cs-story-content .cs-persona-content {
@@ -498,7 +534,7 @@ body.custom-cursor-active .cs-cursor-dot {
 	line-height: 1.7;
 }
 
-/* Better spacing between chapter content sections */
+/* Better spacing between chapter content sections - Match front page styling */
 .cs-story-content .cs-chapter-content {
 	display: flex;
 	flex-direction: column;
@@ -506,15 +542,30 @@ body.custom-cursor-active .cs-cursor-dot {
 }
 
 .cs-story-content .cs-chapter-content > .cs-chapter-label {
-	margin-bottom: 12px;
+	font-size: 12px;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	color: #8e9ad0;
+	margin: 0 0 10px 0;
+	font-weight: 500;
 }
 
 .cs-story-content .cs-chapter-content > .cs-chapter-title {
-	margin-bottom: 24px;
+	font-size: clamp(32px, 4vw, 48px);
+	font-weight: 700;
+	margin: 0 0 24px 0;
+	line-height: 1.1;
+	letter-spacing: -0.02em;
+}
+
+.cs-story-content .cs-chapter-content > .cs-chapter-title em {
+	font-style: italic;
+	color: #1e9fd7;
 }
 
 .cs-story-content .cs-chapter-content > p.cs-body-text {
-	margin: 16px 0;
+	margin: 20px 0;
+	max-width: 720px;
 }
 
 .cs-story-content .cs-chapter-content > p.cs-body-text + p.cs-body-text {
@@ -522,24 +573,29 @@ body.custom-cursor-active .cs-cursor-dot {
 }
 
 .cs-story-content .cs-chapter-content > h3 {
-	margin-top: 32px;
+	margin-top: 40px;
 	margin-bottom: 16px;
 }
 
 .cs-story-content .cs-chapter-content > .cs-persona-card {
-	margin-top: 40px;
+	margin-top: 48px;
 	margin-bottom: 32px;
 }
 
-/* First paragraph after chapter title should be lede-style */
+/* First paragraph after chapter title should be lede-style - Match front page */
 .cs-story-content .cs-chapter-content > .cs-chapter-title + p {
 	font-size: 18px;
 	max-width: 720px;
-	color: #b8c5e8;
+	color: #d3dbff;
 	margin-top: 0;
-	margin-bottom: 24px;
-	line-height: 1.7;
+	margin-bottom: 32px;
+	line-height: 1.6;
 	font-weight: 400;
+}
+
+.cs-story-content .cs-chapter-content > .cs-chapter-title + p em {
+	font-style: italic;
+	color: #1e9fd7;
 }
 
 /* Sections */

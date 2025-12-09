@@ -1,26 +1,30 @@
 <!-- wp:template-part {"slug":"header","tagName":"header"} /-->
 
-<!-- wp:group {"tagName":"main","className":"cs-shell","style":{"spacing":{"padding":{"top":"100px","bottom":"120px"}}},"layout":{"type":"constrained"}} -->
-<main id="main-content" class="wp-block-group cs-shell" style="padding-top:100px;padding-bottom:120px" role="main">
+<!-- wp:group {"tagName":"main","className":"cs-shell","style":{"spacing":{"padding":{"top":"0","bottom":"0"}}},"layout":{"type":"constrained"}} -->
+<main id="main-content" class="wp-block-group cs-shell" style="padding-top:0;padding-bottom:0" role="main">
 	
-	<!-- Header Section -->
-	<!-- wp:group {"align":"wide","style":{"spacing":{"blockGap":"var:preset|spacing|md","margin":{"bottom":"var:preset|spacing|xl"}}}} -->
-	<div class="wp-block-group alignwide" style="margin-bottom:var(--wp--preset--spacing--xl)">
-		<!-- wp:post-title {"level":1,"align":"wide"} /-->
+	<!-- Hero Section (Story Header) -->
+	<!-- wp:group {"className":"cs-hero","layout":{"type":"constrained"}} -->
+	<div class="wp-block-group cs-hero">
+		<!-- wp:paragraph {"className":"cs-hero-eyebrow"} -->
+		<p class="cs-hero-eyebrow"><span class="visually-hidden">Story: </span>CIVICSIGNALS STORY</p>
+		<!-- /wp:paragraph -->
 
-		<!-- wp:post-excerpt {"style":{"spacing":{"margin":{"top":"var:preset|spacing|md","bottom":"var:preset|spacing|md"}}},"fontSize":"large"} /-->
+		<!-- wp:post-title {"level":1,"className":"cs-hero-title"} /-->
 
-		<!-- wp:group {"layout":{"type":"flex","flexWrap":"wrap"}} -->
-		<div class="wp-block-group">
-			<!-- wp:post-terms {"term":"audience","style":{"elements":{"link":{"color":{"text":"var:preset|color|primary",":hover":{"color":{"text":"var:preset|color|secondary"}}}}},"spacing":{"padding":{"top":"var:preset|spacing|xs","bottom":"var:preset|spacing|xs","left":"var:preset|spacing|sm","right":"var:preset|spacing|sm"},"margin":{"right":"var:preset|spacing|sm","top":"var:preset|spacing|sm"},"border":{"width":"1px","color":"var:preset|color|primary","radius":"20px"}},"className":"is-style-badge","fontSize":"small"} /-->
+		<!-- wp:post-excerpt {"className":"cs-hero-subtitle"} /-->
 
-			<!-- wp:post-terms {"term":"theme","style":{"elements":{"link":{"color":{"text":"var:preset|color|primary",":hover":{"color":{"text":"var:preset|color|secondary"}}}}},"spacing":{"padding":{"top":"var:preset|spacing|xs","bottom":"var:preset|spacing|xs","left":"var:preset|spacing|sm","right":"var:preset|spacing|sm"},"margin":{"right":"var:preset|spacing|sm","top":"var:preset|spacing|sm"},"border":{"width":"1px","color":"var:preset|color|primary","radius":"20px"}},"className":"is-style-badge","fontSize":"small"} /-->
+		<!-- wp:group {"layout":{"type":"flex","flexWrap":"wrap","gap":"12px"},"style":{"spacing":{"margin":{"top":"24px"}}}} -->
+		<div class="wp-block-group" style="margin-top:24px">
+			<!-- wp:post-terms {"term":"audience","style":{"elements":{"link":{"color":{"text":"var:preset|color|primary"}}},"spacing":{"padding":{"top":"8px","bottom":"8px","left":"18px","right":"18px"},"margin":{"right":"12px","bottom":"12px"},"border":{"width":"1px","color":"var:preset|color|primary","radius":"0"}},"fontSize":"small","className":"cs-chip"} /-->
+
+			<!-- wp:post-terms {"term":"theme","style":{"elements":{"link":{"color":{"text":"var:preset|color|primary"}}},"spacing":{"padding":{"top":"8px","bottom":"8px","left":"18px","right":"18px"},"margin":{"right":"12px","bottom":"12px"},"border":{"width":"1px","color":"var:preset|color|primary","radius":"0"}},"fontSize":"small","className":"cs-chip"} /-->
 		</div>
 		<!-- /wp:group -->
 	</div>
 	<!-- /wp:group -->
 
-	<!-- Main Content -->
+	<!-- Story Content -->
 	<!-- wp:group {"className":"cs-story-content","layout":{"type":"constrained"}} -->
 	<div class="wp-block-group cs-story-content">
 		<!-- wp:post-content {"align":"wide","layout":{"type":"constrained"}} /-->
