@@ -12,69 +12,6 @@
 	let windowHeight = window.innerHeight;
 	let isReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-	// 3D Tilt effect for cards - Subtle and refined
-	class TiltCard {
-		constructor(element) {
-			this.element = element;
-			this.rect = element.getBoundingClientRect();
-			this.rotateX = 0;
-			this.rotateY = 0;
-			// Reduced tilt intensity for more subtle effect
-			this.tiltIntensity = parseFloat(element.dataset.tilt) || 5;
-			this.targetRotateX = 0;
-			this.targetRotateY = 0;
-			
-			this.init();
-		}
-
-		init() {
-			this.element.style.transition = 'transform 0.15s cubic-bezier(0.23, 1, 0.32, 1)';
-			this.element.style.transformStyle = 'preserve-3d';
-			
-			this.element.addEventListener('mouseenter', () => {
-				document.addEventListener('mousemove', this.onMouseMove.bind(this));
-			});
-			
-			this.element.addEventListener('mouseleave', () => {
-				document.removeEventListener('mousemove', this.onMouseMove.bind(this));
-				this.reset();
-			});
-			
-			// Smooth animation loop
-			this.animate();
-		}
-
-		onMouseMove(e) {
-			this.rect = this.element.getBoundingClientRect();
-			const centerX = this.rect.left + this.rect.width / 2;
-			const centerY = this.rect.top + this.rect.height / 2;
-			
-			const deltaX = e.clientX - centerX;
-			const deltaY = e.clientY - centerY;
-			
-			// Calculate target rotation with reduced intensity
-			this.targetRotateY = (deltaX / (this.rect.width / 2)) * this.tiltIntensity;
-			this.targetRotateX = -(deltaY / (this.rect.height / 2)) * this.tiltIntensity;
-		}
-
-		animate() {
-			if (isReducedMotion) return;
-			
-			// Smooth interpolation for more refined movement
-			this.rotateX += (this.targetRotateX - this.rotateX) * 0.15;
-			this.rotateY += (this.targetRotateY - this.rotateY) * 0.15;
-			
-			// Very subtle scale, no translation
-			this.element.style.transform = `perspective(1000px) rotateX(${this.rotateX}deg) rotateY(${this.rotateY}deg) scale3d(1.01, 1.01, 1.01)`;
-			
-			requestAnimationFrame(() => this.animate());
-		}
-
-		reset() {
-			this.targetRotateX = 0;
-			this.targetRotateY = 0;
-		}
-	}
 
 	// Create interactive background canvas
 	function createInteractiveBackground() {
@@ -312,15 +249,9 @@
 		});
 	}
 
-	// Initialize tilt effects only (no magnetic movement)
+	// No interactive element movement effects - just cursor and particles
 	function initInteractiveElements() {
-		// Apply subtle 3D tilt to cards only
-		const tiltCards = document.querySelectorAll('.cs-card, .cs-card-plain, .cs-persona-card, [data-tilt]');
-		tiltCards.forEach(card => {
-			if (!isReducedMotion) {
-				new TiltCard(card);
-			}
-		});
+		// All movement effects removed - keeping only cursor and particle system
 	}
 
 	// Initialize everything
@@ -342,11 +273,6 @@
 			
 			// Create custom cursor
 			createCursorFollower();
-			
-			// Initialize interactive elements after a delay to ensure DOM is ready
-			setTimeout(() => {
-				initInteractiveElements();
-			}, 200);
 		}
 
 		// Listen for changes in reduced motion preference
