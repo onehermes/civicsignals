@@ -32,13 +32,21 @@
 	}
 
 	function addChapterNumbers() {
-		// Only run on single story pages
-		if (!document.body.classList.contains('single-story') && 
-		    !document.body.classList.contains('post-type-story')) {
+		// Detect if we're on a single story page
+		// WordPress adds various body classes: single-story, single-post-type-story, post-type-story, etc.
+		const bodyClasses = document.body.className.split(' ');
+		const isStoryPage = bodyClasses.some(cls => 
+			cls.includes('story') && (cls.includes('single') || cls.includes('post-type'))
+		) || window.location.pathname.includes('/story/');
+		
+		// Also check if the script is loaded (which only happens on story pages)
+		// And check for the story content wrapper
+		const storyContent = document.querySelector('.cs-story-content .wp-block-post-content');
+		if (!storyContent && !isStoryPage) {
 			return;
 		}
-
-		const storyContent = document.querySelector('.cs-story-content .wp-block-post-content');
+		
+		// If we have story content, proceed (script is only enqueued on story pages anyway)
 		if (!storyContent) {
 			return;
 		}
