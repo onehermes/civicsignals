@@ -12,98 +12,23 @@
 	let windowHeight = window.innerHeight;
 	let isReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-	// Magnetic effect for interactive elements
-	class MagneticElement {
-		constructor(element) {
-			this.element = element;
-			this.bounds = element.getBoundingClientRect();
-			this.rect = this.element.getBoundingClientRect();
-			this.x = 0;
-			this.y = 0;
-			this.targetX = 0;
-			this.targetY = 0;
-			
-			// Magnetic strength (0-1, where 1 is strongest)
-			this.strength = parseFloat(element.dataset.magnetic) || 0.3;
-			this.radius = parseFloat(element.dataset.magneticRadius) || 100;
-			
-			this.init();
-		}
-
-		init() {
-			this.element.style.transition = 'transform 0.3s cubic-bezier(0.23, 1, 0.32, 1)';
-			
-			this.element.addEventListener('mouseenter', () => {
-				document.addEventListener('mousemove', this.onMouseMove.bind(this));
-			});
-			
-			this.element.addEventListener('mouseleave', () => {
-				document.removeEventListener('mousemove', this.onMouseMove.bind(this));
-				this.animateTo(0, 0);
-			});
-		}
-
-		onMouseMove(e) {
-			this.rect = this.element.getBoundingClientRect();
-			const centerX = this.rect.left + this.rect.width / 2;
-			const centerY = this.rect.top + this.rect.height / 2;
-			
-			const deltaX = e.clientX - centerX;
-			const deltaY = e.clientY - centerY;
-			const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
-			
-			if (distance < this.radius) {
-				const force = (1 - distance / this.radius) * this.strength;
-				this.targetX = deltaX * force;
-				this.targetY = deltaY * force;
-			} else {
-				this.targetX = 0;
-				this.targetY = 0;
-			}
-			
-			this.animate();
-		}
-
-		animate() {
-			this.x += (this.targetX - this.x) * 0.2;
-			this.y += (this.targetY - this.y) * 0.2;
-			this.element.style.transform = `translate(${this.x}px, ${this.y}px)`;
-		}
-
-		animateTo(x, y) {
-			this.targetX = x;
-			this.targetY = y;
-			const animate = () => {
-				this.x += (this.targetX - this.x) * 0.15;
-				this.y += (this.targetY - this.y) * 0.15;
-				this.element.style.transform = `translate(${this.x}px, ${this.y}px)`;
-				
-				if (Math.abs(this.targetX - this.x) > 0.1 || Math.abs(this.targetY - this.y) > 0.1) {
-					requestAnimationFrame(animate);
-				} else {
-					this.x = 0;
-					this.y = 0;
-					this.element.style.transform = 'translate(0, 0)';
-				}
-			};
-			animate();
-		}
-	}
-
-	// 3D Tilt effect for cards
+	// 3D Tilt effect for cards - Subtle and refined
 	class TiltCard {
 		constructor(element) {
 			this.element = element;
 			this.rect = element.getBoundingClientRect();
 			this.rotateX = 0;
 			this.rotateY = 0;
-			this.tiltIntensity = parseFloat(element.dataset.tilt) || 10;
+			// Reduced tilt intensity for more subtle effect
+			this.tiltIntensity = parseFloat(element.dataset.tilt) || 5;
+			this.targetRotateX = 0;
+			this.targetRotateY = 0;
 			
 			this.init();
 		}
 
 		init() {
-			this.element.style.transition = 'transform 0.1s ease-out';
+			this.element.style.transition = 'transform 0.15s cubic-bezier(0.23, 1, 0.32, 1)';
 			this.element.style.transformStyle = 'preserve-3d';
 			
 			this.element.addEventListener('mouseenter', () => {
@@ -114,6 +39,9 @@
 				document.removeEventListener('mousemove', this.onMouseMove.bind(this));
 				this.reset();
 			});
+			
+			// Smooth animation loop
+			this.animate();
 		}
 
 		onMouseMove(e) {
@@ -124,16 +52,27 @@
 			const deltaX = e.clientX - centerX;
 			const deltaY = e.clientY - centerY;
 			
-			this.rotateY = (deltaX / (this.rect.width / 2)) * this.tiltIntensity;
-			this.rotateX = -(deltaY / (this.rect.height / 2)) * this.tiltIntensity;
+			// Calculate target rotation with reduced intensity
+			this.targetRotateY = (deltaX / (this.rect.width / 2)) * this.tiltIntensity;
+			this.targetRotateX = -(deltaY / (this.rect.height / 2)) * this.tiltIntensity;
+		}
+
+		animate() {
+			if (isReducedMotion) return;
 			
-			this.element.style.transform = `perspective(1000px) rotateX(${this.rotateX}deg) rotateY(${this.rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+			// Smooth interpolation for more refined movement
+			this.rotateX += (this.targetRotateX - this.rotateX) * 0.15;
+			this.rotateY += (this.targetRotateY - this.rotateY) * 0.15;
+			
+			// Very subtle scale, no translation
+			this.element.style.transform = `perspective(1000px) rotateX(${this.rotateX}deg) rotateY(${this.rotateY}deg) scale3d(1.01, 1.01, 1.01)`;
+			
+			requestAnimationFrame(() => this.animate());
 		}
 
 		reset() {
-			this.rotateX = 0;
-			this.rotateY = 0;
-			this.element.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
+			this.targetRotateX = 0;
+			this.targetRotateY = 0;
 		}
 	}
 
@@ -373,18 +312,10 @@
 		});
 	}
 
-	// Initialize magnetic and tilt effects
+	// Initialize tilt effects only (no magnetic movement)
 	function initInteractiveElements() {
-		// Apply magnetic effect to buttons and primary CTAs
-		const magneticElements = document.querySelectorAll('.cs-btn-primary, .cs-btn-secondary, .cs-hero-actions a, [data-magnetic]');
-		magneticElements.forEach(el => {
-			if (!isReducedMotion) {
-				new MagneticElement(el);
-			}
-		});
-
-		// Apply 3D tilt to cards
-		const tiltCards = document.querySelectorAll('.cs-card, .cs-card-plain, .cs-persona-card, .cs-hero, [data-tilt]');
+		// Apply subtle 3D tilt to cards only
+		const tiltCards = document.querySelectorAll('.cs-card, .cs-card-plain, .cs-persona-card, [data-tilt]');
 		tiltCards.forEach(card => {
 			if (!isReducedMotion) {
 				new TiltCard(card);
