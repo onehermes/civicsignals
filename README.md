@@ -23,7 +23,7 @@
 ### ✨ What Makes CivicSignals Special
 
 🎯 **Storytelling-First Design** — Chapter-based narrative structure with automatic content formatting  
-🎨 **DaVincii-Inspired Aesthetics** — Bold typography, minimal design, large background chapter numbers  
+🎨 **Premium Aesthetics** — Bold typography, minimal design, large background chapter numbers  
 🖱️ **Premium Interactions** — Custom cursor, reactive particle system, smooth parallax effects  
 ♿ **Accessibility Built-In** — WCAG 2.1 AA compliant with semantic HTML and ARIA support  
 📱 **Fully Responsive** — Beautiful on all devices, from mobile to desktop  
