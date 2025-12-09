@@ -1,6 +1,6 @@
 /**
- * Cursor Interaction Effects
- * Creates interactive background elements that respond to cursor movement
+ * Enhanced Cursor Interaction Effects
+ * Premium mouse interactions inspired by award-winning web design
  */
 
 (function() {
@@ -10,6 +10,132 @@
 	let mouseY = 0;
 	let windowWidth = window.innerWidth;
 	let windowHeight = window.innerHeight;
+	let isReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+	// Magnetic effect for interactive elements
+	class MagneticElement {
+		constructor(element) {
+			this.element = element;
+			this.bounds = element.getBoundingClientRect();
+			this.rect = this.element.getBoundingClientRect();
+			this.x = 0;
+			this.y = 0;
+			this.targetX = 0;
+			this.targetY = 0;
+			
+			// Magnetic strength (0-1, where 1 is strongest)
+			this.strength = parseFloat(element.dataset.magnetic) || 0.3;
+			this.radius = parseFloat(element.dataset.magneticRadius) || 100;
+			
+			this.init();
+		}
+
+		init() {
+			this.element.style.transition = 'transform 0.3s cubic-bezier(0.23, 1, 0.32, 1)';
+			
+			this.element.addEventListener('mouseenter', () => {
+				document.addEventListener('mousemove', this.onMouseMove.bind(this));
+			});
+			
+			this.element.addEventListener('mouseleave', () => {
+				document.removeEventListener('mousemove', this.onMouseMove.bind(this));
+				this.animateTo(0, 0);
+			});
+		}
+
+		onMouseMove(e) {
+			this.rect = this.element.getBoundingClientRect();
+			const centerX = this.rect.left + this.rect.width / 2;
+			const centerY = this.rect.top + this.rect.height / 2;
+			
+			const deltaX = e.clientX - centerX;
+			const deltaY = e.clientY - centerY;
+			const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+			
+			if (distance < this.radius) {
+				const force = (1 - distance / this.radius) * this.strength;
+				this.targetX = deltaX * force;
+				this.targetY = deltaY * force;
+			} else {
+				this.targetX = 0;
+				this.targetY = 0;
+			}
+			
+			this.animate();
+		}
+
+		animate() {
+			this.x += (this.targetX - this.x) * 0.2;
+			this.y += (this.targetY - this.y) * 0.2;
+			this.element.style.transform = `translate(${this.x}px, ${this.y}px)`;
+		}
+
+		animateTo(x, y) {
+			this.targetX = x;
+			this.targetY = y;
+			const animate = () => {
+				this.x += (this.targetX - this.x) * 0.15;
+				this.y += (this.targetY - this.y) * 0.15;
+				this.element.style.transform = `translate(${this.x}px, ${this.y}px)`;
+				
+				if (Math.abs(this.targetX - this.x) > 0.1 || Math.abs(this.targetY - this.y) > 0.1) {
+					requestAnimationFrame(animate);
+				} else {
+					this.x = 0;
+					this.y = 0;
+					this.element.style.transform = 'translate(0, 0)';
+				}
+			};
+			animate();
+		}
+	}
+
+	// 3D Tilt effect for cards
+	class TiltCard {
+		constructor(element) {
+			this.element = element;
+			this.rect = element.getBoundingClientRect();
+			this.rotateX = 0;
+			this.rotateY = 0;
+			this.tiltIntensity = parseFloat(element.dataset.tilt) || 10;
+			
+			this.init();
+		}
+
+		init() {
+			this.element.style.transition = 'transform 0.1s ease-out';
+			this.element.style.transformStyle = 'preserve-3d';
+			
+			this.element.addEventListener('mouseenter', () => {
+				document.addEventListener('mousemove', this.onMouseMove.bind(this));
+			});
+			
+			this.element.addEventListener('mouseleave', () => {
+				document.removeEventListener('mousemove', this.onMouseMove.bind(this));
+				this.reset();
+			});
+		}
+
+		onMouseMove(e) {
+			this.rect = this.element.getBoundingClientRect();
+			const centerX = this.rect.left + this.rect.width / 2;
+			const centerY = this.rect.top + this.rect.height / 2;
+			
+			const deltaX = e.clientX - centerX;
+			const deltaY = e.clientY - centerY;
+			
+			this.rotateY = (deltaX / (this.rect.width / 2)) * this.tiltIntensity;
+			this.rotateX = -(deltaY / (this.rect.height / 2)) * this.tiltIntensity;
+			
+			this.element.style.transform = `perspective(1000px) rotateX(${this.rotateX}deg) rotateY(${this.rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+		}
+
+		reset() {
+			this.rotateX = 0;
+			this.rotateY = 0;
+			this.element.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
+		}
+	}
 
 	// Create interactive background canvas
 	function createInteractiveBackground() {
@@ -30,18 +156,20 @@
 		resizeCanvas();
 		window.addEventListener('resize', resizeCanvas);
 
-		// Particles for interactive effect
+		// Enhanced particles for interactive effect
 		const particles = [];
-		const particleCount = 50;
+		const particleCount = 60;
 
 		class Particle {
 			constructor() {
 				this.x = Math.random() * windowWidth;
 				this.y = Math.random() * windowHeight;
-				this.size = Math.random() * 2 + 1;
-				this.speedX = (Math.random() - 0.5) * 0.5;
-				this.speedY = (Math.random() - 0.5) * 0.5;
-				this.opacity = Math.random() * 0.3 + 0.1;
+				this.size = Math.random() * 1.5 + 0.5;
+				this.speedX = (Math.random() - 0.5) * 0.3;
+				this.speedY = (Math.random() - 0.5) * 0.3;
+				this.opacity = Math.random() * 0.2 + 0.1;
+				this.baseOpacity = this.opacity;
+				this.hue = 200; // Base blue hue
 			}
 
 			update() {
@@ -54,23 +182,30 @@
 				if (this.y > windowHeight) this.y = 0;
 				if (this.y < 0) this.y = windowHeight;
 
-				// React to cursor proximity
+				// Enhanced reaction to cursor proximity
 				const dx = mouseX - this.x;
 				const dy = mouseY - this.y;
 				const distance = Math.sqrt(dx * dx + dy * dy);
-				const maxDistance = 200;
+				const maxDistance = 250;
 
 				if (distance < maxDistance) {
 					const force = (maxDistance - distance) / maxDistance;
-					this.x -= (dx / distance) * force * 2;
-					this.y -= (dy / distance) * force * 2;
+					this.x -= (dx / distance) * force * 3;
+					this.y -= (dy / distance) * force * 3;
+					
+					// Increase opacity and size when near cursor
+					this.opacity = Math.min(this.baseOpacity * 3, 0.6);
+					this.currentSize = this.size * (1 + force * 0.5);
+				} else {
+					this.opacity += (this.baseOpacity - this.opacity) * 0.1;
+					this.currentSize = this.size;
 				}
 			}
 
 			draw() {
 				ctx.beginPath();
-				ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-				ctx.fillStyle = `rgba(30, 159, 215, ${this.opacity})`;
+				ctx.arc(this.x, this.y, this.currentSize || this.size, 0, Math.PI * 2);
+				ctx.fillStyle = `hsla(${this.hue}, 70%, 60%, ${this.opacity})`;
 				ctx.fill();
 			}
 		}
@@ -82,6 +217,8 @@
 
 		// Animation loop
 		function animate() {
+			if (isReducedMotion) return;
+			
 			ctx.clearRect(0, 0, windowWidth, windowHeight);
 
 			particles.forEach(particle => {
@@ -89,19 +226,29 @@
 				particle.draw();
 			});
 
-			// Draw connections between nearby particles
+			// Enhanced connections between nearby particles
 			particles.forEach((particle, i) => {
 				particles.slice(i + 1).forEach(otherParticle => {
 					const dx = particle.x - otherParticle.x;
 					const dy = particle.y - otherParticle.y;
 					const distance = Math.sqrt(dx * dx + dy * dy);
+					const maxDistance = 150;
 
-					if (distance < 150) {
+					if (distance < maxDistance) {
+						// Calculate opacity based on distance and cursor proximity
+						const cursorDistance = Math.sqrt(
+							Math.pow(mouseX - (particle.x + otherParticle.x) / 2, 2) +
+							Math.pow(mouseY - (particle.y + otherParticle.y) / 2, 2)
+						);
+						const cursorInfluence = Math.max(0, 1 - cursorDistance / 300);
+						const baseOpacity = 0.1 * (1 - distance / maxDistance);
+						const opacity = Math.min(baseOpacity + cursorInfluence * 0.2, 0.4);
+						
 						ctx.beginPath();
 						ctx.moveTo(particle.x, particle.y);
 						ctx.lineTo(otherParticle.x, otherParticle.y);
-						ctx.strokeStyle = `rgba(30, 159, 215, ${0.1 * (1 - distance / 150)})`;
-						ctx.lineWidth = 0.5;
+						ctx.strokeStyle = `hsla(200, 70%, 60%, ${opacity})`;
+						ctx.lineWidth = 0.5 + cursorInfluence * 0.5;
 						ctx.stroke();
 					}
 				});
@@ -119,18 +266,33 @@
 		mouseY = e.clientY;
 	}
 
-	// Parallax effect for background gradient
+	// Enhanced parallax effect for background gradient
 	function parallaxBackground() {
 		const body = document.body;
+		let targetX = 50;
+		let targetY = 50;
+		let currentX = 50;
+		let currentY = 50;
+		
 		document.addEventListener('mousemove', (e) => {
-			const x = (e.clientX / windowWidth) * 100;
-			const y = (e.clientY / windowHeight) * 100;
-			
-			body.style.backgroundPosition = `${x}% ${y}%`;
+			targetX = 50 + ((e.clientX / windowWidth) - 0.5) * 10;
+			targetY = 50 + ((e.clientY / windowHeight) - 0.5) * 10;
 		});
+		
+		function animate() {
+			if (isReducedMotion) return;
+			
+			currentX += (targetX - currentX) * 0.05;
+			currentY += (targetY - currentY) * 0.05;
+			
+			body.style.backgroundPosition = `${currentX}% ${currentY}%`;
+			requestAnimationFrame(animate);
+		}
+		
+		animate();
 	}
 
-	// Smooth cursor follower
+	// Enhanced cursor follower with multiple states
 	function createCursorFollower() {
 		const cursor = document.createElement('div');
 		cursor.className = 'cs-cursor';
@@ -144,6 +306,8 @@
 		let cursorY = 0;
 		let dotX = 0;
 		let dotY = 0;
+		let cursorWidth = 20;
+		let cursorHeight = 20;
 
 		document.addEventListener('mousemove', (e) => {
 			cursorX = e.clientX;
@@ -151,40 +315,87 @@
 		});
 
 		function animateCursor() {
-			// Smooth follow effect
-			dotX += (cursorX - dotX) * 0.15;
-			dotY += (cursorY - dotY) * 0.15;
+			if (isReducedMotion) return;
+			
+			// Smooth follow effect with easing
+			const lerpFactor = 0.15;
+			const dotLerpFactor = 0.3;
+			
+			dotX += (cursorX - dotX) * dotLerpFactor;
+			dotY += (cursorY - dotY) * dotLerpFactor;
 
 			cursor.style.left = cursorX + 'px';
 			cursor.style.top = cursorY + 'px';
 			cursorDot.style.left = dotX + 'px';
 			cursorDot.style.top = dotY + 'px';
 
+			// Smooth cursor size transitions
+			const targetWidth = cursor.classList.contains('cs-cursor-hover') ? 40 : 20;
+			const targetHeight = cursor.classList.contains('cs-cursor-hover') ? 40 : 20;
+			cursorWidth += (targetWidth - cursorWidth) * 0.2;
+			cursorHeight += (targetHeight - cursorHeight) * 0.2;
+			cursor.style.width = cursorWidth + 'px';
+			cursor.style.height = cursorHeight + 'px';
+
 			requestAnimationFrame(animateCursor);
 		}
 
-		// Start animation after a brief delay to ensure elements are ready
+		// Start animation after a brief delay
 		setTimeout(() => {
-			animateCursor();
-			document.body.classList.add('custom-cursor-active');
+			if (!isReducedMotion) {
+				animateCursor();
+				document.body.classList.add('custom-cursor-active');
+				cursor.style.opacity = '1';
+				cursorDot.style.opacity = '1';
+			}
 		}, 100);
 
-		// Add hover effects on interactive elements
-		const interactiveElements = document.querySelectorAll('a, button, .cs-card, .cs-btn-primary, .cs-btn-secondary, input, textarea, [contenteditable]');
+		// Enhanced hover effects on interactive elements
+		const interactiveElements = document.querySelectorAll('a, button, .cs-card, .cs-card-plain, .cs-btn-primary, .cs-btn-secondary, .cs-persona-card, .cs-chip, input, textarea, [contenteditable], [role="button"]');
 		interactiveElements.forEach(el => {
 			el.addEventListener('mouseenter', () => {
 				cursor.classList.add('cs-cursor-hover');
+				
+				// Special cursor state for links
+				if (el.tagName === 'A' || el.getAttribute('role') === 'button') {
+					cursor.classList.add('cs-cursor-link');
+				}
+				
+				// Special cursor state for buttons
+				if (el.classList.contains('cs-btn-primary') || el.classList.contains('cs-btn-secondary')) {
+					cursor.classList.add('cs-cursor-button');
+				}
 			});
+			
 			el.addEventListener('mouseleave', () => {
-				cursor.classList.remove('cs-cursor-hover');
+				cursor.classList.remove('cs-cursor-hover', 'cs-cursor-link', 'cs-cursor-button');
 			});
 		});
 	}
 
-	// Initialize on DOM ready
+	// Initialize magnetic and tilt effects
+	function initInteractiveElements() {
+		// Apply magnetic effect to buttons and primary CTAs
+		const magneticElements = document.querySelectorAll('.cs-btn-primary, .cs-btn-secondary, .cs-hero-actions a, [data-magnetic]');
+		magneticElements.forEach(el => {
+			if (!isReducedMotion) {
+				new MagneticElement(el);
+			}
+		});
+
+		// Apply 3D tilt to cards
+		const tiltCards = document.querySelectorAll('.cs-card, .cs-card-plain, .cs-persona-card, .cs-hero, [data-tilt]');
+		tiltCards.forEach(card => {
+			if (!isReducedMotion) {
+				new TiltCard(card);
+			}
+		});
+	}
+
+	// Initialize everything
 	function init() {
 		// Respect reduced motion preference
-		if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+		if (isReducedMotion) {
 			return;
 		}
 
@@ -198,9 +409,22 @@
 			// Add parallax effect
 			parallaxBackground();
 			
-			// Create custom cursor (this will add the class itself)
+			// Create custom cursor
 			createCursorFollower();
+			
+			// Initialize interactive elements after a delay to ensure DOM is ready
+			setTimeout(() => {
+				initInteractiveElements();
+			}, 200);
 		}
+
+		// Listen for changes in reduced motion preference
+		window.matchMedia('(prefers-reduced-motion: reduce)').addEventListener('change', (e) => {
+			isReducedMotion = e.matches;
+			if (isReducedMotion) {
+				document.body.classList.remove('custom-cursor-active');
+			}
+		});
 	}
 
 	// Wait for DOM
@@ -210,4 +434,3 @@
 		init();
 	}
 })();
-

@@ -47,7 +47,7 @@ body {
 	opacity: 0.4;
 }
 
-/* Custom Cursor */
+/* Custom Cursor - Enhanced */
 .cs-cursor {
 	position: fixed;
 	width: 20px;
@@ -57,9 +57,11 @@ body {
 	pointer-events: none;
 	z-index: 9999;
 	transform: translate(-50%, -50%);
-	transition: width 0.3s ease, height 0.3s ease, border-color 0.3s ease;
+	transition: border-color 0.3s ease, background 0.3s ease;
 	opacity: 0;
-	will-change: transform;
+	will-change: transform, width, height;
+	mix-blend-mode: difference;
+	backdrop-filter: blur(2px);
 }
 
 body.custom-cursor-active .cs-cursor {
@@ -67,10 +69,20 @@ body.custom-cursor-active .cs-cursor {
 }
 
 .cs-cursor-hover {
-	width: 40px;
-	height: 40px;
 	border-color: rgba(30, 159, 215, 0.9);
 	background: rgba(30, 159, 215, 0.15);
+	backdrop-filter: blur(4px);
+}
+
+.cs-cursor-link {
+	border-width: 2px;
+	border-color: rgba(30, 159, 215, 1);
+}
+
+.cs-cursor-button {
+	border-radius: 0;
+	background: rgba(30, 159, 215, 0.2);
+	border-color: rgba(30, 159, 215, 1);
 }
 
 .cs-cursor-dot {
@@ -84,10 +96,17 @@ body.custom-cursor-active .cs-cursor {
 	transform: translate(-50%, -50%);
 	opacity: 0;
 	will-change: transform;
+	mix-blend-mode: difference;
+	transition: width 0.2s ease, height 0.2s ease;
 }
 
 body.custom-cursor-active .cs-cursor-dot {
 	opacity: 1;
+}
+
+.cs-cursor-hover ~ .cs-cursor-dot {
+	width: 8px;
+	height: 8px;
 }
 
 /* Hide default cursor only when custom cursor is ready */
@@ -172,7 +191,7 @@ body.custom-cursor-active .cs-cursor-dot {
 	margin-top: 32px;
 }
 
-/* Buttons */
+/* Buttons with Magnetic Effect Support */
 .cs-btn-primary {
 	display: inline-flex;
 	align-items: center;
@@ -186,16 +205,21 @@ body.custom-cursor-active .cs-cursor-dot {
 	text-decoration: none;
 	transition: background 200ms ease, transform 200ms ease;
 	cursor: pointer;
-	font-size: 15px;
+	font-size: 13px;
 	letter-spacing: 0.02em;
 	text-transform: uppercase;
-	font-size: 13px;
+	will-change: transform;
+	position: relative;
 }
 
 .cs-btn-primary:hover {
 	background: #2ab0e8;
 	transform: translateY(-2px);
 	color: #020b1f;
+}
+
+.cs-btn-primary:active {
+	transform: translateY(0);
 }
 
 .cs-btn-secondary {
@@ -603,7 +627,7 @@ body.custom-cursor-active .cs-cursor-dot {
 	margin-top: 40px;
 }
 
-/* Cards - Minimal & Clean */
+/* Cards - Minimal & Clean with Enhanced Interactions */
 .cs-card,
 .cs-card-plain {
 	background: rgba(11, 22, 51, 0.4);
@@ -611,17 +635,19 @@ body.custom-cursor-active .cs-cursor-dot {
 	padding: 32px 36px;
 	border: 1px solid rgba(255, 255, 255, 0.08);
 	transform: translateY(0);
-	transition: border-color 200ms ease, background 200ms ease;
+	transition: border-color 200ms ease, background 200ms ease, box-shadow 200ms ease;
 	display: flex;
 	flex-direction: column;
 	gap: 12px;
 	backdrop-filter: blur(10px);
+	will-change: transform;
 }
 
 .cs-card:hover,
 .cs-card-plain:hover {
 	border-color: rgba(30, 159, 215, 0.3);
 	background: rgba(11, 22, 51, 0.6);
+	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
 .cs-card-featured {
