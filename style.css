@@ -54,7 +54,7 @@ body {
 	position: fixed;
 	width: 20px;
 	height: 20px;
-	border: 1px solid rgba(30, 159, 215, 0.6);
+	border: 1px solid rgba(0, 102, 204, 0.6);
 	border-radius: 50%;
 	pointer-events: none;
 	z-index: 9999;
@@ -71,27 +71,27 @@ body.custom-cursor-active .cs-cursor {
 }
 
 .cs-cursor-hover {
-	border-color: rgba(30, 159, 215, 0.9);
-	background: rgba(30, 159, 215, 0.15);
+	border-color: rgba(0, 102, 204, 0.9);
+	background: rgba(0, 102, 204, 0.15);
 	backdrop-filter: blur(4px);
 }
 
 .cs-cursor-link {
 	border-width: 2px;
-	border-color: rgba(30, 159, 215, 1);
+	border-color: rgba(0, 102, 204, 1);
 }
 
 .cs-cursor-button {
 	border-radius: 0;
-	background: rgba(30, 159, 215, 0.2);
-	border-color: rgba(30, 159, 215, 1);
+	background: rgba(0, 102, 204, 0.2);
+	border-color: rgba(0, 102, 204, 1);
 }
 
 .cs-cursor-dot {
 	position: fixed;
 	width: 6px;
 	height: 6px;
-	background: #1e9fd7;
+	background: #0066cc;
 	border-radius: 50%;
 	pointer-events: none;
 	z-index: 9998;
@@ -171,7 +171,7 @@ body.custom-cursor-active .cs-cursor-dot {
 .cs-hero-title em,
 .cs-hero-title i {
 	font-style: italic;
-	color: #ffcc4d;
+	color: #ffb020;
 	font-weight: 400;
 	opacity: 0.9;
 }
@@ -200,7 +200,7 @@ body.custom-cursor-active .cs-cursor-dot {
 	justify-content: center;
 	padding: 14px 28px;
 	border-radius: 0;
-	background: #1e9fd7;
+	background: #0066cc;
 	color: #020b1f;
 	font-weight: 600;
 	border: none;
@@ -215,7 +215,7 @@ body.custom-cursor-active .cs-cursor-dot {
 }
 
 .cs-btn-primary:hover {
-	background: #2ab0e8;
+	background: #0080ff;
 	transform: translateY(-2px);
 	color: #020b1f;
 }
@@ -243,8 +243,8 @@ body.custom-cursor-active .cs-cursor-dot {
 }
 
 .cs-btn-secondary:hover {
-	border-color: #1e9fd7;
-	background: rgba(30, 159, 215, 0.05);
+	border-color: #0066cc;
+	background: rgba(0, 102, 204, 0.05);
 	color: #f5f7ff;
 }
 
@@ -403,7 +403,7 @@ body.custom-cursor-active .cs-cursor-dot {
 	transform: translateY(-3px);
 	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 	background: rgba(16, 28, 63, 0.5);
-	border-color: rgba(30, 159, 215, 0.4);
+	border-color: rgba(0, 102, 204, 0.4);
 }
 
 .cs-story-content .cs-persona-content {
@@ -423,7 +423,7 @@ body.custom-cursor-active .cs-cursor-dot {
 
 .cs-story-content .cs-persona-content h3 em {
 	font-style: italic;
-	color: #1e9fd7;
+	color: #0066cc;
 	font-weight: 400;
 }
 
@@ -435,11 +435,11 @@ body.custom-cursor-active .cs-cursor-dot {
 .cs-story-content .cs-quote {
 	font-size: 18px;
 	font-style: italic;
-	color: #1e9fd7;
+	color: #0066cc;
 	line-height: 1.6;
 	margin: 20px 0;
 	padding: 20px 0;
-	border-left: 3px solid rgba(30, 159, 215, 0.3);
+	border-left: 3px solid rgba(0, 102, 204, 0.3);
 	padding-left: 24px;
 	position: relative;
 	max-width: 720px;
@@ -449,7 +449,7 @@ body.custom-cursor-active .cs-cursor-dot {
 .cs-story-content .cs-quote::before {
 	content: '"';
 	font-size: 48px;
-	color: rgba(30, 159, 215, 0.2);
+	color: rgba(0, 102, 204, 0.2);
 	position: absolute;
 	left: 0;
 	top: 0;
@@ -487,7 +487,7 @@ body.custom-cursor-active .cs-cursor-dot {
 	content: '—';
 	position: absolute;
 	left: 0;
-	color: #1e9fd7;
+	color: #0066cc;
 	font-weight: 700;
 }
 
@@ -586,7 +586,7 @@ body.custom-cursor-active .cs-cursor-dot {
 
 .cs-story-content .cs-chapter-content > .cs-chapter-title em {
 	font-style: italic;
-	color: #1e9fd7;
+	color: #0066cc;
 }
 
 .cs-story-content .cs-chapter-content > p.cs-body-text {
@@ -621,7 +621,7 @@ body.custom-cursor-active .cs-cursor-dot {
 
 .cs-story-content .cs-chapter-content > .cs-chapter-title + p em {
 	font-style: italic;
-	color: #1e9fd7;
+	color: #0066cc;
 }
 
 /* Sections */
@@ -647,7 +647,7 @@ body.custom-cursor-active .cs-cursor-dot {
 
 .cs-card:hover,
 .cs-card-plain:hover {
-	border-color: rgba(30, 159, 215, 0.3);
+	border-color: rgba(0, 102, 204, 0.3);
 	background: rgba(11, 22, 51, 0.6);
 	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
@@ -727,7 +727,7 @@ body.custom-cursor-active .cs-cursor-dot {
 }
 
 .cs-card-meta a {
-	color: #1e9fd7;
+	color: #0066cc;
 	text-decoration: none;
 	font-weight: 500;
 }
@@ -789,7 +789,7 @@ body.custom-cursor-active .cs-cursor-dot {
 .cs-timeline-label {
 	font-size: 13px;
 	font-weight: 600;
-	color: #1e9fd7;
+	color: #0066cc;
 	margin: 0;
 	text-transform: uppercase;
 	letter-spacing: 0.1em;
@@ -819,7 +819,7 @@ body.custom-cursor-active .cs-cursor-dot {
 	flex-direction: column;
 	gap: 8px;
 	align-items: flex-start;
-	border-bottom: 2px solid rgba(30, 159, 215, 0.3);
+	border-bottom: 2px solid rgba(0, 102, 204, 0.3);
 }
 
 .cs-metric-value {
@@ -847,12 +847,12 @@ body.custom-cursor-active .cs-cursor-dot {
 	align-items: center;
 	padding: 6px 14px;
 	border-radius: 0;
-	border: 1px solid rgba(30, 159, 215, 0.4);
+	border: 1px solid rgba(0, 102, 204, 0.4);
 	background: transparent;
 	font-size: 11px;
 	letter-spacing: 0.1em;
 	text-transform: uppercase;
-	color: #1e9fd7;
+	color: #0066cc;
 	text-decoration: none;
 	margin-right: 12px;
 	margin-bottom: 12px;
@@ -861,9 +861,9 @@ body.custom-cursor-active .cs-cursor-dot {
 }
 
 .cs-chip:hover {
-	border-color: #1e9fd7;
-	background: rgba(30, 159, 215, 0.1);
-	color: #1e9fd7;
+	border-color: #0066cc;
+	background: rgba(0, 102, 204, 0.1);
+	color: #0066cc;
 }
 
 .cs-chip a {
@@ -932,7 +932,7 @@ body.custom-cursor-active .cs-cursor-dot {
 	left: 0;
 	right: 0;
 	height: 1px;
-	background: linear-gradient(90deg, transparent, rgba(30, 159, 215, 0.5), transparent);
+	background: linear-gradient(90deg, transparent, rgba(0, 102, 204, 0.5), transparent);
 	opacity: 0;
 	transition: opacity 0.3s ease;
 }
@@ -969,7 +969,7 @@ body.custom-cursor-active .cs-cursor-dot {
 }
 
 .cs-header-logo .wp-block-site-title a:hover {
-	color: #1e9fd7;
+	color: #0066cc;
 	transform: scale(1.05);
 }
 
@@ -1007,12 +1007,12 @@ body.custom-cursor-active .cs-cursor-dot {
 	left: 0;
 	width: 0;
 	height: 1px;
-	background: #1e9fd7;
+	background: #0066cc;
 	transition: width 0.3s ease;
 }
 
 .cs-header-nav a:hover {
-	color: #1e9fd7;
+	color: #0066cc;
 	transform: translateY(-2px);
 }
 
@@ -1049,7 +1049,7 @@ body.custom-cursor-active .cs-cursor-dot {
 	letter-spacing: 0.08em;
 	text-transform: uppercase;
 	border-radius: 0;
-	background: #1e9fd7;
+	background: #0066cc;
 	color: #020b1f;
 	border: none;
 	transition: all 0.3s ease;
@@ -1073,9 +1073,9 @@ body.custom-cursor-active .cs-cursor-dot {
 }
 
 .cs-btn-header .wp-block-button__link:hover {
-	background: #2ab0e8;
+	background: #0080ff;
 	transform: translateY(-2px);
-	box-shadow: 0 4px 20px rgba(30, 159, 215, 0.3);
+	box-shadow: 0 4px 20px rgba(0, 102, 204, 0.3);
 }
 
 /* Skip Link */
@@ -1101,13 +1101,13 @@ body.custom-cursor-active .cs-cursor-dot {
 	background: #020b1f;
 	color: #f5f7ff;
 	text-decoration: none;
-	border: 2px solid #1e9fd7;
+	border: 2px solid #0066cc;
 	border-radius: 0;
 	font-weight: 600;
 }
 
 .skip-link:focus {
-	outline: 2px solid #1e9fd7;
+	outline: 2px solid #0066cc;
 	outline-offset: 2px;
 }
 
@@ -1129,13 +1129,13 @@ a:focus,
 button:focus,
 .wp-block-button__link:focus,
 .wp-element-button:focus {
-	outline: 2px solid #1e9fd7;
+	outline: 2px solid #0066cc;
 	outline-offset: 2px;
 }
 
 .cs-card:focus,
 .cs-card:focus-within {
-	outline: 2px solid #1e9fd7;
+	outline: 2px solid #0066cc;
 	outline-offset: 2px;
 }
 
@@ -1285,13 +1285,13 @@ button:focus,
 }
 
 .cs-footer-links a {
-	color: #1e9fd7;
+	color: #0066cc;
 	text-decoration: none;
 	transition: color 200ms ease;
 }
 
 .cs-footer-links a:hover {
-	color: #2ab0e8;
+	color: #0080ff;
 	text-decoration: underline;
 }
 
@@ -1322,12 +1322,12 @@ html {
 	top: 0;
 	left: 0;
 	height: 3px;
-	background: linear-gradient(90deg, #1e9fd7 0%, #2ab0e8 50%, #1e9fd7 100%);
+	background: linear-gradient(90deg, #0066cc 0%, #0080ff 50%, #0066cc 100%);
 	background-size: 200% 100%;
 	z-index: 10000;
 	width: 0%;
 	transition: width 0.1s ease-out;
-	box-shadow: 0 0 10px rgba(30, 159, 215, 0.5);
+	box-shadow: 0 0 10px rgba(0, 102, 204, 0.5);
 	animation: progress-shimmer 2s ease-in-out infinite;
 }
 
@@ -1417,7 +1417,7 @@ html {
 .cs-btn-primary:hover,
 .cs-btn-secondary:hover {
 	transform: translateY(-2px);
-	box-shadow: 0 4px 12px rgba(30, 159, 215, 0.3);
+	box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3);
 	transition: transform 0.2s var(--cs-animation-easing),
 	            box-shadow 0.2s ease,
 	            background 0.2s ease,
@@ -1472,10 +1472,10 @@ html {
 
 @keyframes pulse-glow {
 	0%, 100% {
-		box-shadow: 0 0 0 0 rgba(30, 159, 215, 0.4);
+		box-shadow: 0 0 0 0 rgba(0, 102, 204, 0.4);
 	}
 	50% {
-		box-shadow: 0 0 0 4px rgba(30, 159, 215, 0);
+		box-shadow: 0 0 0 4px rgba(0, 102, 204, 0);
 	}
 }
 

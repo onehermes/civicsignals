@@ -21,21 +21,21 @@
 					"color": "#111d3c",
 					"name": "Surface Alt"
 				},
-				{
-					"slug": "primary",
-					"color": "#1e9fd7",
-					"name": "Primary"
-				},
-				{
-					"slug": "primary-soft",
-					"color": "#133a5c",
-					"name": "Primary Soft"
-				},
-				{
-					"slug": "accent",
-					"color": "#ffcc4d",
-					"name": "Accent"
-				},
+			{
+				"slug": "primary",
+				"color": "#0066cc",
+				"name": "Primary"
+			},
+			{
+				"slug": "primary-soft",
+				"color": "#003d7a",
+				"name": "Primary Soft"
+			},
+			{
+				"slug": "accent",
+				"color": "#ffb020",
+				"name": "Accent"
+			},
 				{
 					"slug": "text",
 					"color": "#f5f7ff",
