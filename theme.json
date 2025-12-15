@@ -8,17 +8,17 @@
 			"palette": [
 				{
 					"slug": "background",
-					"color": "#020b1f",
+					"color": "#ffffff",
 					"name": "Background"
 				},
 				{
 					"slug": "surface",
-					"color": "#0b1633",
+					"color": "#f8f9fa",
 					"name": "Surface"
 				},
 				{
 					"slug": "surface-alt",
-					"color": "#111d3c",
+					"color": "#e9ecef",
 					"name": "Surface Alt"
 				},
 			{
@@ -28,7 +28,7 @@
 			},
 			{
 				"slug": "primary-soft",
-				"color": "#003d7a",
+				"color": "#0052a3",
 				"name": "Primary Soft"
 			},
 			{
@@ -38,12 +38,12 @@
 			},
 				{
 					"slug": "text",
-					"color": "#f5f7ff",
+					"color": "#1a1a1a",
 					"name": "Text"
 				},
 				{
 					"slug": "muted",
-					"color": "#c3c9e6",
+					"color": "#6c757d",
 					"name": "Muted"
 				}
 			]

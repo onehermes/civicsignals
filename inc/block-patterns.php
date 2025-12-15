@@ -156,6 +156,84 @@ function civicsignals_register_block_patterns() {
 	);
 
 	/**
+	 * Register Testimonial Pattern (Inspired by Lone Rock Point)
+	 */
+	register_block_pattern(
+		'civicsignals/testimonial',
+		array(
+			'title'       => __( 'Testimonial Card', 'civicsignals' ),
+			'description' => __( 'A testimonial quote with attribution for social proof.', 'civicsignals' ),
+			'categories'  => array( 'civicsignals-scenes' ),
+			'content'     => '<!-- wp:group {"className":"cs-card cs-card-plain","layout":{"type":"constrained","contentSize":"600px"}} -->
+<div class="wp-block-group cs-card cs-card-plain" style="max-width:600px">
+	<!-- wp:paragraph {"className":"cs-quote","style":{"typography":{"fontSize":"1.125rem","lineHeight":"1.7"}}} -->
+	<p class="cs-quote" style="font-size:1.125rem;line-height:1.7">"Before [Company Name], establishing branding was challenging due to limited resources. They were able to jump in and establish an industry-unique aesthetic that truly reflects our character."</p>
+	<!-- /wp:paragraph -->
+
+	<!-- wp:paragraph {"className":"cs-testimonial-attribution"} -->
+	<p class="cs-testimonial-attribution"><strong>Client Name</strong><br>Company Title, Organization</p>
+	<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->',
+		)
+	);
+
+	/**
+	 * Register Services/Solutions Grid Pattern (Inspired by Lone Rock Point)
+	 */
+	register_block_pattern(
+		'civicsignals/services-grid',
+		array(
+			'title'       => __( 'Services Grid', 'civicsignals' ),
+			'description' => __( 'A grid of service offerings with titles and descriptions.', 'civicsignals' ),
+			'categories'  => array( 'civicsignals-scenes' ),
+			'content'     => '<!-- wp:heading {"textAlign":"center","level":2,"style":{"spacing":{"margin":{"bottom":"var:preset|spacing|xl"}}}} -->
+<h2 class="wp-block-heading has-text-align-center" style="margin-bottom:var(--wp--preset--spacing--xl)">Solutions and Services</h2>
+<!-- /wp:heading -->
+
+<!-- wp:group {"className":"cs-chapter-grid","layout":{"type":"default"}} -->
+<div class="wp-block-group cs-chapter-grid">
+	<!-- wp:group {"className":"cs-card cs-card-plain","layout":{"type":"constrained"}} -->
+	<div class="wp-block-group cs-card cs-card-plain">
+		<!-- wp:heading {"level":3} -->
+		<h3 class="wp-block-heading">Web Modernization</h3>
+		<!-- /wp:heading -->
+
+		<!-- wp:paragraph -->
+		<p>We'll propel your web presence to new heights of performance and efficiency, using cutting-edge technologies and best practices.</p>
+		<!-- /wp:paragraph -->
+	</div>
+	<!-- /wp:group -->
+
+	<!-- wp:group {"className":"cs-card cs-card-plain","layout":{"type":"constrained"}} -->
+	<div class="wp-block-group cs-card cs-card-plain">
+		<!-- wp:heading {"level":3} -->
+		<h3 class="wp-block-heading">Enterprise WordPress</h3>
+		<!-- /wp:heading -->
+
+		<!-- wp:paragraph -->
+		<p>With WordPress as our trusty co-pilot, we'll customize your website to take on the challenges of the digital universe.</p>
+		<!-- /wp:paragraph -->
+	</div>
+	<!-- /wp:group -->
+
+	<!-- wp:group {"className":"cs-card cs-card-plain","layout":{"type":"constrained"}} -->
+	<div class="wp-block-group cs-card cs-card-plain">
+		<!-- wp:heading {"level":3} -->
+		<h3 class="wp-block-heading">Customer Experience</h3>
+		<!-- /wp:heading -->
+
+		<!-- wp:paragraph -->
+		<p>Our team of UX navigators will take the helm and chart a course that delights and empowers your users.</p>
+		<!-- /wp:paragraph -->
+	</div>
+	<!-- /wp:group -->
+</div>
+<!-- /wp:group -->',
+		)
+	);
+
+	/**
 	 * Register Pattern Categories
 	 */
 	if ( function_exists( 'register_block_pattern_category' ) ) {
@@ -171,4 +249,5 @@ function civicsignals_register_block_patterns() {
 	}
 }
 add_action( 'init', 'civicsignals_register_block_patterns' );
+
 
