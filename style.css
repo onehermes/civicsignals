@@ -569,8 +569,19 @@ body.custom-cursor-active .cs-cursor-dot {
 	padding-left: 0;
 }
 
-/* Drop cap for very first paragraph (optional - can be enabled) */
+/* Drop cap for first paragraph of entire story */
 .cs-story-content .wp-block-post-content > p:first-of-type::first-letter {
+	font-size: 4.2em;
+	line-height: 0.8;
+	float: left;
+	margin: 0.08em 0.05em 0 -0.02em;
+	color: #0066cc;
+	font-weight: 700;
+	font-family: Georgia, serif;
+}
+
+/* Drop cap for first paragraph after each h2 heading (chapter sections) */
+.cs-story-content .wp-block-post-content > h2 + p::first-letter {
 	font-size: 4.2em;
 	line-height: 0.8;
 	float: left;
@@ -1342,8 +1353,9 @@ button:focus,
 		margin-bottom: 32px;
 	}
 
-	/* Disable drop cap on mobile */
-	.cs-story-content .wp-block-post-content > p:first-of-type::first-letter {
+	/* Disable drop caps on mobile */
+	.cs-story-content .wp-block-post-content > p:first-of-type::first-letter,
+	.cs-story-content .wp-block-post-content > h2 + p::first-letter {
 		float: none;
 		font-size: inherit;
 		margin: 0;
