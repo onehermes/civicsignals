@@ -200,7 +200,7 @@ function civicsignals_register_block_patterns() {
 		<!-- /wp:heading -->
 
 		<!-- wp:paragraph -->
-		<p>We'll propel your web presence to new heights of performance and efficiency, using cutting-edge technologies and best practices.</p>
+		<p>We\'ll propel your web presence to new heights of performance and efficiency, using cutting-edge technologies and best practices.</p>
 		<!-- /wp:paragraph -->
 	</div>
 	<!-- /wp:group -->
@@ -212,7 +212,7 @@ function civicsignals_register_block_patterns() {
 		<!-- /wp:heading -->
 
 		<!-- wp:paragraph -->
-		<p>With WordPress as our trusty co-pilot, we'll customize your website to take on the challenges of the digital universe.</p>
+		<p>With WordPress as our trusty co-pilot, we\'ll customize your website to take on the challenges of the digital universe.</p>
 		<!-- /wp:paragraph -->
 	</div>
 	<!-- /wp:group -->
