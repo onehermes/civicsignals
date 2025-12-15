@@ -12,15 +12,30 @@
 	if (skipLink) {
 		skipLink.addEventListener('click', function(e) {
 			e.preventDefault();
-			const target = document.querySelector(this.getAttribute('href'));
-			if (target) {
-				target.setAttribute('tabindex', '-1');
-				target.focus();
-				target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-				// Remove tabindex after focus to avoid tabbing to it again
-				setTimeout(() => {
-					target.removeAttribute('tabindex');
-				}, 1000);
+			try {
+				const href = this.getAttribute('href');
+				if (!href || href === '#') return;
+				
+				const target = document.querySelector(href);
+				if (target) {
+					target.setAttribute('tabindex', '-1');
+					target.focus();
+					
+					// Check for reduced motion preference
+					const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+					target.scrollIntoView({ 
+						behavior: prefersReducedMotion ? 'auto' : 'smooth', 
+						block: 'start' 
+					});
+					
+					// Remove tabindex after focus to avoid tabbing to it again
+					setTimeout(() => {
+						target.removeAttribute('tabindex');
+					}, 1000);
+				}
+			} catch (error) {
+				// Silently fail if querySelector fails
+				console.error('Skip link navigation error:', error);
 			}
 		});
 	}

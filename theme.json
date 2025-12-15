@@ -138,6 +138,9 @@
 		"layout": {
 			"contentSize": "1180px",
 			"wideSize": "1180px"
+		},
+		"custom": {
+			"fontDisplay": "swap"
 		}
 	},
 	"styles": {
