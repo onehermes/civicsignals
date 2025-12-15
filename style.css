@@ -157,6 +157,116 @@ body.custom-cursor-active .cs-cursor-dot {
 	opacity: 0.8;
 }
 
+/* Story Label (Case Study Badge) */
+.cs-story-label {
+	font-size: 11px;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.2em;
+	color: #0066cc;
+	margin: 0 0 16px 0;
+}
+
+/* Story Hero Specific Styles */
+.cs-story-hero {
+	margin-bottom: 80px;
+	padding: 80px 0 60px;
+}
+
+.cs-story-hero .cs-hero-title {
+	max-width: 900px;
+}
+
+/* Section Titles (Case Study Sections) */
+.cs-section-title {
+	font-size: clamp(28px, 4vw, 40px);
+	font-weight: 700;
+	margin-bottom: 32px;
+	color: #1a1a1a;
+	line-height: 1.2;
+}
+
+/* Project Objectives */
+.cs-objectives {
+	margin-bottom: 48px;
+}
+
+.cs-objectives h3 {
+	font-size: 24px;
+	font-weight: 700;
+	margin-bottom: 16px;
+	color: #1a1a1a;
+}
+
+.cs-objectives ol {
+	margin-left: 24px;
+	margin-top: 16px;
+}
+
+.cs-objectives li {
+	margin-bottom: 12px;
+	font-size: 17px;
+	line-height: 1.7;
+	color: #495057;
+}
+
+/* Feature Section */
+.cs-feature-section {
+	margin-bottom: 64px;
+}
+
+.cs-feature-quote {
+	border-left: 4px solid #0066cc;
+	margin: 32px 0;
+	font-size: 18px;
+	line-height: 1.7;
+	font-style: italic;
+	background: #f8f9fa;
+	padding: 24px 32px;
+}
+
+.cs-feature-quote p {
+	margin-bottom: 16px;
+	color: #1a1a1a;
+}
+
+.cs-feature-quote cite {
+	font-size: 14px;
+	font-style: normal;
+	color: #6c757d;
+	font-weight: 600;
+}
+
+.cs-feature-section h3 {
+	font-size: 22px;
+	font-weight: 700;
+	margin: 32px 0 16px;
+	color: #1a1a1a;
+}
+
+/* Before/After Stats */
+.cs-before-after-stats {
+	margin: 64px 0;
+}
+
+/* Integrations Section */
+.cs-integrations {
+	margin-bottom: 48px;
+	padding-bottom: 32px;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.cs-integrations:last-child {
+	border-bottom: none;
+}
+
+.cs-integrations h3 {
+	font-size: 22px;
+	font-weight: 700;
+	margin-bottom: 12px;
+	color: #1a1a1a;
+}
+
 .cs-hero-title {
 	font-size: clamp(48px, 8vw, 72px);
 	line-height: 1.05;
@@ -1410,6 +1520,31 @@ button:focus,
 		float: none;
 		font-size: inherit;
 		margin: 0;
+	}
+
+	/* Case study sections mobile adjustments */
+	.cs-section-title {
+		font-size: clamp(24px, 5vw, 32px);
+		margin-bottom: 24px;
+	}
+
+	.cs-story-hero {
+		padding: 60px 0 40px;
+		margin-bottom: 60px;
+	}
+
+	.cs-feature-quote {
+		padding: 20px 24px;
+		font-size: 16px;
+	}
+
+	.cs-objectives h3 {
+		font-size: 20px;
+	}
+
+	.cs-feature-section h3,
+	.cs-integrations h3 {
+		font-size: 20px;
 	}
 }
 

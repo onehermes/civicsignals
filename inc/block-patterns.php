@@ -234,6 +234,142 @@ function civicsignals_register_block_patterns() {
 	);
 
 	/**
+	 * Register Project Objectives Pattern
+	 */
+	register_block_pattern(
+		'civicsignals/project-objectives',
+		array(
+			'title'       => __( 'Project Objectives', 'civicsignals' ),
+			'description' => __( 'A structured section for project objectives and requirements.', 'civicsignals' ),
+			'categories'  => array( 'civicsignals-scenes' ),
+			'content'     => '<!-- wp:heading {"level":2,"className":"cs-section-title"} -->
+<h2 class="wp-block-heading cs-section-title">Project Objectives</h2>
+<!-- /wp:heading -->
+
+<!-- wp:group {"className":"cs-objectives","layout":{"type":"default"}} -->
+<div class="wp-block-group cs-objectives">
+	<!-- wp:heading {"level":3,"style":{"typography":{"fontWeight":"700"}}} -->
+	<h3 class="wp-block-heading" style="font-weight:700">Primary Objective Title</h3>
+	<!-- /wp:heading -->
+
+	<!-- wp:paragraph -->
+	<p>Description of the primary objective or requirement. This section outlines key goals and expectations for the project.</p>
+	<!-- /wp:paragraph -->
+
+	<!-- wp:list {"ordered":true} -->
+	<ol class="wp-block-list">
+		<li>First key requirement or objective</li>
+		<li>Second key requirement or objective</li>
+		<li>Third key requirement or objective</li>
+	</ol>
+	<!-- /wp:list -->
+</div>
+<!-- /wp:group -->',
+		)
+	);
+
+	/**
+	 * Register Feature Highlight Pattern
+	 */
+	register_block_pattern(
+		'civicsignals/feature-highlight',
+		array(
+			'title'       => __( 'Feature Highlight Section', 'civicsignals' ),
+			'description' => __( 'A feature highlight with heading, quote, and content sections.', 'civicsignals' ),
+			'categories'  => array( 'civicsignals-scenes' ),
+			'content'     => '<!-- wp:group {"className":"cs-feature-section","layout":{"type":"constrained"}} -->
+<div class="wp-block-group cs-feature-section">
+	<!-- wp:heading {"level":2,"className":"cs-section-title"} -->
+	<h2 class="wp-block-heading cs-section-title">Feature Title</h2>
+	<!-- /wp:heading -->
+
+	<!-- wp:quote {"className":"cs-feature-quote","style":{"spacing":{"padding":{"top":"var:preset|spacing|md","bottom":"var:preset|spacing|md","left":"var:preset|spacing|lg","right":"var:preset|spacing|lg"}}},"backgroundColor":"surface"} -->
+	<blockquote class="wp-block-quote cs-feature-quote has-surface-background-color has-background" style="padding-top:var(--wp--preset--spacing--md);padding-right:var(--wp--preset--spacing--lg);padding-bottom:var(--wp--preset--spacing--md);padding-left:var(--wp--preset--spacing--lg)"><p>"A compelling quote about this feature or approach."</p><cite>Name, Title</cite></blockquote>
+	<!-- /wp:quote -->
+
+	<!-- wp:heading {"level":3} -->
+	<h3 class="wp-block-heading">Subsection Title</h3>
+	<!-- /wp:heading -->
+
+	<!-- wp:paragraph -->
+	<p>Detailed description of the feature, its implementation, and benefits.</p>
+	<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->',
+		)
+	);
+
+	/**
+	 * Register Before/After Stats Pattern
+	 */
+	register_block_pattern(
+		'civicsignals/before-after-stats',
+		array(
+			'title'       => __( 'Before and After Stats', 'civicsignals' ),
+			'description' => __( 'Before and after comparison with large stat numbers.', 'civicsignals' ),
+			'categories'  => array( 'civicsignals-scenes' ),
+			'content'     => '<!-- wp:heading {"textAlign":"center","level":2,"style":{"spacing":{"margin":{"bottom":"var:preset|spacing|xl"}}},"className":"cs-section-title"} -->
+<h2 class="wp-block-heading has-text-align-center cs-section-title" style="margin-bottom:var(--wp--preset--spacing--xl)">Before and After</h2>
+<!-- /wp:heading -->
+
+<!-- wp:columns {"align":"wide","style":{"spacing":{"blockGap":{"top":"var:preset|spacing|lg","left":"var:preset|spacing|lg"}}}} -->
+<div class="wp-block-columns alignwide">
+	<!-- wp:column {"style":{"spacing":{"padding":{"top":"var:preset|spacing|lg","bottom":"var:preset|spacing|lg"}}},"backgroundColor":"surface"} -->
+	<div class="wp-block-column has-surface-background-color has-background" style="padding-top:var(--wp--preset--spacing--lg);padding-bottom:var(--wp--preset--spacing--lg)">
+		<!-- wp:heading {"textAlign":"center","level":3,"style":{"typography":{"fontSize":"3rem","fontWeight":"700"},"spacing":{"margin":{"bottom":"var:preset|spacing|xs"}}}} -->
+		<h3 class="wp-block-heading has-text-align-center" style="margin-bottom:var(--wp--preset--spacing--xs);font-size:3rem;font-weight:700">550</h3>
+		<!-- /wp:heading -->
+
+		<!-- wp:paragraph {"align":"center","fontSize":"medium"} -->
+		<p class="has-text-align-center has-medium-font-size">CMS USERS</p>
+		<!-- /wp:paragraph -->
+	</div>
+	<!-- /wp:column -->
+
+	<!-- wp:column {"style":{"spacing":{"padding":{"top":"var:preset|spacing|lg","bottom":"var:preset|spacing|lg"}}},"backgroundColor":"surface"} -->
+	<div class="wp-block-column has-surface-background-color has-background" style="padding-top:var(--wp--preset--spacing--lg);padding-bottom:var(--wp--preset--spacing--lg)">
+		<!-- wp:heading {"textAlign":"center","level":3,"style":{"typography":{"fontSize":"3rem","fontWeight":"700"},"spacing":{"margin":{"bottom":"var:preset|spacing|xs"}}}} -->
+		<h3 class="wp-block-heading has-text-align-center" style="margin-bottom:var(--wp--preset--spacing--xs);font-size:3rem;font-weight:700">126,171</h3>
+		<!-- /wp:heading -->
+
+		<!-- wp:paragraph {"align":"center","fontSize":"medium"} -->
+		<p class="has-text-align-center has-medium-font-size">PAGES MIGRATED</p>
+		<!-- /wp:paragraph -->
+	</div>
+	<!-- /wp:column -->
+</div>
+<!-- /wp:columns -->',
+		)
+	);
+
+	/**
+	 * Register Integrations Section Pattern
+	 */
+	register_block_pattern(
+		'civicsignals/integrations-section',
+		array(
+			'title'       => __( 'Integrations Section', 'civicsignals' ),
+			'description' => __( 'A section highlighting external integrations and connections.', 'civicsignals' ),
+			'categories'  => array( 'civicsignals-scenes' ),
+			'content'     => '<!-- wp:heading {"level":2,"className":"cs-section-title"} -->
+<h2 class="wp-block-heading cs-section-title">Everything also includes numerous external integrations</h2>
+<!-- /wp:heading -->
+
+<!-- wp:group {"className":"cs-integrations","layout":{"type":"default"}} -->
+<div class="wp-block-group cs-integrations">
+	<!-- wp:heading {"level":3} -->
+	<h3 class="wp-block-heading">Integration Title</h3>
+	<!-- /wp:heading -->
+
+	<!-- wp:paragraph -->
+	<p>Description of the integration, how it works, and the benefits it provides.</p>
+	<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->',
+		)
+	);
+
+	/**
 	 * Register Pattern Categories
 	 */
 	if ( function_exists( 'register_block_pattern_category' ) ) {

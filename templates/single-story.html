@@ -4,10 +4,10 @@
 <main id="main-content" class="wp-block-group cs-shell" style="padding-top:0;padding-bottom:0" role="main">
 	
 	<!-- Hero Section (Story Header) -->
-	<!-- wp:group {"className":"cs-hero","layout":{"type":"constrained"}} -->
-	<div class="wp-block-group cs-hero">
-		<!-- wp:paragraph {"className":"cs-hero-eyebrow"} -->
-		<p class="cs-hero-eyebrow"><span class="visually-hidden">Story: </span>CIVICSIGNALS STORY</p>
+	<!-- wp:group {"className":"cs-hero cs-story-hero","layout":{"type":"constrained"}} -->
+	<div class="wp-block-group cs-hero cs-story-hero">
+		<!-- wp:paragraph {"className":"cs-story-label"} -->
+		<p class="cs-story-label">CASE STUDY</p>
 		<!-- /wp:paragraph -->
 
 		<!-- wp:post-title {"level":1,"className":"cs-hero-title"} /-->
@@ -32,10 +32,10 @@
 	<!-- /wp:group -->
 
 	<!-- Related Stories Section -->
-	<!-- wp:group {"align":"wide","style":{"spacing":{"margin":{"top":"var:preset|spacing|3xl"},"padding":{"top":"var:preset|spacing|xl","bottom":"var:preset|spacing|xl"},"border":{"top":{"width":"1px","color":"var:preset|color|surface"}}}},"layout":{"type":"constrained"}} -->
-	<div class="wp-block-group alignwide" style="border-top-color:var(--wp--preset--color--surface);border-top-width:1px;margin-top:var(--wp--preset--spacing--3xl);padding-top:var(--wp--preset--spacing--xl);padding-bottom:var(--wp--preset--spacing--xl)">
+	<!-- wp:group {"align":"wide","className":"cs-related-stories","style":{"spacing":{"margin":{"top":"var:preset|spacing|3xl"},"padding":{"top":"var:preset|spacing|xl","bottom":"var:preset|spacing|xl"},"border":{"top":{"width":"1px","color":"rgba(0,0,0,0.1)"}}}},"layout":{"type":"constrained"}} -->
+	<div class="wp-block-group alignwide cs-related-stories" style="border-top-color:rgba(0,0,0,0.1);border-top-width:1px;margin-top:var(--wp--preset--spacing--3xl);padding-top:var(--wp--preset--spacing--xl);padding-bottom:var(--wp--preset--spacing--xl)">
 		<!-- wp:heading {"level":2,"style":{"spacing":{"margin":{"bottom":"var:preset|spacing|lg"}}}} -->
-		<h2 class="wp-block-heading" style="margin-bottom:var(--wp--preset--spacing--lg)">Related Stories</h2>
+		<h2 class="wp-block-heading" style="margin-bottom:var(--wp--preset--spacing--lg)">More Case Studies</h2>
 		<!-- /wp:heading -->
 
 		<!-- wp:query {"queryId":1,"query":{"perPage":3,"pages":0,"offset":0,"postType":"story","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false},"layout":{"type":"constrained"}} -->
@@ -45,7 +45,7 @@
 
 				<!-- wp:post-title {"level":3,"isLink":true,"fontSize":"large"} /-->
 
-				<!-- wp:post-excerpt {"moreText":"Read story","showMoreOnNewLine":false} /-->
+				<!-- wp:post-excerpt {"moreText":"Read case study","showMoreOnNewLine":false} /-->
 			<!-- /wp:post-template -->
 
 			<!-- wp:query-no-results -->
