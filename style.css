@@ -317,10 +317,11 @@ body.custom-cursor-active .cs-cursor-dot {
 .cs-body-text {
 	max-width: 720px;
 	color: #b8c5e8;
-	font-size: 17px;
-	line-height: 1.7;
-	margin: 0;
-	opacity: 0.85;
+	font-size: 18px;
+	line-height: 1.85;
+	margin: 0 0 28px 0;
+	opacity: 0.9;
+	letter-spacing: 0.01em;
 }
 
 /* Story Content Chapter Detection */
@@ -331,6 +332,30 @@ body.custom-cursor-active .cs-cursor-dot {
 
 .cs-story-content .wp-block-post-content {
 	position: relative;
+}
+
+/* Enhanced paragraph typography for story content - Better readability */
+.cs-story-content .wp-block-post-content > p {
+	font-size: 18px;
+	line-height: 1.85;
+	color: #b8c5e8;
+	margin-bottom: 28px;
+	letter-spacing: 0.01em;
+	max-width: 720px;
+}
+
+/* Visual rhythm - subtle breaks every few paragraphs */
+.cs-story-content .wp-block-post-content > p:nth-of-type(3n) {
+	border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+	padding-bottom: 28px;
+	margin-bottom: 32px;
+}
+
+/* Exclude paragraphs in special containers from general styling */
+.cs-story-content .cs-persona-card p,
+.cs-story-content .cs-quote,
+.cs-story-content .cs-paragraph-group p {
+	margin-bottom: inherit;
 }
 
 /* Auto-styled chapter sections created by JavaScript - Match front page exactly */
@@ -521,14 +546,76 @@ body.custom-cursor-active .cs-cursor-dot {
 	margin-top: 4px;
 }
 
-/* Better Paragraph Spacing in Story Content */
+/* Enhanced Paragraph Styling for Better Readability */
 .cs-story-content .cs-body-text {
-	margin: 20px 0;
+	margin: 0 0 28px 0;
 	max-width: 720px;
 	color: #b8c5e8;
-	font-size: 17px;
-	line-height: 1.7;
+	font-size: 18px;
+	line-height: 1.85;
 	font-weight: 400;
+	letter-spacing: 0.01em;
+}
+
+/* First paragraph of each chapter gets special treatment */
+.cs-story-content .cs-chapter-content > .cs-chapter-title + p,
+.cs-story-content .cs-chapter-auto .cs-chapter-content > p:first-of-type {
+	font-size: 20px;
+	line-height: 1.8;
+	color: #d3dbff;
+	margin-bottom: 36px;
+	font-weight: 400;
+	position: relative;
+	padding-left: 0;
+}
+
+/* Drop cap for very first paragraph (optional - can be enabled) */
+.cs-story-content .wp-block-post-content > p:first-of-type::first-letter {
+	font-size: 4.2em;
+	line-height: 0.8;
+	float: left;
+	margin: 0.08em 0.05em 0 -0.02em;
+	color: #0066cc;
+	font-weight: 700;
+	font-family: Georgia, serif;
+}
+
+/* Paragraph grouping - subtle background for related paragraphs */
+.cs-story-content .cs-paragraph-group {
+	background: rgba(11, 22, 51, 0.3);
+	border-left: 2px solid rgba(0, 102, 204, 0.2);
+	padding: 24px 28px;
+	margin: 32px 0;
+	border-radius: 0;
+}
+
+.cs-story-content .cs-paragraph-group p {
+	margin-bottom: 20px;
+}
+
+.cs-story-content .cs-paragraph-group p:last-child {
+	margin-bottom: 0;
+}
+
+/* Key statement highlighting */
+.cs-story-content .cs-key-statement {
+	font-size: 20px;
+	line-height: 1.75;
+	color: #e8f0ff;
+	font-weight: 500;
+	margin: 32px 0;
+	padding: 24px 0;
+	border-top: 1px solid rgba(255, 255, 255, 0.1);
+	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+	font-style: italic;
+}
+
+/* Statistics and numbers emphasis */
+.cs-story-content .cs-stat-highlight {
+	color: #0066cc;
+	font-weight: 700;
+	font-size: 1.15em;
+	letter-spacing: 0.02em;
 }
 
 /* H3 Headings in Story Content (personas, subsections) */
@@ -590,12 +677,17 @@ body.custom-cursor-active .cs-cursor-dot {
 }
 
 .cs-story-content .cs-chapter-content > p.cs-body-text {
-	margin: 20px 0;
+	margin: 0 0 28px 0;
 	max-width: 720px;
 }
 
 .cs-story-content .cs-chapter-content > p.cs-body-text + p.cs-body-text {
 	margin-top: 0;
+}
+
+/* Paragraphs after chapter titles should be larger and more prominent */
+.cs-story-content .cs-chapter-content > .cs-chapter-title + p.cs-body-text {
+	margin-bottom: 36px;
 }
 
 .cs-story-content .cs-chapter-content > h3 {
@@ -608,20 +700,22 @@ body.custom-cursor-active .cs-cursor-dot {
 	margin-bottom: 32px;
 }
 
-/* First paragraph after chapter title should be lede-style - Match front page */
+/* First paragraph after chapter title - Enhanced lede style */
 .cs-story-content .cs-chapter-content > .cs-chapter-title + p {
-	font-size: 18px;
+	font-size: 20px;
 	max-width: 720px;
 	color: #d3dbff;
 	margin-top: 0;
-	margin-bottom: 32px;
-	line-height: 1.6;
+	margin-bottom: 40px;
+	line-height: 1.8;
 	font-weight: 400;
+	letter-spacing: 0.01em;
 }
 
 .cs-story-content .cs-chapter-content > .cs-chapter-title + p em {
 	font-style: italic;
 	color: #0066cc;
+	font-weight: 500;
 }
 
 /* Sections */
@@ -1233,6 +1327,26 @@ button:focus,
 	.cs-card-row,
 	.cs-chapter-grid {
 		grid-template-columns: 1fr;
+	}
+
+	/* Adjust paragraph spacing on mobile for better readability */
+	.cs-story-content .wp-block-post-content > p,
+	.cs-story-content .cs-body-text {
+		font-size: 17px;
+		line-height: 1.8;
+		margin-bottom: 24px;
+	}
+
+	.cs-story-content .cs-chapter-content > .cs-chapter-title + p {
+		font-size: 18px;
+		margin-bottom: 32px;
+	}
+
+	/* Disable drop cap on mobile */
+	.cs-story-content .wp-block-post-content > p:first-of-type::first-letter {
+		float: none;
+		font-size: inherit;
+		margin: 0;
 	}
 }
 
